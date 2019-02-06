@@ -28,5 +28,6 @@ object Recap extends App {
   // Object Orientated Programming
   class Animal
   class Dog extends Animal
+  val aDog: Animal = new Dog // Polymorphism by subtyping
 
 }
