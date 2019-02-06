@@ -25,4 +25,8 @@ object Recap extends App {
     if (n <= 0) accumulator
     else factorial(n - 1, n * accumulator)
 
+  // Object Orientated Programming
+  class Animal
+  class Dog extends Animal
+
 }
