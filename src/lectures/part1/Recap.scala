@@ -46,4 +46,9 @@ object Recap extends App {
   1 + 2
   1.+(2) // Equivalent
 
+  // Anonymous Classes
+  val aCarnivore = new Carnivore {
+    override def eat(a: Animal): Unit = println("Nom!")
+  }
+
 }
