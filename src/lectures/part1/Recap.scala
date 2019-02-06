@@ -92,4 +92,6 @@ object Recap extends App {
   } yield num + "-" + char
   println(pairs) // List(1-a, 1-b, 1-c, 2-a, 2-b, 2-c, 3-a, 3-b, 3-c)
 
+  // Scala Collections: Seqs, Arrays, Lists, Vectors, Maps, Tuples.
+  val aMap = Map("Daniel" -> 789, "Jess" -> 555)
 }
