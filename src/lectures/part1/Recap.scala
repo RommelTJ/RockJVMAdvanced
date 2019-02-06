@@ -98,4 +98,13 @@ object Recap extends App {
   // "Collections" - more like Abstract computations (Options, Try)
   val anOption = Some(2)
 
+  // Pattern matching
+  val z = 2
+  val order = z match {
+    case 1 => "first"
+    case 2 => "second"
+    case 3 => "third"
+    case _ => x + "th"
+  }
+
 }
