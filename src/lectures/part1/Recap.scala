@@ -38,4 +38,9 @@ object Recap extends App {
     override def eat(a: Animal): Unit = println("Crunch!")
   }
 
+  // Method notations
+  val aCroc = new Crocodile
+  aCroc.eat(aDog)
+  aCroc eat aDog // natural language
+
 }
