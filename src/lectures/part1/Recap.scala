@@ -85,4 +85,11 @@ object Recap extends App {
   println(x) // List(2, 3, 4) - Higher-Order Function
   // map, flatMap, filter.
 
+  // For-Comprehension
+  val pairs = for {
+    num <- List(1, 2, 3) // if condition (guards)
+    char <- List('a', 'b', 'c')
+  } yield num + "-" + char
+  println(pairs) // List(1-a, 1-b, 1-c, 2-a, 2-b, 2-c, 3-a, 3-b, 3-c)
+
 }
