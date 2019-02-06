@@ -54,4 +54,7 @@ object Recap extends App {
   // Generics
   abstract class MyList[+A] // (covariant) Variance and Variance Problems in this course.
 
+  // Singletons and Companions
+  object MyList
+
 }
