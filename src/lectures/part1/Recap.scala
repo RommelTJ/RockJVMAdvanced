@@ -61,11 +61,11 @@ object Recap extends App {
   case class Person(name: String, age: Int)
 
   // Exceptions and Try-Catch-Finally expressions
-  val throwsException = throw new RuntimeException // Type = Nothing.
+  // val throwsException = throw new RuntimeException // Type = Nothing.
   val aPotentialFailure = try {
     throw new RuntimeException
   } catch {
-    case e: Exception => "I caught an exception"
+    case e: Exception => println("I caught an exception")
   } finally {
     println("Some Logs")
   }
@@ -76,5 +76,6 @@ object Recap extends App {
   val incrementer = new Function1[Int, Int] {
     override def apply(v1: Int): Int = v1 + 1
   }
+  println(incrementer(1))
 
 }
