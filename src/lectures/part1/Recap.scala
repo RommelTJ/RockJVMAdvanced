@@ -34,4 +34,8 @@ object Recap extends App {
     def eat(a: Animal): Unit
   }
 
+  class Crocodile extends Animal with Carnivore {
+    override def eat(a: Animal): Unit = println("Crunch!")
+  }
+
 }
