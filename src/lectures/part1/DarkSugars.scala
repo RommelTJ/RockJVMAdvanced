@@ -85,4 +85,15 @@ object DarkSugars extends App {
   // Used in mutable collections
   // Remember apply() and update()!
 
+  // Syntax Sugar #7: Setters for Mutable Containers
+
+  class Mutable {
+    private var internalMember: Int = 0 // private for OO encapsulation.
+    def member: Int = internalMember // "getter"
+    def member_=(value: Int): Unit = internalMember = value // "Setter"
+  }
+  val aMutableContainer = new Mutable
+  aMutableContainer.member = 42 // Rewritten
+  aMutableContainer.member_=(42)
+
 }
