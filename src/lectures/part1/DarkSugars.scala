@@ -53,4 +53,10 @@ object DarkSugars extends App {
   println(1 :: 2 :: 3 :: List(4, 5)) // List(1, 2, 3, 4, 5)
   println(List(4, 5).::(3).::(2).::(1)) // equivalent
 
+  class MyStream[T] {
+    def -->:(value: T): MyStream[T] = this // actual implementation here.
+  }
+  val myStream = 1 -->: 2 -->: 3 -->: new MyStream[Int] // Valid
+  // This is ok because '-->:' is right associative because it ends in a colon ':'.
+
 }
