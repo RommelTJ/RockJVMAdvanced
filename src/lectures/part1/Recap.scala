@@ -1,5 +1,7 @@
 package lectures.part1
 
+import scala.annotation.tailrec
+
 object Recap extends App {
 
   val aCondition: Boolean = false
@@ -17,5 +19,10 @@ object Recap extends App {
 
   // Functions
   def aFunction(x: Int): Int = x + 1
+
+  // Recursion: Stack and Tail. Tailrec avoids Stack Overflow errors.
+  @tailrec def factorial(n: Int, accumulator: Int): Int =
+    if (n <= 0) accumulator
+    else factorial(n - 1, n * accumulator)
 
 }
