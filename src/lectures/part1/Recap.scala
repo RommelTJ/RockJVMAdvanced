@@ -81,4 +81,7 @@ object Recap extends App {
   val anonymousIncrementer = (x: Int) => x + 1
   println(anonymousIncrementer(4))
 
+  val x = List(1, 2, 3).map(anonymousIncrementer)
+  println(x)
+
 }
