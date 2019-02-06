@@ -70,4 +70,6 @@ object Recap extends App {
     println("Some Logs")
   }
 
+  // Packaging and imports - won't go into that this much in this course.
+
 }
