@@ -67,4 +67,13 @@ object DarkSugars extends App {
   val lilly = new TeenGirl("Lilly")
   lilly `and then said` "Scala is so sweet!"
 
+  // Syntax Sugar #5: Infix Types and generics
+
+  class Composite[A, B]
+  val composite: Composite[Int, String] = ???
+  val composite2: Int Composite String = ???
+
+  class -->[A, B]
+  val towards: Int --> String = ???
+
 }
