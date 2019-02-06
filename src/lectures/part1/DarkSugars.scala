@@ -59,4 +59,12 @@ object DarkSugars extends App {
   val myStream = 1 -->: 2 -->: 3 -->: new MyStream[Int] // Valid
   // This is ok because '-->:' is right associative because it ends in a colon ':'.
 
+  // Syntax Sugar #4: Multi-word method naming
+
+  class TeenGirl(name: String) {
+    def `and then said`(gossip: String) = println(s"$name said $gossip")
+  }
+  val lilly = new TeenGirl("Lilly")
+  lilly `and then said` "Scala is so sweet!"
+
 }
