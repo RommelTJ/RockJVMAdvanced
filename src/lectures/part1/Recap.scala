@@ -57,4 +57,7 @@ object Recap extends App {
   // Singletons and Companions
   object MyList
 
+  // Case Classes
+  case class Person(name: String, age: Int)
+
 }
