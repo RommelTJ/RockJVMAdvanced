@@ -51,4 +51,7 @@ object Recap extends App {
     override def eat(a: Animal): Unit = println("Nom!")
   }
 
+  // Generics
+  abstract class MyList[+A] // (covariant) Variance and Variance Problems in this course.
+
 }
