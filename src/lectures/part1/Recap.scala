@@ -83,5 +83,6 @@ object Recap extends App {
 
   val x = List(1, 2, 3).map(anonymousIncrementer)
   println(x) // List(2, 3, 4) - Higher-Order Function
+  // map, flatMap, filter.
 
 }
