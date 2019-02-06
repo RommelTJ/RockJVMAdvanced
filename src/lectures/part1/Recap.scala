@@ -43,4 +43,7 @@ object Recap extends App {
   aCroc.eat(aDog)
   aCroc eat aDog // natural language
 
+  1 + 2
+  1.+(2) // Equivalent
+
 }
