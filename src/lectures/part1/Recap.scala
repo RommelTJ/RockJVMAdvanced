@@ -60,4 +60,14 @@ object Recap extends App {
   // Case Classes
   case class Person(name: String, age: Int)
 
+  // Exceptions and Try-Catch-Finally expressions
+  val throwsException = throw new RuntimeException // Type = Nothing.
+  val aPotentialFailure = try {
+    throw new RuntimeException
+  } catch {
+    case e: Exception => "I caught an exception"
+  } finally {
+    println("Some Logs")
+  }
+
 }
