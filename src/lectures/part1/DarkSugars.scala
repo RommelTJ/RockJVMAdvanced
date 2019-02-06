@@ -5,6 +5,7 @@ import scala.util.Try
 object DarkSugars extends App {
 
   // Syntax Sugar #1: Methods with single param
+
   def singleArgMethod(arg: Int): String = s"$arg little ducks..."
   val description = singleArgMethod {
     // Write some code
@@ -19,5 +20,28 @@ object DarkSugars extends App {
   List(1,2,3).map { x =>
     x + 1
   }
+
+  // Syntax Sugar #2: Single Abstract Method Pattern
+
+  trait Action {
+    def act(x: Int): Int
+  }
+
+  val anInstance: Action = new Action {
+    override def act(x: Int): Int = x + 1
+  }
+  val anInstance2: Action = (x: Int) => x + 1
+
+  // Example: Runnables.
+  val aThread = new Thread(new Runnable {
+    override def run(): Unit = println("Hello Scala")
+  })
+  val aSweeterThread = new Thread(() => println("Hello Scala"))
+
+  abstract class AnAbstractType {
+    def implemented: Int = 23
+    def f(a: Int): Unit
+  }
+  val anAbstractInstance: AnAbstractType = (a: Int) => println("sweet")
 
 }
