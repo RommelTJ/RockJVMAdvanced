@@ -12,4 +12,7 @@ object Recap extends App {
     56
   }
 
+  // Unit - expressions that only do side-effects (void) in Java.
+  val theUnit: Unit = println("Hello Scala")
+
 }
