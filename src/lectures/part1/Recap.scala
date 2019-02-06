@@ -30,4 +30,8 @@ object Recap extends App {
   class Dog extends Animal
   val aDog: Animal = new Dog // Polymorphism by subtyping
 
+  trait Carnivore {
+    def eat(a: Animal): Unit
+  }
+
 }
