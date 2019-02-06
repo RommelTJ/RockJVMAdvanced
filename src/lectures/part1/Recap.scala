@@ -15,4 +15,7 @@ object Recap extends App {
   // Unit - expressions that only do side-effects (void) in Java.
   val theUnit: Unit = println("Hello Scala")
 
+  // Functions
+  def aFunction(x: Int): Int = x + 1
+
 }
