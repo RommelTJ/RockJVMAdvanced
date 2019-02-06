@@ -78,4 +78,7 @@ object Recap extends App {
   }
   println(incrementer(1))
 
+  val anonymousIncrementer = (x: Int) => x + 1
+  println(anonymousIncrementer(4))
+
 }
