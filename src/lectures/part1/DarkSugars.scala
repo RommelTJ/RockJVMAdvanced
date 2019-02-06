@@ -44,4 +44,13 @@ object DarkSugars extends App {
   }
   val anAbstractInstance: AnAbstractType = (a: Int) => println("sweet")
 
+  // Syntax Sugar #3: the :: and #:: methods are special
+
+  val prependedList = 2 :: List(3, 4)
+  // 2.::(List(3, 4)) is wrong
+  // List(3, 4).::(2) is correct
+  // Scala Spec: Last char decides associativity of method.
+  println(1 :: 2 :: 3 :: List(4, 5)) // List(1, 2, 3, 4, 5)
+  println(List(4, 5).::(3).::(2).::(1)) // equivalent
+
 }
