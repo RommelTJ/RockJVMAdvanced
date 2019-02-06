@@ -94,4 +94,8 @@ object Recap extends App {
 
   // Scala Collections: Seqs, Arrays, Lists, Vectors, Maps, Tuples.
   val aMap = Map("Daniel" -> 789, "Jess" -> 555)
+
+  // "Collections" - more like Abstract computations (Options, Try)
+  val anOption = Some(2)
+
 }
