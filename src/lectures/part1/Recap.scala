@@ -107,4 +107,10 @@ object Recap extends App {
     case _ => x + "th"
   }
 
+  val bob = Person("Bob", 22)
+  val greeting = bob match {
+    case Person(n, _) => s"Hi, my name is $n"
+  }
+  println(greeting)
+
 }
