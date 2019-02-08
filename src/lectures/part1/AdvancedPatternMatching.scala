@@ -23,6 +23,8 @@ object AdvancedPatternMatching extends App {
     def unapply(person: Person): Option[(String, Int)] =
       if (person.age < 21) None
       else Some((person.name, person.age))
+
+    def unapply(age: Int): Option[String] = Some(if (age < 21) "minor" else "major")
   }
 
   val bob = new Person(name = "Bob", age = 22)
