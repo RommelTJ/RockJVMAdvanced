@@ -79,4 +79,32 @@ object AdvancedPatternMatching extends App {
   }
   println(humanDescription)
 
+  // Decomposing Sequences
+  val vararg = numbers match {
+    case List(1, _*) => "Starting with 1"
+  }
+  println(vararg)
+
+  abstract class MyList[+A] {
+    def head: A = ???
+    def tail: MyList[A] = ???
+  }
+  case object Empty extends MyList[Nothing]
+  case class Cons[+A](override val head: A, override val tail: MyList[A]) extends MyList[A]
+
+  object MyList {
+    def unapplySeq[A](list: MyList[A]): Option[Seq[A]] = {
+      if (list == Empty) Some(Seq.empty)
+      else unapplySeq(list.tail).map(list.head +: _)
+    }
+  }
+
+  val myList: MyList[Int] = Cons(1, Cons(2, Cons(3, Empty)))
+  val myList2: MyList[Int] = Cons(1, Cons(3, Cons(43, Empty)))
+  val decomposed = myList match {
+    case MyList(1, 2, _*) => "Starting with 1 and 2"
+    case _ => "Something else"
+  }
+  println(decomposed)
+
 }
