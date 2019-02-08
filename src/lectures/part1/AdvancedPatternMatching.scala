@@ -70,4 +70,13 @@ object AdvancedPatternMatching extends App {
   }
   println(mathPropertyTwo)
 
+  // Infix Patterns (e.g. '::')
+  case class Or[A, B](a: A, b: B) // Either
+  val either = Or(2, "two")
+  val humanDescription = either match {
+    // case Or(number, string) => s"$number is written as $string"
+    case number Or string => s"$number is written as $string" // equivalent to the above
+  }
+  println(humanDescription)
+
 }
