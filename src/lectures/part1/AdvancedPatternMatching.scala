@@ -25,7 +25,7 @@ object AdvancedPatternMatching extends App {
       else Some((person.name, person.age))
   }
 
-  val bob = new Person(name = "Bob", age = 20)
+  val bob = new Person(name = "Bob", age = 22)
   val greeting = bob match {
     case Person(n, a) => s"Hi, my name is $n and I'm $a years old"
   }
