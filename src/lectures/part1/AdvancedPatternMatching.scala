@@ -17,4 +17,7 @@ object AdvancedPatternMatching extends App {
   - Special Magic (like above)
    */
 
+  class Person(val name: String, val age: Int)
+  
+
 }
