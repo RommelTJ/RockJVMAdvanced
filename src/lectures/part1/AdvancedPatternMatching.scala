@@ -107,4 +107,25 @@ object AdvancedPatternMatching extends App {
   }
   println(decomposed)
 
+  // Custom return types for unapply
+  // Data structure that you use as your return types needs to have these methods:
+  // - isEmpty: Boolean, get: Something.
+  abstract class Wrapper[T] {
+    def isEmpty: Boolean
+    def get: T
+  }
+
+  object PersonWrapper {
+    def unapply(person: Person): Wrapper[String] = new Wrapper[String] {
+      def isEmpty = false
+      def get: String = person.name
+    }
+  }
+
+  val test = bob match {
+    case PersonWrapper(n) => s"This person's name is $n"
+    case _ => "An Alien"
+  }
+  println(test)
+
 }
