@@ -17,7 +17,7 @@ object AdvancedPatternMatching extends App {
   - Special Magic (like above)
    */
 
-  // Making Person class available for Pattern Matching
+  // Making Person class available for Pattern Matching - i.e. making an unapply method in the companion object.
   class Person(val name: String, val age: Int)
   object Person {
     def unapply(person: Person): Option[(String, Int)] =
