@@ -39,4 +39,14 @@ object AdvancedPatternMatching extends App {
   }
   println(legalStatus)
 
+  /*
+  Exercise: Devise a pattern matching solution for these conditions with custom pattern matching.
+   */
+  val n: Int = 45
+  val mathProperty = n match {
+    case x if x < 10 => "single digit"
+    case x if x % 2 == 0 => "even number"
+    case _ => "no property"
+  }
+
 }
