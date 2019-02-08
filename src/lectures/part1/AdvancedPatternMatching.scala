@@ -33,4 +33,10 @@ object AdvancedPatternMatching extends App {
   }
   println(greeting)
 
+  val bob2 = new Person(name = "Bob", age = 20)
+  val legalStatus = bob2.age match {
+    case Person(status) => s"I'm a $status"
+  }
+  println(legalStatus)
+
 }
