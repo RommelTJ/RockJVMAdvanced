@@ -49,4 +49,19 @@ object AdvancedPatternMatching extends App {
     case _ => "no property"
   }
 
+  object even {
+    def unapply(n: Int): Option[Boolean] = if (n % 2 == 0) Some(true) else None
+  }
+  object single_digit {
+    def unapply(n: Int): Option[Boolean] = if(n < 10) Some(true) else None
+  }
+
+  val m: Int = 7
+  val mathPropertyTwo = m match {
+    case even(_) => "Even"
+    case single_digit(_) => "Single Digit"
+    case _ => "No Property"
+  }
+  println(mathPropertyTwo)
+
 }
