@@ -65,6 +65,10 @@ object PartialFunctions extends App {
 
   // stdin.getLines().foreach(line => println(s"You said: $line"))
 
-  
+  // Solution 1
+  val myPartialFunction: PartialFunction[String, String] = new PartialFunction[String, String] {
+    override def isDefinedAt(x: String): Boolean = x == "Hello"
+    override def apply(v1: String): String = "Hello"
+  }
 
 }
