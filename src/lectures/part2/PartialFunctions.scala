@@ -72,11 +72,11 @@ object PartialFunctions extends App {
   }
 
   // Solution 2
-  val myChatBot: PartialFunction[String, Unit] = {
-    case "Hi" => println("Hello")
-    case "End" => println("Goodbye")
-    case "Boogie?" => println("Heck yeah")
-    case _ => println("I only understand Hi, End, or Boogie")
+  val myChatBot: PartialFunction[String, String] = {
+    case "Hi" => "Hello"
+    case "End" => "Goodbye"
+    case "Boogie?" => "Heck yeah"
+    case _ => "I only understand Hi, End, or Boogie"
   }
   stdin.getLines().foreach(myChatBot)
 
