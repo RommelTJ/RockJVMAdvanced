@@ -1,5 +1,7 @@
 package lectures.part2
 
+import scala.io.Source.stdin
+
 object PartialFunctions extends App {
 
   val aFunction = (x: Int) => x + 1 // Function[Int, Int] === Int => Int
