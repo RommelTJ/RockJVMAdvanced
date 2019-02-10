@@ -11,4 +11,5 @@ package exercises
   - foreach
    */
 trait MySet[A] extends (A => Boolean) {
+  def contains(elem: A): Boolean
 }
