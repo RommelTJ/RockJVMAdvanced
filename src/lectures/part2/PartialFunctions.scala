@@ -26,6 +26,8 @@ object PartialFunctions extends App {
   } // Partial Function Value.
   println(aPartialFunction(2))
   // println(aPartialFunction(3)) // match error
-  
+
+  // Partial Function Use Cases
+  println(aPartialFunction.isDefinedAt(3)) // Returns false
 
 }
