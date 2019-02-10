@@ -17,4 +17,5 @@ trait MySet[A] extends (A => Boolean) {
   def map[B](f: A => B): MySet[B]
   def flatMap[B](f: A => MySet[B]): MySet[B]
   def filter(predicate: A => Boolean): MySet[A]
+  def foreach(f: A => Unit): Unit
 }
