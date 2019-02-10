@@ -36,4 +36,11 @@ object PartialFunctions extends App {
   println(lifted(2)) // Some(56)
   println(lifted(3)) // None
 
+  // Chaining
+  val pfChain = aPartialFunction.orElse[Int, Int] {
+    case 45 => 67
+  }
+  println(pfChain(2)) // 56
+  println(pfChain(45)) // 67
+
 }
