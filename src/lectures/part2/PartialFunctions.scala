@@ -56,4 +56,6 @@ object PartialFunctions extends App {
   }
   println(aMappedList) // List(42, 78, 1000)
 
+  // Note: Unlike functions, Partial Functions can only have 1 parameter type.
+
 }
