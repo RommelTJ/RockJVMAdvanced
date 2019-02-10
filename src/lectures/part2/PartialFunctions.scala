@@ -78,6 +78,6 @@ object PartialFunctions extends App {
     case "Boogie?" => "Heck yeah"
     case _ => "I only understand Hi, End, or Boogie"
   }
-  stdin.getLines().foreach(myChatBot)
+  stdin.getLines().map(myChatBot).foreach(println)
 
 }
