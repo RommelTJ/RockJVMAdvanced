@@ -17,5 +17,6 @@ object PartialFunctions extends App {
     case 2 => 56
     case 5 => 999
   }
+  // {1, 2, 5} => Int, A Partial Function from Int to Int (because it accepts only a subset of Int numbers).
 
 }
