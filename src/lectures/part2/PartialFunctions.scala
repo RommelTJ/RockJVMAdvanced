@@ -19,4 +19,10 @@ object PartialFunctions extends App {
   }
   // {1, 2, 5} => Int, A Partial Function from Int to Int (because it accepts only a subset of Int numbers).
 
+  val aPartialFunction: PartialFunction[Int, Int] = {
+    case 1 => 42
+    case 2 => 56
+    case 5 => 999
+  } // Partial Function Value.
+
 }
