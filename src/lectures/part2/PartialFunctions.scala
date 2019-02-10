@@ -28,6 +28,7 @@ object PartialFunctions extends App {
   // println(aPartialFunction(3)) // match error
 
   // Partial Function Use Cases
+  // isDefinedAt
   println(aPartialFunction.isDefinedAt(3)) // Returns false
 
   // Lift
