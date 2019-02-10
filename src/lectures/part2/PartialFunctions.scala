@@ -30,4 +30,9 @@ object PartialFunctions extends App {
   // Partial Function Use Cases
   println(aPartialFunction.isDefinedAt(3)) // Returns false
 
+  // Lift
+  val lifted = aPartialFunction.lift // Int => Option[Int]
+  println(lifted(2)) // Some(56)
+  println(lifted(3)) // None
+
 }
