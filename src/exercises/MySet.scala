@@ -14,4 +14,5 @@ trait MySet[A] extends (A => Boolean) {
   def contains(elem: A): Boolean
   def +(elem: A): MySet[A]
   def ++(anotherSet: MySet[A]): MySet[A]
+  def map[B](f: A => B): MySet[B]
 }
