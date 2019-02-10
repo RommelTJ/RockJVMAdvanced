@@ -43,4 +43,9 @@ object PartialFunctions extends App {
   println(pfChain(2)) // 56
   println(pfChain(45)) // 67
 
+  // Partial Functions extend Normal Functions
+  val aTotalFunction: Int => Int = {
+    case 1 => 99
+  }
+
 }
