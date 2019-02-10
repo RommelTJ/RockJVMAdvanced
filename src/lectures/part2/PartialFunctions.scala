@@ -58,4 +58,7 @@ object PartialFunctions extends App {
 
   // Note: Unlike functions, Partial Functions can only have 1 parameter type.
 
+  // Exercise 1: Construct a PF instance yourself using an anonymous class.
+  // Exercise 2: Implement a Chatbot as a partial function.
+
 }
