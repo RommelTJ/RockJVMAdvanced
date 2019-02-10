@@ -11,6 +11,9 @@ package exercises
   - foreach
    */
 trait MySet[A] extends (A => Boolean) {
+  def apply(elem: A): Boolean =
+    contains(elem)
+  
   def contains(elem: A): Boolean
   def +(elem: A): MySet[A]
   def ++(anotherSet: MySet[A]): MySet[A]
@@ -20,5 +23,8 @@ trait MySet[A] extends (A => Boolean) {
   def foreach(f: A => Unit): Unit
 }
 
-class EmptySet[A] extends MySet[A]
+class EmptySet[A] extends MySet[A] {
+
+}
+
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A]
