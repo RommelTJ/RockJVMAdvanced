@@ -63,6 +63,8 @@ object PartialFunctions extends App {
   // Exercise 1: Construct a PF instance yourself using an anonymous class.
   // Exercise 2: Implement a Chatbot as a partial function.
 
-  stdin.getLines().foreach(line => println(s"You said: $line"))
+  // stdin.getLines().foreach(line => println(s"You said: $line"))
+
+  
 
 }
