@@ -25,6 +25,7 @@ object PartialFunctions extends App {
     case 5 => 999
   } // Partial Function Value.
   println(aPartialFunction(2))
-  println(aPartialFunction(3)) // match error
+  // println(aPartialFunction(3)) // match error
+  
 
 }
