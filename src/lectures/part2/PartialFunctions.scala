@@ -71,4 +71,13 @@ object PartialFunctions extends App {
     override def apply(v1: String): String = "Hello"
   }
 
+  // Solution 2
+  val myChatBot: PartialFunction[String, Unit] = {
+    case "Hi" => println("Hello")
+    case "End" => println("Goodbye")
+    case "Boogie?" => println("Heck yeah")
+    case _ => println("I only understand Hi, End, or Boogie")
+  }
+  stdin.getLines().foreach(myChatBot)
+
 }
