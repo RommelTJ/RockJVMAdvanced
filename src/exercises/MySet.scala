@@ -21,3 +21,4 @@ trait MySet[A] extends (A => Boolean) {
 }
 
 class EmptySet[A] extends MySet[A]
+class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A]
