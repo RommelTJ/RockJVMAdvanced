@@ -11,5 +11,11 @@ object PartialFunctions extends App {
     else throw new FunctionNotApplicableException
 
   class FunctionNotApplicableException extends RuntimeException
-  
+
+  val aNicerFussyFunction = (x: Int) => x match {
+    case 1 => 42
+    case 2 => 56
+    case 5 => 999
+  }
+
 }
