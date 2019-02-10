@@ -48,4 +48,12 @@ object PartialFunctions extends App {
     case 1 => 99
   }
 
+  // Higher-Order Functions (HOFs) accept partial functions
+  val aMappedList = List(1, 2, 3).map {
+    case 1 => 42
+    case 2 => 78
+    case 3 => 1000
+  }
+  println(aMappedList) // List(42, 78, 1000)
+
 }
