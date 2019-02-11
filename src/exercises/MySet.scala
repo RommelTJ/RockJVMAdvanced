@@ -45,7 +45,10 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     else tail.contains(elem)
   }
 
-  override def +(elem: A): MySet[A] = ???
+  override def +(elem: A): MySet[A] = {
+    if (this contains elem) this
+    else new NonEmptySet[A](elem, this)
+  }
 
   override def ++(anotherSet: MySet[A]): MySet[A] = ???
 
