@@ -1,5 +1,7 @@
 package exercises
 
+import scala.annotation.tailrec
+
 /*
   Exercise: Implement a functional set.
   - implement contains
@@ -65,5 +67,16 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
   override def foreach(f: A => Unit): Unit = {
     f(head)
     tail foreach f
+  }
+}
+
+object MySet {
+  def apply[A](values: A*): MySet[A] = {
+    @tailrec
+    def buildSet(valSeq: Seq[A], accumulator: MySet[A]): MySet[A] =
+      if (valSeq.isEmpty) accumulator
+      else buildSet(valSeq.tail, accumulator + valSeq.head)
+
+    buildSet(values.toSeq, new EmptySet[A])
   }
 }
