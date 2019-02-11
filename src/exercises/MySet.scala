@@ -40,7 +40,10 @@ class EmptySet[A] extends MySet[A] {
 }
 
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
-  override def contains(elem: A): Boolean = ???
+  override def contains(elem: A): Boolean = {
+    if (elem == head) true
+    else tail.contains(elem)
+  }
 
   override def +(elem: A): MySet[A] = ???
 
