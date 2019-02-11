@@ -12,6 +12,13 @@ import scala.annotation.tailrec
   - filter
   - foreach
    */
+
+/*
+Exercise: Add the following operations to MySet
+- Removing an element
+- Intersection with another set
+- Difference with another set
+ */
 trait MySet[A] extends (A => Boolean) {
   def apply(elem: A): Boolean =
     contains(elem)
