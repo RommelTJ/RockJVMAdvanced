@@ -59,29 +59,7 @@ class EmptySet[A] extends MySet[A] {
 
   override def --(anotherSet: MySet[A]): MySet[A] = this
 
-  override def unary_! : MySet[A] = new MySet[A] {
-    override def contains(elem: A): Boolean = ???
-
-    override def +(elem: A): MySet[A] = ???
-
-    override def ++(anotherSet: MySet[A]): MySet[A] = ???
-
-    override def map[B](f: A => B): MySet[B] = ???
-
-    override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
-
-    override def filter(predicate: A => Boolean): MySet[A] = ???
-
-    override def foreach(f: A => Unit): Unit = ???
-
-    override def -(elem: A): MySet[A] = ???
-
-    override def &(anotherSet: MySet[A]): MySet[A] = ???
-
-    override def --(anotherSet: MySet[A]): MySet[A] = ???
-
-    override def unary_! : MySet[A] = ???
-  }
+  override def unary_! : MySet[A] = new AllInclusiveMySet[A]
 }
 
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
@@ -120,6 +98,30 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
   override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet) // Intersecting and Filtering is the same thing!
 
   override def --(anotherSet: MySet[A]): MySet[A] = filter(x => !anotherSet(x))
+
+  override def unary_! : MySet[A] = ???
+}
+
+class AllInclusiveMySet[A] extends MySet[A] {
+  override def contains(elem: A): Boolean = ???
+
+  override def +(elem: A): MySet[A] = ???
+
+  override def ++(anotherSet: MySet[A]): MySet[A] = ???
+
+  override def map[B](f: A => B): MySet[B] = ???
+
+  override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
+
+  override def filter(predicate: A => Boolean): MySet[A] = ???
+
+  override def foreach(f: A => Unit): Unit = ???
+
+  override def -(elem: A): MySet[A] = ???
+
+  override def &(anotherSet: MySet[A]): MySet[A] = ???
+
+  override def --(anotherSet: MySet[A]): MySet[A] = ???
 
   override def unary_! : MySet[A] = ???
 }
