@@ -59,7 +59,7 @@ class EmptySet[A] extends MySet[A] {
 
   override def --(anotherSet: MySet[A]): MySet[A] = this
 
-  override def unary_! : MySet[A] = new AllInclusiveMySet[A]
+  override def unary_! : MySet[A] = new PropertyBasedMySet[A]
 }
 
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
