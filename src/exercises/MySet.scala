@@ -54,7 +54,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
 
   override def map[B](f: A => B): MySet[B] = (tail map f) + f(head)
 
-  override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
+  override def flatMap[B](f: A => MySet[B]): MySet[B] = (tail flatMap f) ++ f(head)
 
   override def filter(predicate: A => Boolean): MySet[A] = ???
 
