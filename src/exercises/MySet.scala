@@ -51,7 +51,7 @@ class EmptySet[A] extends MySet[A] {
 
   override def foreach(f: A => Unit): Unit = ()
 
-  override def -(elem: A): MySet[A] = ???
+  override def -(elem: A): MySet[A] = this
 
   override def &(anotherSet: MySet[A]): MySet[A] = ???
 
@@ -86,7 +86,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     tail foreach f
   }
 
-  override def -(elem: A): MySet[A] = ???
+  override def -(elem: A): MySet[A] = this.filter(x => x != elem)
 
   override def &(anotherSet: MySet[A]): MySet[A] = ???
 
