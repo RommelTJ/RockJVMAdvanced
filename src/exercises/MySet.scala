@@ -30,6 +30,10 @@ trait MySet[A] extends (A => Boolean) {
   def flatMap[B](f: A => MySet[B]): MySet[B]
   def filter(predicate: A => Boolean): MySet[A]
   def foreach(f: A => Unit): Unit
+
+  def -(elem: A): MySet[A]
+  def union(anotherSet: MySet[A]): MySet[A]
+  def diff(anotherSet: MySet[A]): MySet[A]
 }
 
 class EmptySet[A] extends MySet[A] {
