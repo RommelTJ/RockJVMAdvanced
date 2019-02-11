@@ -99,6 +99,9 @@ object MySetPlayground extends App {
   // mySet3 foreach println
 
   val mySet4 = mySet3 + 2
-  mySet4 foreach println
+  // mySet4 foreach println
+
+  val mySet5 = mySet4.map(x => x * 10)
+  mySet5 foreach println
 
 }
