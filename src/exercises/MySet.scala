@@ -91,7 +91,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     else tail - elem + head
   }
 
-  override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet)
+  override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet) // Intersecting and Filtering is the same thing!
 
   override def --(anotherSet: MySet[A]): MySet[A] = ???
 }
