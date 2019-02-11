@@ -50,7 +50,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     else new NonEmptySet[A](elem, this)
   }
 
-  override def ++(anotherSet: MySet[A]): MySet[A] = ???
+  override def ++(anotherSet: MySet[A]): MySet[A] = tail ++ anotherSet + head
 
   override def map[B](f: A => B): MySet[B] = ???
 
