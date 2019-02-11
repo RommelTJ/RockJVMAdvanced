@@ -102,7 +102,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
   override def unary_! : MySet[A] = ???
 }
 
-class AllInclusiveMySet[A] extends MySet[A] {
+class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   override def contains(elem: A): Boolean = true
   override def +(elem: A): MySet[A] = this
   override def ++(anotherSet: MySet[A]): MySet[A] = this
