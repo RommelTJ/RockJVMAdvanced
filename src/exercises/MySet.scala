@@ -87,3 +87,7 @@ object MySet {
     buildSet(values.toSeq, new EmptySet[A])
   }
 }
+
+object MySetPlayground extends App {
+  
+}
