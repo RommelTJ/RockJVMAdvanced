@@ -50,6 +50,12 @@ class EmptySet[A] extends MySet[A] {
   override def filter(predicate: A => Boolean): MySet[A] = this
 
   override def foreach(f: A => Unit): Unit = ()
+
+  override def -(elem: A): MySet[A] = ???
+
+  override def union(anotherSet: MySet[A]): MySet[A] = ???
+
+  override def diff(anotherSet: MySet[A]): MySet[A] = ???
 }
 
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
