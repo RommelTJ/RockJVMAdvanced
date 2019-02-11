@@ -85,6 +85,12 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     f(head)
     tail foreach f
   }
+
+  override def -(elem: A): MySet[A] = ???
+
+  override def union(anotherSet: MySet[A]): MySet[A] = ???
+
+  override def diff(anotherSet: MySet[A]): MySet[A] = ???
 }
 
 /*
