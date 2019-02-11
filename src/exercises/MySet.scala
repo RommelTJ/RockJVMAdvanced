@@ -91,7 +91,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     else tail - elem + head
   }
 
-  override def &(anotherSet: MySet[A]): MySet[A] = ???
+  override def &(anotherSet: MySet[A]): MySet[A] = filter(x => anotherSet.contains(x))
 
   override def --(anotherSet: MySet[A]): MySet[A] = ???
 }
