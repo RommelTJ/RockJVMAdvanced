@@ -70,6 +70,13 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
   }
 }
 
+/*
+val s = MySet(1, 2, 3) = buildSet(seq(1, 2, 3), [])
+= buildSet(seq(2, 3), [] + 1
+= buildSet(seq(3), [1] + 2
+= buildSet(seq(), [1, 2] + 3
+= [1, 2, 3]
+ */
 object MySet {
   def apply[A](values: A*): MySet[A] = {
     @tailrec
