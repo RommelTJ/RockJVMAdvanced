@@ -86,7 +86,10 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     tail foreach f
   }
 
-  override def -(elem: A): MySet[A] = this.filter(x => x != elem)
+  override def -(elem: A): MySet[A] = {
+    if (head == elem) tail
+    else tail - elem + head
+  }
 
   override def &(anotherSet: MySet[A]): MySet[A] = ???
 
