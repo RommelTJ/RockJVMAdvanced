@@ -34,6 +34,8 @@ trait MySet[A] extends (A => Boolean) {
   def -(elem: A): MySet[A] // Remove
   def &(anotherSet: MySet[A]): MySet[A] // Intersect
   def --(anotherSet: MySet[A]): MySet[A] // Difference
+
+  def unary_! : MySet[A]
 }
 
 class EmptySet[A] extends MySet[A] {
