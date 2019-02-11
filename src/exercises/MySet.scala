@@ -56,7 +56,11 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
 
   override def flatMap[B](f: A => MySet[B]): MySet[B] = (tail flatMap f) ++ f(head)
 
-  override def filter(predicate: A => Boolean): MySet[A] = ???
+  override def filter(predicate: A => Boolean): MySet[A] = {
+    val filteredTail = tail filter predicate
+    if (predicate(head)) filteredTail + head
+    else filteredTail
+  }
 
   override def foreach(f: A => Unit): Unit = ???
 }
