@@ -53,7 +53,7 @@ class EmptySet[A] extends MySet[A] {
 
   override def -(elem: A): MySet[A] = this
 
-  override def &(anotherSet: MySet[A]): MySet[A] = ???
+  override def &(anotherSet: MySet[A]): MySet[A] = this
 
   override def --(anotherSet: MySet[A]): MySet[A] = this
 }
