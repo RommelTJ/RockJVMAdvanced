@@ -55,7 +55,7 @@ class EmptySet[A] extends MySet[A] {
 
   override def &(anotherSet: MySet[A]): MySet[A] = ???
 
-  override def --(anotherSet: MySet[A]): MySet[A] = ???
+  override def --(anotherSet: MySet[A]): MySet[A] = this
 }
 
 class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
