@@ -62,5 +62,8 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     else filteredTail
   }
 
-  override def foreach(f: A => Unit): Unit = ???
+  override def foreach(f: A => Unit): Unit = {
+    f(head)
+    tail foreach f
+  }
 }
