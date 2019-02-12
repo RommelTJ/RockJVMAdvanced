@@ -126,6 +126,8 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   override def --(anotherSet: MySet[A]): MySet[A] = filter(!anotherSet)
 
   override def unary_! : MySet[A] = new EmptySet[A]
+
+  def politelyFail = throw new IllegalArgumentException("Really deep rabbit hole!")
 }
 
 /*
