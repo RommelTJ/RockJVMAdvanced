@@ -120,13 +120,12 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
 
   override def filter(predicate: A => Boolean): MySet[A] = new PropertyBasedMySet[A](x => property(x) && predicate(x))
 
-
   override def -(elem: A): MySet[A] = ???
 
   override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet)
   override def --(anotherSet: MySet[A]): MySet[A] = filter(!anotherSet)
 
-  override def unary_! : MySet[A] = new EmptySet[A]
+  override def unary_! : MySet[A] = new PropertyBasedMySet[A](x => !property(x))
 
   def politelyFail = throw new IllegalArgumentException("Really deep rabbit hole!")
 }
