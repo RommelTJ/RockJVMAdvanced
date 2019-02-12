@@ -113,6 +113,7 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   // { x in A | property(x) } ++ anotherSet = { x in A | property(x) || anotherSet contains x }
   override def ++(anotherSet: MySet[A]): MySet[A] = new PropertyBasedMySet[A](x => property(x) || anotherSet(x))
 
+  // All Integers => (_ % 3) => [0 1 2]. Can't know if Set is Finite or Infinite.
   override def map[B](f: A => B): MySet[B] = ??? // Unimplemented for now
   override def flatMap[B](f: A => MySet[B]): MySet[B] = ??? // Unimplemented for now
   override def filter(predicate: A => Boolean): MySet[A] = ??? // Unimplemented for now
