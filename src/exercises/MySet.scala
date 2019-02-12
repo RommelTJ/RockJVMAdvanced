@@ -114,10 +114,12 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   override def ++(anotherSet: MySet[A]): MySet[A] = new PropertyBasedMySet[A](x => property(x) || anotherSet(x))
 
   override def map[B](f: A => B): MySet[B] = ??? // Unimplemented for now
-  override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
+  override def flatMap[B](f: A => MySet[B]): MySet[B] = ??? // Unimplemented for now
+  override def filter(predicate: A => Boolean): MySet[A] = ??? // Unimplemented for now
+
   override def foreach(f: A => Unit): Unit = ???
 
-  override def filter(predicate: A => Boolean): MySet[A] = ??? // Property-based set
+
   override def -(elem: A): MySet[A] = ???
 
   override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet)
