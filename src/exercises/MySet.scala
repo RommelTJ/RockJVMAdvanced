@@ -116,9 +116,9 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   // All Integers => (_ % 3) => [0 1 2]. Can't know if Set is Finite or Infinite.
   override def map[B](f: A => B): MySet[B] = politelyFail
   override def flatMap[B](f: A => MySet[B]): MySet[B] = politelyFail
-  override def filter(predicate: A => Boolean): MySet[A] = politelyFail
+  override def foreach(f: A => Unit): Unit = politelyFail
 
-  override def foreach(f: A => Unit): Unit = ???
+  override def filter(predicate: A => Boolean): MySet[A] = 
 
 
   override def -(elem: A): MySet[A] = ???
