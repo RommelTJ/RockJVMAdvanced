@@ -179,4 +179,7 @@ object MySetPlayground extends App {
   val negativeEven = negative.filter(_ % 2 == 0)
   println(negativeEven(-5)) // false
 
+  val negativeEvenPlusMinus5 = negativeEven + -5 // Adding -5
+  println(negativeEvenPlusMinus5(-5)) // true
+
 }
