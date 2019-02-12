@@ -99,7 +99,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
 
   override def --(anotherSet: MySet[A]): MySet[A] = filter(x => !anotherSet(x))
 
-  override def unary_! : MySet[A] = ???
+  override def unary_! : MySet[A] = new PropertyBasedMySet[A](x => !this.contains(x))
 }
 
 // All elements of type A which satisfy a property
