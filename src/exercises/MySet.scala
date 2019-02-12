@@ -118,7 +118,7 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   override def flatMap[B](f: A => MySet[B]): MySet[B] = politelyFail
   override def foreach(f: A => Unit): Unit = politelyFail
 
-  override def filter(predicate: A => Boolean): MySet[A] = 
+  override def filter(predicate: A => Boolean): MySet[A] = new PropertyBasedMySet[A](x => property(x) && predicate(x))
 
 
   override def -(elem: A): MySet[A] = ???
