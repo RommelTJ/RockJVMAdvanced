@@ -168,6 +168,9 @@ object MySetPlayground extends App {
   // mySet6 foreach println
 
   val mySet7 = mySet4.filter(_ % 2 == 0)
-  mySet7 foreach println
+  // mySet7 foreach println
+
+  val negative = !mySet // s.unary_! = all the naturals not equal to 1, 2, 3, 4
+  println(negative)
 
 }
