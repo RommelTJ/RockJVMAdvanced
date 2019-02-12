@@ -109,7 +109,8 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
 
   // { x in A | property(x) } + elem = { x in A | property(x) || x == elem }
   override def +(elem: A): MySet[A] = new PropertyBasedMySet[A](x => property(x) || x == elem)
-  
+
+  // { x in A | property(x) } ++ anotherSet = { x in A | property(x) || anotherSet contains x }
   override def ++(anotherSet: MySet[A]): MySet[A] = new PropertyBasedMySet[A](x => property(x) || anotherSet(x))
 
   override def map[B](f: A => B): MySet[B] = ??? // Unimplemented for now
