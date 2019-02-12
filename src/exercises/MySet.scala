@@ -173,5 +173,7 @@ object MySetPlayground extends App {
   val negative = !mySet // s.unary_! = all the naturals not equal to 1, 2, 3, 4
   println(negative)
   println(negative(1)) // false
+  println(negative(-5)) // true
+  println(negative(6)) // true
 
 }
