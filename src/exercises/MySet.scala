@@ -120,7 +120,7 @@ class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
 
   override def filter(predicate: A => Boolean): MySet[A] = new PropertyBasedMySet[A](x => property(x) && predicate(x))
 
-  override def -(elem: A): MySet[A] = ???
+  override def -(elem: A): MySet[A] = filter(x => x != elem)
 
   override def &(anotherSet: MySet[A]): MySet[A] = filter(anotherSet)
   override def --(anotherSet: MySet[A]): MySet[A] = filter(!anotherSet)
