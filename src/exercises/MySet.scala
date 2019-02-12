@@ -102,6 +102,8 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
   override def unary_! : MySet[A] = ???
 }
 
+// All elements of type A which satisfy a property
+// { x in A | property(x) }
 class PropertyBasedMySet[A](property: A => Boolean) extends MySet[A] {
   override def contains(elem: A): Boolean = true
   override def +(elem: A): MySet[A] = this
