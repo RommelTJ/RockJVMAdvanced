@@ -55,4 +55,9 @@ object CurriesPAF extends App {
   val fillInTheBlanks = concatenator("Hello, ", _: String, _: String) // (x, y) => concatenator("Hello", x, y)
   println(fillInTheBlanks("Rommel! ", "Scala is awesome!")) // Hello, Rommel! Scala is awesome!
 
+  // Exercise:
+  // 1. Process a list of numbers and return their string representation with different formats.
+  //    Use the %4.2f, %8.6f and %14.12f with a curried formatter function.
+  //    println("%8.6f".format(Math.PI))
+
 }
