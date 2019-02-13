@@ -19,6 +19,8 @@ object CurriesPAF extends App {
   println(add4(1))
 
   // Note: You can't remove the type parameters or the compiler will complain that there's a missing argument list
-  // for method curriedAdder.
+  // for method curriedAdder. Behind the scenes it's done via "lifting".
+
+  // Lifting = ETA-EXPANSION.
 
 }
