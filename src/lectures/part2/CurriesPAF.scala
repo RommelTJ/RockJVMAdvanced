@@ -41,5 +41,6 @@ object CurriesPAF extends App {
 
   // Solutions
   val add7 = (x: Int) => simpleAddFunction(7, x) // Simplest
+  val add7_1 = simpleAddFunction.curried(7)
 
 }
