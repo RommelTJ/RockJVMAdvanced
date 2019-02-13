@@ -82,4 +82,13 @@ object CurriesPAF extends App {
   println(numbers.map(seriousFormat)) // List(3.141593, 2.718282, 1.000000, 9.800000, 0.000000)
   println(numbers.map(preciseFormat)) // List(3.141592653590, 2.718281828459, 1.000000000000, 9.800000000000, 0.000000000001)
 
+  // Solution 2
+  byName(23) // Ok
+  byName(method) // Ok, method evaluated to 42
+  byName(parenthesisMethod()) // Ok
+  byName(parenthesisMethod) // Ok but beware! Equivalent to "byName(parenthesisMethod())"
+  // byName(() => 42) // Not Ok.
+  byName((() => 42)()) // Ok because lambda is turning into a value when you call it.
+  // byName(parenthesisMethod _) // Not Ok.
+
 }
