@@ -44,5 +44,6 @@ object CurriesPAF extends App {
   val add7_2 = simpleAddFunction.curried(7)
   val add7_3 = curriedAddMethod(7) _ // PAF
   val add7_4 = curriedAddMethod(7)(_) // PAF = alternative syntax
+  val add7_5 = simpleAddMethod(7, _: Int) // Alternative syntax for turning methods into function values.
 
 }
