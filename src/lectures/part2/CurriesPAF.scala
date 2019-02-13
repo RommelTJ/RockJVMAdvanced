@@ -46,6 +46,6 @@ object CurriesPAF extends App {
   val add7_4 = curriedAddMethod(7)(_) // PAF = alternative syntax
   val add7_5 = simpleAddMethod(7, _: Int) // Alternative syntax for turning methods into function values.
               // y => simpleAddMethod(7, y)
-  
+  val add7_6 = simpleAddFunction(7, _: Int) // Underscore forces compiler to do ETA-EXPANSION.
 
 }
