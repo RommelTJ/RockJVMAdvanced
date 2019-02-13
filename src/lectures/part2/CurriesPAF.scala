@@ -27,4 +27,10 @@ object CurriesPAF extends App {
   List(1, 2, 3).map(inc) // ETA-EXPANSION.
   // Compiler rewrites it as "List(1, 2, 3).map(x => inc(x))"
 
+  // Partial Function Applications (how to force ETA-EXPANSION)
+
+  val add5 = curriedAdder(5) _ // ETA-EXPANSION! Converted to "Int => Int"
+  println(add5(2))
+  
+
 }
