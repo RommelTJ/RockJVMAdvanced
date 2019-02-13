@@ -59,5 +59,17 @@ object CurriesPAF extends App {
   // 1. Process a list of numbers and return their string representation with different formats.
   //    Use the %4.2f, %8.6f and %14.12f with a curried formatter function.
   //    println("%8.6f".format(Math.PI))
+  // 2. Difference between functions vs methods
+  //    Difference between parameters (by name) vs 0-lambda
+  //    Calling byName and byFunction with:
+  //     - Int
+  //     - method
+  //     - parenthesisMethod
+  //     - lambda
+  //     - PAF
+  def byName(n: => Int): Int = n + 1
+  def byFunction(f: () => Int): Int = f() + 1
+  def method: Int = 42
+  def parenthesisMethod(): Int = 42
 
 }
