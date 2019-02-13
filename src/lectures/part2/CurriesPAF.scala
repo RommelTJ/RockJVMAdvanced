@@ -39,4 +39,7 @@ object CurriesPAF extends App {
   def simpleAddMethod(x: Int, y: Int): Int = x + y
   def curriedAddMethod(x: Int)(y: Int): Int = x + y
 
+  // Solutions
+  val add7 = (x: Int) => simpleAddFunction(7, x) // Simplest
+
 }
