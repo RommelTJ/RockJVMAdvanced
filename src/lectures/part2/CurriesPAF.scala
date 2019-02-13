@@ -49,5 +49,7 @@ object CurriesPAF extends App {
 
   // Underscores are powerful
   def concatenator(a: String, b: String, c: String): String = a + b + c
+  val insertName = concatenator("Hello, I'm ", _: String, ", how are you?")
+  println(insertName("Rommel"))
 
 }
