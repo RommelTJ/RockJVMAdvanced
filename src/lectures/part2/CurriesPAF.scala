@@ -18,4 +18,7 @@ object CurriesPAF extends App {
   val add4: Int => Int = curriedAdder(4)
   println(add4(1))
 
+  // Note: You can't remove the type parameters or the compiler will complain that there's a missing argument list
+  // for method curriedAdder.
+
 }
