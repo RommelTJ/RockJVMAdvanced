@@ -21,6 +21,10 @@ object CurriesPAF extends App {
   // Note: You can't remove the type parameters or the compiler will complain that there's a missing argument list
   // for method curriedAdder. Behind the scenes it's done via "lifting".
 
-  // Lifting = ETA-EXPANSION.
+  // Lifting = ETA-EXPANSION. (functions != methods due to JVM limitation)
+
+  def inc(x: Int): Int = x + 1
+  List(1, 2, 3).map(inc) // ETA-EXPANSION.
+  // Compiler rewrites it as "List(1, 2, 3).map(x => inc(x))"
 
 }
