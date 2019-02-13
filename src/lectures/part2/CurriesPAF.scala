@@ -91,4 +91,11 @@ object CurriesPAF extends App {
   byName((() => 42)()) // Ok because lambda is turning into a value when you call it.
   // byName(parenthesisMethod _) // Not Ok.
 
+  // byFunction(45) // Not Ok.
+  // byFunction(method) // Not Ok, since method is evaluated to 42.
+  // byFunction(parenthesisMethod()) // Not Ok.
+  byFunction(parenthesisMethod) // Ok, because the compiler does ETA-EXPANSION!
+  byFunction(parenthesisMethod _) // Ok, but unnecessary.
+  byFunction(() => 42) // Ok
+
 }
