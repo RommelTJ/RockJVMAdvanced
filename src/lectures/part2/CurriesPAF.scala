@@ -50,6 +50,6 @@ object CurriesPAF extends App {
   // Underscores are powerful
   def concatenator(a: String, b: String, c: String): String = a + b + c
   val insertName = concatenator("Hello, I'm ", _: String, ", how are you?")
-  println(insertName("Rommel"))
+  println(insertName("Rommel")) // Injecting with ETA-EXPANSION turns it into "x: String => concatenator(hello, x, how are you)"
 
 }
