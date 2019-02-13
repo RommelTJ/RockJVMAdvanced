@@ -52,4 +52,7 @@ object CurriesPAF extends App {
   val insertName = concatenator("Hello, I'm ", _: String, ", how are you?")
   println(insertName("Rommel")) // Injecting with ETA-EXPANSION turns it into "x: String => concatenator(hello, x, how are you)"
 
+  val fillInTheBlanks = concatenator("Hello, ", _: String, _: String) // (x, y) => concatenator("Hello", x, y)
+  println(fillInTheBlanks("Rommel! ", "Scala is awesome!")) // Hello, Rommel! Scala is awesome!
+
 }
