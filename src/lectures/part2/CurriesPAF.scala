@@ -72,4 +72,14 @@ object CurriesPAF extends App {
   def method: Int = 42
   def parenthesisMethod(): Int = 42
 
+  // Solution 1
+  def curriedFormatter(s: String)(num: Double): String = s.format(num)
+  val numbers = List(Math.PI, Math.E, 1, 9.8, 1.3e-12)
+  val simpleFormat = curriedFormatter("%4.2f") _ // Lifting
+  val seriousFormat = curriedFormatter("%8.6f") _
+  val preciseFormat = curriedFormatter("%14.12f") _
+  println(numbers.map(simpleFormat)) // List(3.14, 2.72, 1.00, 9.80, 0.00)
+  println(numbers.map(seriousFormat)) // List(3.141593, 2.718282, 1.000000, 9.800000, 0.000000)
+  println(numbers.map(preciseFormat)) // List(3.141592653590, 2.718281828459, 1.000000000000, 9.800000000000, 0.000000000001)
+
 }
