@@ -31,6 +31,12 @@ object CurriesPAF extends App {
 
   val add5 = curriedAdder(5) _ // ETA-EXPANSION! Converted to "Int => Int"
   println(add5(2))
-  
+
+  // Exercise:
+  // Implement add7: Int => Int = y => 7 + y.
+  // As many different implementations of add7.
+  val simpleAddFunction = (x: Int, y: Int) => x + y
+  def simpleAddMethod(x: Int, y: Int): Int = x + y
+  def curriedAddMethod(x: Int)(y: Int): Int = x + y
 
 }
