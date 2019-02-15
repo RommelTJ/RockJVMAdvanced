@@ -46,4 +46,9 @@ object LazyEvaluation extends App {
   // Using Lazy Evaluation:
   println(byNameMethod(retrieveMagicValue)) // This evaluates retrieveMagicValue 1 time! (using new implementation)
 
+  // Filtering with Lazy Evaluation
+  def lessThan30(i: Int): Boolean = {
+    println(s"$i is less than 30?")
+    i < 30
+  }
 }
