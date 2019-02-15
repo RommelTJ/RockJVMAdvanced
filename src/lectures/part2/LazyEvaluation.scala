@@ -15,7 +15,8 @@ object LazyEvaluation extends App {
   println(x)
   println(x) // X is not evaluated again.
 
-  // Examples
+  // Examples of implications: 
+  // Side-Effects
   def sideEffectCondition: Boolean = {
     println("Boolean")
     true
@@ -27,5 +28,5 @@ object LazyEvaluation extends App {
   // the lazyCondition is not evaluated unless it's needed and the run time is smart enough to not evaluate it because
   // the first condition will short-circuit!
   println(if (lazyCondition && simpleCondition) "yes" else "no") // no, but prints "Boolean"
-  
+
 }
