@@ -63,4 +63,9 @@ object LazyEvaluation extends App {
   val gt20 = lt30.filter(greaterThan20) // List(25, 23)
   println(gt20)
 
+  val lt30lazy = numbers.withFilter(lessThan30) // withFilter uses lazy values under the hood.
+  val gt20lazy = numbers.withFilter(greaterThan20)
+  println("--")
+  println(gt20lazy) // scala.collection.TraversableLike$WithFilter@3498ed
+
 }
