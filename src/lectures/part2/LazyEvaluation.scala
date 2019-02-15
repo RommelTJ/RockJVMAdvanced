@@ -83,6 +83,7 @@ object LazyEvaluation extends App {
   Ex: naturals.take(100) // Lazily Evaluated Stream of the first 100 naturals (finite stream)
   Ex: naturals.take(100).foreach(println) // Prints 100 numbers
   Ex: naturals.foreach(println) // Should crash - Infinite list
+  Ex: naturals.map(_ * 2) // Stream of all even numbers (potentially infinite)
    */
   abstract class MyStream[+A] {
     def isEmpty: Boolean
