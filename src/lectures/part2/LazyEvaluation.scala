@@ -79,5 +79,21 @@ object LazyEvaluation extends App {
   Exercise: Implement a Lazily Evaluated single-linked Stream of elements.
   Head of stream is always available, but tail is available on demand.
    */
+  abstract class MyStream[+A] {
+    def isEmpty: Boolean
+    def head: A
+    def tail: MyStream[A]
+
+    def #::[B >: A](element: B): MyStream[B] // Prepend operator
+    def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] // Concatenate streams
+
+    def foreach(f: A => Unit): Unit
+    def map[B](f: A => B): MyStream[B]
+    def flatMap[B](f: A => MyStream[B]): MyStream[B]
+    def filter(predicate: A => Boolean): MyStream[A]
+
+    def take(n: Int): MyStream[A] // Takes the first n elements out of this stream and returns a finite stream of n elements.
+    def takeAsList(n: Int): List[A]
+  }
 
 }
