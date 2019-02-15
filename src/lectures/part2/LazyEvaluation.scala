@@ -96,4 +96,8 @@ object LazyEvaluation extends App {
     def takeAsList(n: Int): List[A]
   }
 
+  object MyStream {
+    def from[A](start: A)(generator: A => A): MyStream[A] = ???
+  }
+
 }
