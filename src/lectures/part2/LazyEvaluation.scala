@@ -56,4 +56,8 @@ object LazyEvaluation extends App {
     i > 20
   }
 
+  val numbers = List(1, 25, 30, 40, 5, 23)
+  val lt30 = numbers.filter(lessThan30) // List(1, 25, 5, 23)
+  println(lt30)
+
 }
