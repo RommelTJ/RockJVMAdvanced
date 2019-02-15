@@ -51,4 +51,9 @@ object LazyEvaluation extends App {
     println(s"$i is less than 30?")
     i < 30
   }
+  def greaterThan20(i: Int): Boolean = {
+    println(s"$i is greater than 20?")
+    i > 20
+  }
+
 }
