@@ -32,6 +32,7 @@ object LazyEvaluation extends App {
   // In Conjunction with Call-by-name
   // def byNameMethod(n: => Int): Int = n + n + n + 1
   def byNameMethod(n: => Int): Int = {
+    // This is a technique called "CALL BY NEED".
     lazy val t = n // only evaluated once
     t + t + t + 1
   }
