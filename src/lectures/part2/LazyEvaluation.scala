@@ -9,9 +9,10 @@ object LazyEvaluation extends App {
   // println(x) // Now we crash!
 
   lazy val x: Int = {
-    println("hello")
+    println("hello the first time")
     42
   }
   println(x)
+  println(x) // X is not evaluated again.
 
 }
