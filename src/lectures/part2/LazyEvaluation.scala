@@ -71,8 +71,8 @@ object LazyEvaluation extends App {
 
   // For-Comprehensions use withFilter with guards
   for {
-    a <- List(1, 2, 3) if a % 2 == 0
+    a <- List(1, 2, 3) if a % 2 == 0 // use lazy vals!
   } yield a + 1
-  List(1, 2, 3).withFilter(_ % 2 == 0).map(_ + 1)
+  List(1, 2, 3).withFilter(_ % 2 == 0).map(_ + 1) // List[Int]
 
 }
