@@ -20,4 +20,5 @@ object LazyEvaluation extends App {
     println("Boolean")
     true
   }
+  def simpleCondition: Boolean = false
 }
