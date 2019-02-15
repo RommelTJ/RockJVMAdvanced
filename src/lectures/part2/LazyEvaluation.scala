@@ -75,4 +75,9 @@ object LazyEvaluation extends App {
   } yield a + 1
   List(1, 2, 3).withFilter(_ % 2 == 0).map(_ + 1) // List[Int]
 
+  /*
+  Exercise: Implement a Lazily Evaluated single-linked Stream of elements.
+  Head of stream is always available, but tail is available on demand.
+   */
+
 }
