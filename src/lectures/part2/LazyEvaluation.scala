@@ -69,4 +69,10 @@ object LazyEvaluation extends App {
   println(gt20lazy) // scala.collection.TraversableLike$WithFilter@3498ed
   gt20lazy.foreach(println) // Side-effects run on a by-need basis
 
+  // For-Comprehensions use withFilter with guards
+  for {
+    a <- List(1, 2, 3) if a % 2 == 0
+  } yield a + 1
+  List(1, 2, 3).withFilter(_ % 2 == 0).map(_ + 1)
+
 }
