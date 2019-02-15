@@ -15,7 +15,7 @@ object LazyEvaluation extends App {
   println(x)
   println(x) // X is not evaluated again.
 
-  // Examples of implications: 
+  // Examples of implications:
   // Side-Effects
   def sideEffectCondition: Boolean = {
     println("Boolean")
@@ -28,5 +28,21 @@ object LazyEvaluation extends App {
   // the lazyCondition is not evaluated unless it's needed and the run time is smart enough to not evaluate it because
   // the first condition will short-circuit!
   println(if (lazyCondition && simpleCondition) "yes" else "no") // no, but prints "Boolean"
+
+  // In Conjunction with Call-by-name
+  // def byNameMethod(n: => Int): Int = n + n + n + 1
+  def byNameMethod(n: => Int): Int = {
+    lazy val t = n // only evaluated once
+    t + t + t + 1
+  }
+  def retrieveMagicValue = {
+    // Side-effect or long computation
+    println("waiting")
+    Thread.sleep(1000)
+    42
+  }
+  // println(byNameMethod(retrieveMagicValue)) // This evaluates retrieveMagicValue 3 times! (using old implementation)
+  // Using Lazy Evaluation:
+  println(byNameMethod(retrieveMagicValue)) // This evaluates retrieveMagicValue 1 time! (using new implementation)
 
 }
