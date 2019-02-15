@@ -78,6 +78,11 @@ object LazyEvaluation extends App {
   /*
   Exercise: Implement a Lazily Evaluated single-linked Stream of elements.
   Head of stream is always available, but tail is available on demand.
+
+  Ex: naturals = MyStream.from(1)(x => x + 1) = stream of natural numbers (potentially infinite!)
+  Ex: naturals.take(100) // Lazily Evaluated Stream of the first 100 naturals (finite stream)
+  Ex: naturals.take(100).foreach(println) // Prints 100 numbers
+  Ex: naturals.foreach(println) // Should crash - Infinite list
    */
   abstract class MyStream[+A] {
     def isEmpty: Boolean
