@@ -15,4 +15,9 @@ object LazyEvaluation extends App {
   println(x)
   println(x) // X is not evaluated again.
 
+  // Examples
+  def sideEffectCondition: Boolean = {
+    println("Boolean")
+    true
+  }
 }
