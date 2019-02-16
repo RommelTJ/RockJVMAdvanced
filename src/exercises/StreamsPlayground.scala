@@ -126,5 +126,7 @@ object StreamsPlayground extends App {
   startFrom0.take(10000).foreach(println)
 
   println(startFrom0.map(_ * 2).take(100).toList())
-  
+
+  println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(10).toList())
+
 }
