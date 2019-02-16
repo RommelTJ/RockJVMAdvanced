@@ -136,6 +136,15 @@ object StreamsPlayground extends App {
   Exercises on streams.
   1 - Stream of Fibonacci numbers.
   2 - Stream of Prime numbers with Eratosthenes' sieve.
+
+  Eratosthenes' Sieve example:
+  [2, 3, 4, ...]
+  filter out all numbers divisible by 2 (except for 2)
+  [2, 3, 5, 7, 9, 11, ...]
+  filter out all numbers divisible by 3
+  [2, 3, 5, 7, 11, 13, 17, ...]
+  filter out all numbers divisible by 5
+    ...
    */
 
 }
