@@ -26,7 +26,7 @@ abstract class MyStream[+A] {
   def filter(predicate: A => Boolean): MyStream[A]
 
   def take(n: Int): MyStream[A] // Takes the first n elements out of this stream and returns a finite stream of n elements.
-  def takeAsList(n: Int): List[A]
+  def takeAsList(n: Int): List[A] = take(n).toList()
 
   // [1, 2, 3].toList([]) =
   // [2, 3].toList([1]) =
