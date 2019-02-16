@@ -18,7 +18,7 @@ abstract class MyStream[+A] {
   def tail: MyStream[A]
 
   def #::[B >: A](element: B): MyStream[B] // Prepend operator
-  def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] // Concatenate streams
+  def ++[B >: A](anotherStream: => MyStream[B]): MyStream[B] // Concatenate streams
 
   def foreach(f: A => Unit): Unit
   def map[B](f: A => B): MyStream[B]
@@ -49,7 +49,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def #::[B >: Nothing](element: B): MyStream[B] = new Cons(element, this)
 
-  override def ++[B >: Nothing](anotherStream: MyStream[B]): MyStream[B] = anotherStream
+  override def ++[B >: Nothing](anotherStream: => MyStream[B]): MyStream[B] = anotherStream
 
   override def foreach(f: Nothing => Unit): Unit = ()
 
@@ -76,7 +76,7 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   override def #::[B >: A](element: B): MyStream[B] = new Cons(element, this)
 
   // Tail will be lazily evaluated when it's needed.
-  override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = new Cons(head, tail ++ anotherStream)
+  override def ++[B >: A](anotherStream: => MyStream[B]): MyStream[B] = new Cons(head, tail ++ anotherStream)
 
   override def foreach(f: A => Unit): Unit = {
     f(head)
@@ -127,6 +127,7 @@ object StreamsPlayground extends App {
 
   println(startFrom0.map(_ * 2).take(100).toList())
 
+  // List(0, 1, 1, 2, 2, 3, 3, 4, 4, 5)
   println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(10).toList())
 
 }
