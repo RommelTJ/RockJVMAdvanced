@@ -27,6 +27,12 @@ abstract class MyStream[+A] {
 
   def take(n: Int): MyStream[A] // Takes the first n elements out of this stream and returns a finite stream of n elements.
   def takeAsList(n: Int): List[A]
+
+  @tailrec
+  final def toList[B >: A](accumulator: List[B] = Nil): List[B] = {
+    if (isEmpty) accumulator
+    else tail.toList(head :: accumulator)
+  }
 }
 
 object EmptyStream extends MyStream[Nothing] {
@@ -98,9 +104,6 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 
   override def takeAsList(n: Int): List[A] = ???
 
-  @tailrec
-  def toList[B >: A](accumulator: List[B] = Nil): List[B]
-  
 }
 
 object MyStream {
