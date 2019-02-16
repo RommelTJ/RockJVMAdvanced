@@ -153,4 +153,7 @@ object StreamsPlayground extends App {
   def fibonacci(first: BigInt, second: BigInt): MyStream[BigInt] = new Cons(first, fibonacci(second, first + second))
   println(fibonacci(1, 1).take(100).toList())
 
+  // Solution 2
+  def eratosthenes(numbers: MyStream[Int]): MyStream[Int] = ???
+
 }
