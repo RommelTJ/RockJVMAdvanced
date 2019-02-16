@@ -67,7 +67,10 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   // Tail will be lazily evaluated when it's needed.
   override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = new Cons(head, tail ++ anotherStream)
 
-  override def foreach(f: A => Unit): Unit = ???
+  override def foreach(f: A => Unit): Unit = {
+    f(head)
+    tail.foreach(f)
+  }
 
   override def map[B](f: A => B): MyStream[B] = ???
 
