@@ -28,7 +28,7 @@ abstract class MyStream[+A] {
 }
 
 object EmptyStream extends MyStream[Nothing] {
-  override def isEmpty: Boolean = ???
+  override def isEmpty: Boolean = true
 
   override def head: Nothing = ???
 
