@@ -57,7 +57,7 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 
   override val head: A = hd
 
-  override def tail: MyStream[A] = ???
+  override lazy val tail: MyStream[A] = tl
 
   override def #::[B >: A](element: B): MyStream[B] = ???
 
