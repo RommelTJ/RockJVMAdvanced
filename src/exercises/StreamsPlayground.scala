@@ -87,7 +87,12 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
     else tail.filter(predicate)
   }
 
-  override def take(n: Int): MyStream[A] = ???
+  // This still preserves lazy evaluation.
+  override def take(n: Int): MyStream[A] = {
+    if (n <= 0) EmptyStream
+    else if (n == 1) new Cons(head, EmptyStream)
+    else new Cons(head, tail.take(n - 1))
+  }
 
   override def takeAsList(n: Int): List[A] = ???
 }
