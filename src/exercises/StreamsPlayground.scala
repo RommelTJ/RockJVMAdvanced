@@ -134,7 +134,8 @@ object StreamsPlayground extends App {
 
   /*
   Exercises on streams.
-  1. Stream of Fibonacci numbers.
+  1 - Stream of Fibonacci numbers.
+  2 - Stream of Prime numbers with Eratosthenes' sieve.
    */
 
 }
