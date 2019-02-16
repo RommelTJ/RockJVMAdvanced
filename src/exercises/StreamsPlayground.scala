@@ -53,7 +53,7 @@ object EmptyStream extends MyStream[Nothing] {
 
 // tl is call by name so that it can be lazily evaluated
 class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
-  override def isEmpty: Boolean = ???
+  override def isEmpty: Boolean = false
 
   override def head: A = ???
 
