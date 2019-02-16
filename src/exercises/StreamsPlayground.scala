@@ -154,6 +154,8 @@ object StreamsPlayground extends App {
   println(fibonacci(1, 1).take(100).toList())
 
   // Solution 2
-  def eratosthenes(numbers: MyStream[Int]): MyStream[Int] = ???
+  def eratosthenes(numbers: MyStream[Int]): MyStream[Int] =
+    if (numbers.isEmpty) numbers
+    else new Cons(numbers.head, ???)
 
 }
