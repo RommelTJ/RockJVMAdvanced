@@ -150,4 +150,6 @@ object StreamsPlayground extends App {
   // Solution 1
   def fibonacci(first: Int, second: Int): MyStream[Int] = ???
 
+  println(fibonacci(1, 1).take(100).toList())
+
 }
