@@ -147,4 +147,7 @@ object StreamsPlayground extends App {
     ...
    */
 
+  // Solution 1
+  def fibonacci(first: Int, second: Int): MyStream[Int] = ???
+
 }
