@@ -1,5 +1,7 @@
 package exercises
 
+import scala.annotation.tailrec
+
 /*
   Exercise: Implement a Lazily Evaluated single-linked Stream of elements.
   Head of stream is always available, but tail is available on demand.
@@ -95,6 +97,10 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   }
 
   override def takeAsList(n: Int): List[A] = ???
+
+  @tailrec
+  def toList[B >: A](accumulator: List[B] = Nil): List[B]
+  
 }
 
 object MyStream {
