@@ -154,6 +154,11 @@ object StreamsPlayground extends App {
   println(fibonacci(1, 1).take(100).toList())
 
   // Solution 2
+  // [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ...]
+  // [2, 3, 5, 7, 9, 11, ...]
+  // [2 eratosthenes applied to (numbers filtered by n % 2 != 0)]
+  // [2, 3, eratosthenes applied to [5, 7, 9, 11, ...] filtered by n % 3 != 0]
+  // [2, 3, 5, eratosthenes applied to [7, 11, ...] filtered by n % 5 != 0]
   def eratosthenes(numbers: MyStream[Int]): MyStream[Int] =
     if (numbers.isEmpty) numbers
     else new Cons(numbers.head, ???)
