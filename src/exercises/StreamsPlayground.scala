@@ -81,7 +81,11 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   // This still preserves lazy evaluation because Concatenation also does.
   override def flatMap[B](f: A => MyStream[B]): MyStream[B] = f(head) ++ tail.flatMap(f)
 
-  override def filter(predicate: A => Boolean): MyStream[A] = ???
+  // Lazily Evaluated
+  override def filter(predicate: A => Boolean): MyStream[A] = {
+    if (predicate(head)) new Cons(head, tail.filter(predicate))
+    else tail.filter(predicate)
+  }
 
   override def take(n: Int): MyStream[A] = ???
 
