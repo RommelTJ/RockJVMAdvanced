@@ -35,7 +35,7 @@ abstract class MyStream[+A] {
   // [1, 2, 3]
   @tailrec
   final def toList[B >: A](accumulator: List[B] = Nil): List[B] = {
-    if (isEmpty) accumulator
+    if (isEmpty) accumulator.reverse
     else tail.toList(head :: accumulator)
   }
 }
