@@ -130,4 +130,6 @@ object StreamsPlayground extends App {
   // List(0, 1, 1, 2, 2, 3, 3, 4, 4, 5)
   println(startFrom0.flatMap(x => new Cons(x, new Cons(x + 1, EmptyStream))).take(10).toList())
 
+  println(startFrom0.filter(_ < 10).take(10).toList()) // List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
 }
