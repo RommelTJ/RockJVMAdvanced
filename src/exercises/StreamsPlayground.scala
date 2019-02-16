@@ -40,9 +40,9 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def foreach(f: Nothing => Unit): Unit = ()
 
-  override def map[B](f: Nothing => B): MyStream[B] = ???
+  override def map[B](f: Nothing => B): MyStream[B] = this
 
-  override def flatMap[B](f: Nothing => MyStream[B]): MyStream[B] = ???
+  override def flatMap[B](f: Nothing => MyStream[B]): MyStream[B] = this
 
   override def filter(predicate: Nothing => Boolean): MyStream[Nothing] = ???
 
