@@ -44,7 +44,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def flatMap[B](f: Nothing => MyStream[B]): MyStream[B] = this
 
-  override def filter(predicate: Nothing => Boolean): MyStream[Nothing] = ???
+  override def filter(predicate: Nothing => Boolean): MyStream[Nothing] = this
 
   override def take(n: Int): MyStream[Nothing] = ???
 
