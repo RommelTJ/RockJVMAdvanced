@@ -119,4 +119,8 @@ object StreamsPlayground extends App {
   println(naturals.head) // 1
   println(naturals.tail.head) // 2
   println(naturals.tail.tail.head) // 3
+
+  val startFrom0 = 0 #:: naturals // rewritten to naturals.#::(0)
+  println(startFrom0.head) // 0
+  
 }
