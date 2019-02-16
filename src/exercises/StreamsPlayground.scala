@@ -132,4 +132,9 @@ object StreamsPlayground extends App {
 
   println(startFrom0.filter(_ < 10).take(10).toList()) // List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
+  /*
+  Exercises on streams.
+  1. Stream of Fibonacci numbers.
+   */
+
 }
