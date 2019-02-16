@@ -36,7 +36,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def #::[B >: Nothing](element: B): MyStream[B] = new Cons(element, this)
 
-  override def ++[B >: Nothing](anotherStream: MyStream[B]): MyStream[B] = ???
+  override def ++[B >: Nothing](anotherStream: MyStream[B]): MyStream[B] = anotherStream
 
   override def foreach(f: Nothing => Unit): Unit = ???
 
