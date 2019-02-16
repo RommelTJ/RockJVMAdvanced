@@ -51,7 +51,7 @@ object EmptyStream extends MyStream[Nothing] {
   override def takeAsList(n: Int): List[Nothing] = ???
 }
 
-class Cons[+A] extends MyStream[A] {
+class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   override def isEmpty: Boolean = ???
 
   override def head: A = ???
