@@ -64,7 +64,8 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   // Note: EmptyStream is not yet evaluated when we prepend.
   override def #::[B >: A](element: B): MyStream[B] = new Cons(element, this)
 
-  override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = ???
+  // Tail will be lazily evaluated when it's needed.
+  override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = new Cons(head, tail ++ anotherStream)
 
   override def foreach(f: A => Unit): Unit = ???
 
