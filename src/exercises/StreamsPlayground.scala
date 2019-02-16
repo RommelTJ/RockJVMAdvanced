@@ -122,5 +122,7 @@ object StreamsPlayground extends App {
 
   val startFrom0 = 0 #:: naturals // rewritten to naturals.#::(0)
   println(startFrom0.head) // 0
+
+  startFrom0.take(10000).foreach(println)
   
 }
