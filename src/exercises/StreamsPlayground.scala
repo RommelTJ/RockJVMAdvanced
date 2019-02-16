@@ -55,7 +55,7 @@ object EmptyStream extends MyStream[Nothing] {
 class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   override def isEmpty: Boolean = false
 
-  override def head: A = ???
+  override val head: A = hd
 
   override def tail: MyStream[A] = ???
 
