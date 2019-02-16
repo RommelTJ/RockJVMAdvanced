@@ -60,8 +60,6 @@ object EmptyStream extends MyStream[Nothing] {
   override def filter(predicate: Nothing => Boolean): MyStream[Nothing] = this
 
   override def take(n: Int): MyStream[Nothing] = this
-
-  override def takeAsList(n: Int): List[Nothing] = Nil
 }
 
 // tl is call by name so that it can be lazily evaluated
@@ -106,8 +104,6 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
     else if (n == 1) new Cons(head, EmptyStream)
     else new Cons(head, tail.take(n - 1))
   }
-
-  override def takeAsList(n: Int): List[A] = ???
 
 }
 
