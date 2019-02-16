@@ -161,6 +161,6 @@ object StreamsPlayground extends App {
   // [2, 3, 5, eratosthenes applied to [7, 11, ...] filtered by n % 5 != 0]
   def eratosthenes(numbers: MyStream[Int]): MyStream[Int] =
     if (numbers.isEmpty) numbers
-    else new Cons(numbers.head, ???)
+    else new Cons(numbers.head, eratosthenes(numbers.tail.filter(_ % numbers.head != 0))) // n => n % numbers.head != 0
 
 }
