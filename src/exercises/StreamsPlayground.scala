@@ -48,7 +48,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def take(n: Int): MyStream[Nothing] = this
 
-  override def takeAsList(n: Int): List[Nothing] = ???
+  override def takeAsList(n: Int): List[Nothing] = Nil
 }
 
 // tl is call by name so that it can be lazily evaluated
