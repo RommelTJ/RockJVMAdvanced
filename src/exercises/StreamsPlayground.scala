@@ -124,5 +124,7 @@ object StreamsPlayground extends App {
   println(startFrom0.head) // 0
 
   startFrom0.take(10000).foreach(println)
+
+  println(startFrom0.map(_ * 2).take(100).toList())
   
 }
