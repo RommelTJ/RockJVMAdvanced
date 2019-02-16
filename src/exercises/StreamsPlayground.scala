@@ -30,9 +30,9 @@ abstract class MyStream[+A] {
 object EmptyStream extends MyStream[Nothing] {
   override def isEmpty: Boolean = true
 
-  override def head: Nothing = ???
+  override def head: Nothing = throw new NoSuchElementException
 
-  override def tail: MyStream[Nothing] = ???
+  override def tail: MyStream[Nothing] = throw new NoSuchElementException
 
   override def #::[B >: Nothing](element: B): MyStream[B] = ???
 
