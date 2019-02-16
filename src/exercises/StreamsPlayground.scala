@@ -46,7 +46,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def filter(predicate: Nothing => Boolean): MyStream[Nothing] = this
 
-  override def take(n: Int): MyStream[Nothing] = ???
+  override def take(n: Int): MyStream[Nothing] = this
 
   override def takeAsList(n: Int): List[Nothing] = ???
 }
