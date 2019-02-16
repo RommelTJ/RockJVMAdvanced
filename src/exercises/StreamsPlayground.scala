@@ -73,6 +73,9 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
   }
 
   // This still preserves lazy evaluation.
+  // val myStream = new Cons(1, otherStream)
+  // val mapped = myStream.map(_ + 1) = new Cons(2, myStream.tail.map(_ + 1))
+  // Won't be evaluated unless I somehow use ... mapped.tail in a later expression.
   override def map[B](f: A => B): MyStream[B] = new Cons(f(head), tail.map(f))
 
   override def flatMap[B](f: A => MyStream[B]): MyStream[B] = ???
