@@ -57,9 +57,12 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 
   override val head: A = hd
 
-  override lazy val tail: MyStream[A] = tl
+  override lazy val tail: MyStream[A] = tl // Call by need
 
-  override def #::[B >: A](element: B): MyStream[B] = ???
+  // val someStream = new Cons(1, EmptyStream)
+  // val prepended = 1 #:: someStream = new Cons(1, someStream)
+  // Note: EmptyStream is not yet evaluated when we prepend.
+  override def #::[B >: A](element: B): MyStream[B] = new Cons(element, this)
 
   override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = ???
 
