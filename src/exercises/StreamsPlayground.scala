@@ -72,7 +72,8 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
     tail.foreach(f)
   }
 
-  override def map[B](f: A => B): MyStream[B] = ???
+  // This still preserves lazy evaluation.
+  override def map[B](f: A => B): MyStream[B] = new Cons(f(head), tail.map(f))
 
   override def flatMap[B](f: A => MyStream[B]): MyStream[B] = ???
 
