@@ -150,8 +150,7 @@ object StreamsPlayground extends App {
   // Solution 1
   // [first, [ ...
   // [first, fibo(second, first + second)
-  def fibonacci(first: Int, second: Int): MyStream[Int] = new Cons(first, fibonacci(second, first + second))
-
+  def fibonacci(first: BigInt, second: BigInt): MyStream[BigInt] = new Cons(first, fibonacci(second, first + second))
   println(fibonacci(1, 1).take(100).toList())
 
 }
