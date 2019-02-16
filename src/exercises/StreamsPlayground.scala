@@ -115,5 +115,5 @@ object MyStream {
 }
 
 object StreamsPlayground extends App {
-
+  val naturals = MyStream.from(1)(_ + 1)
 }
