@@ -108,7 +108,10 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 }
 
 object MyStream {
-  def from[A](start: A)(generator: A => A): MyStream[A] = ???
+  // Calling from recursively in a lazily evaluated expression.
+  def from[A](start: A)(generator: A => A): MyStream[A] = {
+    new Cons(start, MyStream.from(generator(start))(generator))
+  }
 }
 
 object StreamsPlayground extends App {
