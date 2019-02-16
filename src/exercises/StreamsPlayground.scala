@@ -28,6 +28,11 @@ abstract class MyStream[+A] {
   def take(n: Int): MyStream[A] // Takes the first n elements out of this stream and returns a finite stream of n elements.
   def takeAsList(n: Int): List[A]
 
+  // [1, 2, 3].toList([]) =
+  // [2, 3].toList([1]) =
+  // [3].toList([2, 1]) =
+  // [].toList([3, 2, 1]) =
+  // [1, 2, 3]
   @tailrec
   final def toList[B >: A](accumulator: List[B] = Nil): List[B] = {
     if (isEmpty) accumulator
