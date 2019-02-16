@@ -51,6 +51,30 @@ object EmptyStream extends MyStream[Nothing] {
   override def takeAsList(n: Int): List[Nothing] = ???
 }
 
+class Cons[+A] extends MyStream[A] {
+  override def isEmpty: Boolean = ???
+
+  override def head: A = ???
+
+  override def tail: MyStream[A] = ???
+
+  override def #::[B >: A](element: B): MyStream[B] = ???
+
+  override def ++[B >: A](anotherStream: MyStream[B]): MyStream[B] = ???
+
+  override def foreach(f: A => Unit): Unit = ???
+
+  override def map[B](f: A => B): MyStream[B] = ???
+
+  override def flatMap[B](f: A => MyStream[B]): MyStream[B] = ???
+
+  override def filter(predicate: A => Boolean): MyStream[A] = ???
+
+  override def take(n: Int): MyStream[A] = ???
+
+  override def takeAsList(n: Int): List[A] = ???
+}
+
 object MyStream {
   def from[A](start: A)(generator: A => A): MyStream[A] = ???
 }
