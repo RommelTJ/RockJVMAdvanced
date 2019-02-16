@@ -116,4 +116,7 @@ object MyStream {
 
 object StreamsPlayground extends App {
   val naturals = MyStream.from(1)(_ + 1)
+  println(naturals.head) // 1
+  println(naturals.tail.head) // 2
+  println(naturals.tail.tail.head) // 3
 }
