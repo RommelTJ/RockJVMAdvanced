@@ -38,7 +38,7 @@ object EmptyStream extends MyStream[Nothing] {
 
   override def ++[B >: Nothing](anotherStream: MyStream[B]): MyStream[B] = anotherStream
 
-  override def foreach(f: Nothing => Unit): Unit = ???
+  override def foreach(f: Nothing => Unit): Unit = ()
 
   override def map[B](f: Nothing => B): MyStream[B] = ???
 
