@@ -34,12 +34,12 @@ object Monads extends App {
   1 - Left-Identity:
       unit.flatMap(f) = f(x)
       Attempt(x).flatMap(f) = f(x) // Only makes sense for Success case.
-      Success(x).flatMap(f) = f(x) // Proved.
+      Success(x).flatMap(f) = f(x) // Proved!
 
   2 - Right-identity:
       attempt.flatMap(unit) = attempt
       Success(x).flatMap(x => Attempt(x)) = Attempt(x) = Success(x)
-      Fail(_).flatMap(x) = Fail(e) // Proved.
+      Fail(_).flatMap(x) = Fail(e) // Proved!
 
   3 - Associativity:
       attempt.flatMap(f).flatMap(g) == attempt.flatMap(x => f(x).flatMap(g))
@@ -48,8 +48,13 @@ object Monads extends App {
       Success(v).flatMap(f).flatMap(g) =
         f(v).flatMap(g) OR Fail(e)
       Success(v).flatMap(x => f(x).flatMap(g)) =
-        f(v).flatMap(g) OR Fail(e) // Proved.
-
+        f(v).flatMap(g) OR Fail(e) // Proved!
    */
+
+  // Testing
+  val attempt = Attempt {
+    throw new RuntimeException("My own monad!")
+  }
+  println(attempt)
 
 }
