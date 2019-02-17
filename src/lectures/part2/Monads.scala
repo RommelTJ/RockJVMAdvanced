@@ -21,7 +21,7 @@ object Monads extends App {
   }
 
   case class Fail(e: Throwable) extends Attempt[Nothing] {
-    override def flatMap[B](f: Nothing => Attempt[B]): Attempt[B] = ???
+    override def flatMap[B](f: Nothing => Attempt[B]): Attempt[B] = this
   }
 
 }
