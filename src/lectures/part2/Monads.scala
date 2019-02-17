@@ -60,5 +60,13 @@ object Monads extends App {
   // Exercise 1: Implement a Lazy[T] Monad = computation which will only be executed when it's needed.
   //             Unit/Apply
   //             flatMap
+  // Exercise 2: Monads = unit + flatMap
+  //             Monads = unit + map + flatten
+  //             Monad[T] {
+  //               def flatMap[B](f: T => Monad[B]): Monad[B] = ... (already implemented)
+  //               def map[B](f: T => B): Monad[B] = ???
+  //               def flatten(m: Monad[Monad[T]]): Monad[T] = ???
+  //             }
+  //             (Have List in mind)
 
 }
