@@ -57,4 +57,8 @@ object Monads extends App {
   }
   println(attempt)
 
+  // Exercise 1: Implement a Lazy[T] Monad = computation which will only be executed when it's needed.
+  //             Unit/Apply
+  //             flatMap
+
 }
