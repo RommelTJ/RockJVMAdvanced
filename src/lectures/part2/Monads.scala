@@ -41,6 +41,15 @@ object Monads extends App {
       Success(x).flatMap(x => Attempt(x)) = Attempt(x) = Success(x)
       Fail(_).flatMap(x) = Fail(e) // Proved.
 
+  3 - Associativity:
+      attempt.flatMap(f).flatMap(g) == attempt.flatMap(x => f(x).flatMap(g))
+      Fail(e).flatMap(f).flatMap(g) = Fail(e)
+      Fail(e).flatMap(x => f(x).flatMap(g)) = Fail(e) // Satisfied for Fail.
+      Success(v).flatMap(f).flatMap(g) =
+        f(v).flatMap(g) OR Fail(e)
+      Success(v).flatMap(x => f(x).flatMap(g)) =
+        f(v).flatMap(g) OR Fail(e) // Proved.
+
    */
 
 }
