@@ -29,4 +29,12 @@ object Monads extends App {
     override def flatMap[B](f: Nothing => Attempt[B]): Attempt[B] = this
   }
 
+  /*
+  Monad laws and testing
+  1 - Left-Identity:
+      unit.flatMap(f) = f(x)
+      Attempt(x).flatMap(f) = f(x) // Only makes sense for Success case.
+      Success(x).flatMap(f) = f(x) // Proved.
+   */
+
 }
