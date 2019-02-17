@@ -11,4 +11,6 @@ object Monads extends App {
     def apply[A](a: => A): Attempt[A] = ???
   }
 
+  case class Success[A](value: A) extends Attempt[A]
+
 }
