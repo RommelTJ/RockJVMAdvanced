@@ -35,6 +35,12 @@ object Monads extends App {
       unit.flatMap(f) = f(x)
       Attempt(x).flatMap(f) = f(x) // Only makes sense for Success case.
       Success(x).flatMap(f) = f(x) // Proved.
+
+  2 - Right-identity:
+      attempt.flatMap(unit) = attempt
+      Success(x).flatMap(x => Attempt(x)) = Attempt(x) = Success(x)
+      Fail(_).flatMap(x) = Fail(e) // Proved.
+
    */
 
 }
