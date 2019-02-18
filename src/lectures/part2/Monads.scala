@@ -116,7 +116,7 @@ object Monads extends App {
     def flatMap[B](f: T => Monad[B]): Monad[B] = ... (already implemented)
 
     def map[B](f: T => B): Monad[B] = flatMap(x => unit(f(x))) // Monad[B]
-    def flatten(m: Monad[Monad[T]]): Monad[T] = ???
+    def flatten(m: Monad[Monad[T]]): Monad[T] = m.flatMap((x: Monad[T]) => x)
   }
    */
 
