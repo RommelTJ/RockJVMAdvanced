@@ -77,4 +77,9 @@ object Monads extends App {
     def apply[A](value: => A): Lazy[A] = new Lazy(value)
   }
 
+  val lazyInstance = Lazy {
+    println("Today I don't feel like doing anything!")
+    42
+  }
+
 }
