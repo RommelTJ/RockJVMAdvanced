@@ -72,6 +72,7 @@ object Monads extends App {
   // 1 - Lazy Monad
   class Lazy[+A](value: => A) {
     def flatMap[B](f: A => Lazy[B]): Lazy[B] = f(value)
+    def use: A = value
   }
   object Lazy {
     def apply[A](value: => A): Lazy[A] = new Lazy(value)
