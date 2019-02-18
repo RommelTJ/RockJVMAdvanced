@@ -71,7 +71,7 @@ object Monads extends App {
 
   // 1 - Lazy Monad
   class Lazy[+A](value: => A) {
-    def flatMap[B](f: A => Lazy[B]): Lazy[B] = f(value)
+    def flatMap[B](f: (=> A) => Lazy[B]): Lazy[B] = f(value)
     def use: A = value
   }
   object Lazy {
@@ -87,6 +87,5 @@ object Monads extends App {
   val flatMappedInstance = lazyInstance.flatMap(x => Lazy {
     10 * x
   })
-  
 
 }
