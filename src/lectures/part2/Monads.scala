@@ -99,6 +99,10 @@ object Monads extends App {
   left identity:
   unit.flatMap(f) = f(v)
   Lazy(v).flatMap(f) = f(v)
+
+  right identity:
+  1.flatMap(unit) = 1
+  Lazy(v).flatMap(x => Lazy(x)) = Lazy(v)
    */
 
 }
