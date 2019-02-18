@@ -110,4 +110,14 @@ object Monads extends App {
   Lazy(v).flatMap(x => f(x).flatMap(g)) = f(v).flatMap(g)
    */
 
+  // 2 - map && flatten in terms of flatMap
+  /*
+  Monad[T] {
+    def flatMap[B](f: T => Monad[B]): Monad[B] = ... (already implemented)
+
+    def map[B](f: T => B): Monad[B] = ???
+    def flatten(m: Monad[Monad[T]]): Monad[T] = ???
+  }
+   */
+
 }
