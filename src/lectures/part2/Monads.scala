@@ -90,5 +90,7 @@ object Monads extends App {
   val flatMappedInstance2 = lazyInstance.flatMap(x => Lazy {
     10 * x
   })
+  flatMappedInstance.use
+  flatMappedInstance2.use
 
 }
