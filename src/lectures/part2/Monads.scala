@@ -95,4 +95,10 @@ object Monads extends App {
   flatMappedInstance.use
   flatMappedInstance2.use
 
+  /*
+  left identity:
+  unit.flatMap(f) = f(v)
+  Lazy(v).flatMap(f) = f(v)
+   */
+
 }
