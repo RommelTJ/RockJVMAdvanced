@@ -82,5 +82,6 @@ object Monads extends App {
     println("Today I don't feel like doing anything!")
     42
   }
+  println(lazyInstance.use) // lazy instance only now gets evaluated.
 
 }
