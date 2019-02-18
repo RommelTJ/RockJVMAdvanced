@@ -84,4 +84,9 @@ object Monads extends App {
   }
   println(lazyInstance.use) // lazy instance only now gets evaluated.
 
+  val flatMappedInstance = lazyInstance.flatMap(x => Lazy {
+    10 * x
+  })
+  
+
 }
