@@ -73,4 +73,15 @@ object Intro extends App {
     println(s"I've bought $thing. My account is now ${account.amount}")
   }
 
+  // Race condition!
+  for (_ <- 1 to 1000) {
+    val account = new BankAccount(50000)
+    val thread1 = new Thread(() => buy(account, "Shoes", 3000))
+    val thread2 = new Thread(() => buy(account, "iPhone 12", 2000))
+    thread1.start()
+    thread2.start()
+    Thread.sleep(100)
+    println()
+  }
+
 }
