@@ -61,6 +61,7 @@ object Intro extends App {
     println(x)
   }
 
+  // Race condition!
   for (_ <- 1 to 100) runInParallel
 
 }
