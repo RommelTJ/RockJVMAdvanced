@@ -39,9 +39,10 @@ object Intro extends App {
     Thread.sleep(1000)
     println("Done after 2 seconds")
   })
-  // aPool.shutdown()
+  aPool.shutdown()
   // aPool.execute(() => println("Should Not Appear")) // RejectedExecutionException
 
-  aPool.shutdownNow() // Throws InterruptedException
+  // aPool.shutdownNow() // Throws InterruptedException
+  println(aPool.isShutdown) // true
 
 }
