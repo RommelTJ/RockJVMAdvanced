@@ -68,4 +68,9 @@ object Intro extends App {
     override def toString: String = s"$amount"
   }
 
+  def buy(account: BankAccount, thing: String, price: Int) = {
+    account.amount -= price
+    println(s"I've bought $thing. My account is now ${account.amount}")
+  }
+
 }
