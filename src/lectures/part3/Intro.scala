@@ -64,4 +64,8 @@ object Intro extends App {
   // Race condition!
   for (_ <- 1 to 100) runInParallel
 
+  class BankAccount(var amount: Int) {
+    override def toString: String = s"$amount"
+  }
+
 }
