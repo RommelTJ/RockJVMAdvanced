@@ -28,22 +28,22 @@ object Intro extends App {
 
   // Executors
   val aPool = Executors.newFixedThreadPool(10)
-  aPool.execute(() => println("Something in the thread pool")) // will be executed by one of the 10 threads in the pool.
-  aPool.execute(() => {
-    Thread.sleep(1000)
-    println("Done after 1 second")
-  })
-  aPool.execute(() => {
-    Thread.sleep(1000)
-    println("Almost done")
-    Thread.sleep(1000)
-    println("Done after 2 seconds")
-  })
-  aPool.shutdown()
-  // aPool.execute(() => println("Should Not Appear")) // RejectedExecutionException
-
-  // aPool.shutdownNow() // Throws InterruptedException
-  println(aPool.isShutdown) // true
+//  aPool.execute(() => println("Something in the thread pool")) // will be executed by one of the 10 threads in the pool.
+//  aPool.execute(() => {
+//    Thread.sleep(1000)
+//    println("Done after 1 second")
+//  })
+//  aPool.execute(() => {
+//    Thread.sleep(1000)
+//    println("Almost done")
+//    Thread.sleep(1000)
+//    println("Done after 2 seconds")
+//  })
+//  aPool.shutdown()
+//  // aPool.execute(() => println("Should Not Appear")) // RejectedExecutionException
+//
+//  // aPool.shutdownNow() // Throws InterruptedException
+//  println(aPool.isShutdown) // true
 
   def runInParallel = {
     var x = 0
