@@ -9,6 +9,6 @@ object Intro extends App {
    */
   // JVM Threads
   val aThread = new Thread(new Runnable {
-    override def run(): Unit = ???
+    override def run(): Unit = println("Running in parallel")
   })
 }
