@@ -45,4 +45,20 @@ object Intro extends App {
   // aPool.shutdownNow() // Throws InterruptedException
   println(aPool.isShutdown) // true
 
+  def runInParallel = {
+    var x = 0
+
+    val thread1 = new Thread(() => {
+      x = 1
+    })
+
+    val thread2 = new Thread(() => {
+      x = 2
+    })
+
+    thread1.start()
+    thread2.start()
+    println(x)
+  }
+
 }
