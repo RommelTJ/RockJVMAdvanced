@@ -1,5 +1,7 @@
 package lectures.part3
 
+import java.util.concurrent.Executors
+
 object Intro extends App {
 
   /*
@@ -25,6 +27,6 @@ object Intro extends App {
   threadGoodbye.start() // Different runs produce different results.
 
   // Executors
-  
+  val aPool = Executors.newFixedThreadPool(10)
 
 }
