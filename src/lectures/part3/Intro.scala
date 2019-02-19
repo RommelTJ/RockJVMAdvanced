@@ -69,7 +69,7 @@ object Intro extends App {
   }
 
   def buy(account: BankAccount, thing: String, price: Int) = {
-    account.amount -= price
+    account.amount -= price // account.amount = account.amount - price
     println(s"I've bought $thing. My account is now ${account.amount}")
   }
 
@@ -83,5 +83,12 @@ object Intro extends App {
     Thread.sleep(100)
     println()
   }
+
+  /*
+  thread 1 = 50000
+  - account = 50000 - 3000 = 47000
+  thread 2 = 50000
+  - account = 50000 - 2000 = 48000
+   */
 
 }
