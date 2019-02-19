@@ -19,4 +19,9 @@ object Intro extends App {
 
   aThread.join() // will block until thread finished running.
 
+  val threadHello = new Thread(() => (1 to 5).foreach(_ => println("Hello")))
+  val threadGoodbye = new Thread(() => (1 to 5).foreach(_ => println("Goodbye")))
+  threadHello.start()
+  threadGoodbye.start()
+
 }
