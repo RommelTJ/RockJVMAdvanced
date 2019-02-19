@@ -17,4 +17,6 @@ object Intro extends App {
   aThread.start() // Will create a JVM thread, which runs on top of an OS system thread.
   // runnable.run() // This doesn't do anything in parallel.
 
+  aThread.join() // will block until thread finished running.
+
 }
