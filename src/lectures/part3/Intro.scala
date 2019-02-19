@@ -11,4 +11,6 @@ object Intro extends App {
   val aThread = new Thread(new Runnable {
     override def run(): Unit = println("Running in parallel")
   })
+  aThread.start() // Will create a JVM thread, which runs on top of an OS system thread.
+
 }
