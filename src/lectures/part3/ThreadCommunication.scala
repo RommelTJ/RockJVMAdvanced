@@ -25,6 +25,7 @@ object ThreadCommunication extends App {
 
   }
 
+  /*
   def naiveProducerConsumer(): Unit = {
     val container = new SimpleContainer
     val consumer = new Thread(() => {
@@ -45,5 +46,32 @@ object ThreadCommunication extends App {
     producer.start()
   }
   naiveProducerConsumer()
+  */
+
+  // wait and notify
+  def smartProducerConsumer(): Unit = {
+    val container = new SimpleContainer
+    val consumer = new Thread(() => {
+      println("[consumer] waiting...")
+      container.synchronized {
+        container.wait()
+      }
+      // container must have some value because it can only be notified by producer.
+      println(s"[consumer] I have consumer ${container.get}")
+    })
+    val producer = new Thread(() => {
+      println("[producer] computing...")
+      Thread.sleep(2000)
+      val value = 42
+      container.synchronized {
+        println(s"[producer] I'm producing the value $value")
+        container.set(value)
+        container.notify()
+      }
+    })
+    consumer.start()
+    producer.start()
+  }
+  smartProducerConsumer()
 
 }
