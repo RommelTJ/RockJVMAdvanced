@@ -110,6 +110,11 @@ object Intro extends App {
   1 - Construct 50 "inception" threads: Thread1 -> Thread2 -> Thread3 -> ...
       println("hello from thread #3")
       in REVERSE ORDER
+  2 - Given the below code, what is the biggest possible value for x?
+      What is the smallest possible value for x?
    */
+  var x = 0
+  val threads = (1 to 100).map(_ => new Thread(() => x += 1))
+  threads.foreach(_.start())
 
 }
