@@ -136,6 +136,24 @@ object Intro extends App {
   Thread.sleep(2000)
   println(message)
 
+  // Solution 3
+  // 1 - Scala is awesome.
+  // 2 - No
+  // 3 - Because the below could happen:
+  /*
+  (main thread)
+    message = "Scala sucks"
+    awesomeThread.start()
+    sleep() - relieves execution
+  (awesome thread)
+    sleep() - relieves execution
+  (OS gives the CPU to some important thread - takes CPU for more than 2 seconds)
+  (OS gives CPU back to main thread)
+    println("Scala sucks")
+  (OS gives the CPU to awesomeThread)
+    message = "Scala is awesome"
+   */
+
   // Solution 1
   def inceptionThreads(maxThreads: Int, i: Int = 1): Thread = new Thread(() => {
     if (i < maxThreads) {
