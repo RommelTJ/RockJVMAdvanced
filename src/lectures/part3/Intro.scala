@@ -64,9 +64,9 @@ object Intro extends App {
   // Race condition!
   for (_ <- 1 to 100) runInParallel
 
-  class BankAccount(var amount: Int) {
-    override def toString: String = s"$amount"
-  }
+//  class BankAccount(var amount: Int) {
+//    override def toString: String = s"$amount"
+//  }
 
   def buy(account: BankAccount, thing: String, price: Int) = {
     account.amount -= price // account.amount = account.amount - price
@@ -99,4 +99,10 @@ object Intro extends App {
       account.amount -= price
       println(s"I've bought $thing and my account balance is now ${account.amount}")
     }
+
+  // Option #2: use @volatile - All reads and writes to amount are synchronized.
+  class BankAccount(@volatile var amount: Int) {
+    override def toString: String = s"$amount"
+  }
+
 }
