@@ -112,9 +112,24 @@ object Intro extends App {
       in REVERSE ORDER
   2 - Given the below code, what is the biggest possible value for x?
       What is the smallest possible value for x?
+  3 - Given the below code, what is the value of message? Is it guaranteed? Why or why not?
    */
+
+  // Code 2
   var x = 0
   val threads = (1 to 100).map(_ => new Thread(() => x += 1))
   threads.foreach(_.start())
+
+  // Code 3
+  var message = ""
+  val awesomeThread = new Thread(() => {
+    Thread.sleep(1000)
+    message = "Scala is awesome"
+  })
+
+  message = "Scala sucks"
+  awesomeThread.start()
+  Thread.sleep(2000)
+  println(message)
 
 }
