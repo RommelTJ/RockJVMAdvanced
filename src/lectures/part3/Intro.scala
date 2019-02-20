@@ -105,4 +105,11 @@ object Intro extends App {
     override def toString: String = s"$amount"
   }
 
+  /*
+  Exercises:
+  1 - Construct 50 "inception" threads: Thread1 -> Thread2 -> Thread3 -> ...
+      println("hello from thread #3")
+      in REVERSE ORDER
+   */
+
 }
