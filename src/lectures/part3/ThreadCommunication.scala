@@ -25,4 +25,25 @@ object ThreadCommunication extends App {
 
   }
 
+  def naiveProducerConsumer(): Unit = {
+    val container = new SimpleContainer
+    val consumer = new Thread(() => {
+      println("[consumer] waiting...")
+      while(container.isEmpty) {
+        println("[consumer] still waiting...")
+      }
+      println(s"[consumer] I have consumed ${container.get}")
+    })
+    val producer = new Thread(() => {
+      println("[producer] computing...")
+      Thread.sleep(500)
+      val value = 42
+      println(s"[producer] I have produced value $value")
+      container.set(value)
+    })
+    consumer.start()
+    producer.start()
+  }
+  naiveProducerConsumer()
+
 }
