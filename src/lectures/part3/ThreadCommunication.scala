@@ -8,4 +8,21 @@ object ThreadCommunication extends App {
   Producer -> [ x ] -> Consumer
    */
 
+  class SimpleContainer {
+    private var value: Int = 0
+
+    def isEmpty: Boolean = value == 0
+
+    // Consuming method
+    def get: Int = {
+      val result = value
+      value = 0
+      result
+    }
+
+    // Producing method
+    def set(newValue: Int): Unit = value = newValue
+
+  }
+
 }
