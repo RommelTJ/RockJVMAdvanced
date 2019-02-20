@@ -91,4 +91,12 @@ object Intro extends App {
   - account = 50000 - 2000 = 48000
    */
 
+  // Two options to solve race conditions in Scala.
+
+  // Option #1: use synchronized()
+  def buySafe(account: BankAccount, thing: String, price: Int) =
+    account.synchronized {
+      account.amount -= price
+      println(s"I've bought $thing and my account balance is now ${account.amount}")
+    }
 }
