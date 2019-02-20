@@ -57,7 +57,7 @@ object ThreadCommunication extends App {
         container.wait()
       }
       // container must have some value because it can only be notified by producer.
-      println(s"[consumer] I have consumer ${container.get}")
+      println(s"[consumer] I have consumed ${container.get}")
     })
     val producer = new Thread(() => {
       println("[producer] computing...")
