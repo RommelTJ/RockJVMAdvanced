@@ -120,6 +120,10 @@ object Intro extends App {
   val threads = (1 to 100).map(_ => new Thread(() => x += 1))
   threads.foreach(_.start())
 
+  // Solution 2
+  // 1 - 100
+  // 2 - 1, for all threads might read x = 0 and write back x = 1 at same time.
+
   // Code 3
   var message = ""
   val awesomeThread = new Thread(() => {
