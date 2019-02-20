@@ -16,10 +16,10 @@ object Intro extends App {
   val aThread = new Thread(runnable)
 
   // Start gives the signal to the JVM to start a JVM thread.
-  aThread.start() // Will create a JVM thread, which runs on top of an OS system thread.
+//  aThread.start() // Will create a JVM thread, which runs on top of an OS system thread.
   // runnable.run() // This doesn't do anything in parallel.
 
-  aThread.join() // will block until thread finished running.
+//  aThread.join() // will block until thread finished running.
 
 //  val threadHello = new Thread(() => (1 to 5).foreach(_ => println("Hello")))
 //  val threadGoodbye = new Thread(() => (1 to 5).foreach(_ => println("Goodbye")))
@@ -45,24 +45,24 @@ object Intro extends App {
 //  // aPool.shutdownNow() // Throws InterruptedException
 //  println(aPool.isShutdown) // true
 
-  def runInParallel = {
-    var x = 0
-
-    val thread1 = new Thread(() => {
-      x = 1
-    })
-
-    val thread2 = new Thread(() => {
-      x = 2
-    })
-
-    thread1.start()
-    thread2.start()
-    println(x)
-  }
+//  def runInParallel = {
+//    var x = 0
+//
+//    val thread1 = new Thread(() => {
+//      x = 1
+//    })
+//
+//    val thread2 = new Thread(() => {
+//      x = 2
+//    })
+//
+//    thread1.start()
+//    thread2.start()
+//    println(x)
+//  }
 
   // Race condition!
-  for (_ <- 1 to 100) runInParallel
+//  for (_ <- 1 to 100) runInParallel
 
 //  class BankAccount(var amount: Int) {
 //    override def toString: String = s"$amount"
@@ -74,15 +74,15 @@ object Intro extends App {
   }
 
   // Race condition!
-  for (_ <- 1 to 1000) {
-    val account = new BankAccount(50000)
-    val thread1 = new Thread(() => buy(account, "Shoes", 3000))
-    val thread2 = new Thread(() => buy(account, "iPhone 12", 2000))
-    thread1.start()
-    thread2.start()
-    Thread.sleep(100)
-    println()
-  }
+//  for (_ <- 1 to 1000) {
+//    val account = new BankAccount(50000)
+//    val thread1 = new Thread(() => buy(account, "Shoes", 3000))
+//    val thread2 = new Thread(() => buy(account, "iPhone 12", 2000))
+//    thread1.start()
+//    thread2.start()
+//    Thread.sleep(100)
+//    println()
+//  }
 
   /*
   thread 1 = 50000
@@ -131,5 +131,16 @@ object Intro extends App {
   awesomeThread.start()
   Thread.sleep(2000)
   println(message)
+
+  // Solution 1
+  def inceptionThreads(maxThreads: Int, i: Int = 1): Thread = new Thread(() => {
+    if (i < maxThreads) {
+      val newThread = inceptionThreads(maxThreads, i + 1)
+      newThread.start()
+      newThread.join()
+    }
+    println(s"Hello from Thread $i")
+  })
+  inceptionThreads(50).start()
 
 }
