@@ -1,5 +1,8 @@
 package lectures.part3
 
+import scala.collection.mutable
+import scala.util.Random
+
 object ThreadCommunication extends App {
 
   /*
@@ -82,6 +85,62 @@ object ThreadCommunication extends App {
   producer -> [?, ?, ?] -> consumer
    */
 
-  
+  def producerConsumerLargeBuffer() = {
+    val buffer: mutable.Queue[Int] = new mutable.Queue[Int]
+    val capacity = 3
+
+    val consumer = new Thread(() => {
+      val random = new Random()
+
+      while(true) {
+        buffer.synchronized {
+          if (buffer.isEmpty) {
+            println("[consumer] buffer empty. waiting.")
+            buffer.wait()
+          }
+
+          // there must be at least one value in the buffer, either because buffer is not empty or
+          // i'm woken up by the producer.
+          val x = buffer.dequeue()
+          println(s"[consumer] I consumed x => $x")
+
+          // Notify that there's empty space in case producer is sleeping.
+          buffer.notify()
+        }
+
+        Thread.sleep(random.nextInt(500)) // random time between 0 and 500 ms.
+      }
+    })
+
+    val producer = new Thread(() => {
+      val random = new Random()
+      var i = 0
+
+      while(true) {
+        buffer.synchronized {
+          if (buffer.size == capacity) {
+            // CASE: Full buffer.
+            println("[producer] buffer full. waiting.")
+            buffer.wait()
+          }
+
+          // there must be at least one empty spot in the buffer, either because the buffer is not full
+          // or i'm woken up by the consumer.
+          println(s"[producer] producing i => $i")
+          buffer.enqueue(i)
+
+          // Notify that there's empty space in case consumer is sleeping.
+          buffer.notify()
+
+          i += 1
+        }
+
+        Thread.sleep(random.nextInt(500)) // random time between 0 and 500 ms.
+      }
+    })
+    consumer.start()
+    producer.start()
+  }
+  producerConsumerLargeBuffer()
 
 }
