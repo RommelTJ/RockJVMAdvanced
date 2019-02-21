@@ -48,6 +48,7 @@ object ThreadCommunication extends App {
   naiveProducerConsumer()
   */
 
+  /*
   // wait and notify
   def smartProducerConsumer(): Unit = {
     val container = new SimpleContainer
@@ -73,5 +74,14 @@ object ThreadCommunication extends App {
     producer.start()
   }
   smartProducerConsumer()
+  */
+
+  // Producer-Consumer Level 2
+
+  /*
+  producer -> [?, ?, ?] -> consumer
+   */
+
+  
 
 }
