@@ -160,15 +160,20 @@ object ThreadCommunication extends App {
 
       while(true) {
         buffer.synchronized {
-          if (buffer.isEmpty) {
-            println("[consumer] buffer empty. waiting.")
+          /*
+          Producer produced value, two Consumers are waiting
+          notifies ONE Consumer, notifies ONE on buffer
+          notifies the other Consumer
+           */
+          while (buffer.isEmpty) {
+            println(s"[consumer $id] buffer empty. waiting.")
             buffer.wait()
           }
 
           // there must be at least one value in the buffer, either because buffer is not empty or
           // i'm woken up by the producer.
           val x = buffer.dequeue()
-          println(s"[consumer] consumed x => $x")
+          println(s"[consumer $id] consumed x => $x")
 
           // Notify that there's empty space in case producer is sleeping.
           buffer.notify()
