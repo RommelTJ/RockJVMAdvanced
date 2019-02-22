@@ -154,4 +154,29 @@ object ThreadCommunication extends App {
   etc.
    */
 
+  class Consumer(id: Int, buffer: mutable.Queue[Int]) extends Thread {
+    override def run(): Unit = {
+      val random = new Random()
+
+      while(true) {
+        buffer.synchronized {
+          if (buffer.isEmpty) {
+            println("[consumer] buffer empty. waiting.")
+            buffer.wait()
+          }
+
+          // there must be at least one value in the buffer, either because buffer is not empty or
+          // i'm woken up by the producer.
+          val x = buffer.dequeue()
+          println(s"[consumer] consumed x => $x")
+
+          // Notify that there's empty space in case producer is sleeping.
+          buffer.notify()
+        }
+
+        Thread.sleep(random.nextInt(500)) // random time between 0 and 500 ms.
+      }
+    }
+  }
+
 }
