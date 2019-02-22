@@ -208,7 +208,7 @@ object ThreadCommunication extends App {
           i += 1
         }
 
-        Thread.sleep(random.nextInt(250)) // random time between 0 and 500 ms.
+        Thread.sleep(random.nextInt(500)) // random time between 0 and 500 ms.
       }
     }
   }
@@ -220,6 +220,6 @@ object ThreadCommunication extends App {
     (1 to nConsumers).foreach(i => new Consumer(i, buffer).start())
     (1 to nProducers).foreach(i => new Producer(i, buffer, capacity).start())
   }
-  multiProducerConsumers(3, 4)
+  multiProducerConsumers(3, 3)
 
 }
