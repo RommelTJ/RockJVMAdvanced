@@ -191,15 +191,15 @@ object ThreadCommunication extends App {
 
       while(true) {
         buffer.synchronized {
-          if (buffer.size == capacity) {
+          while (buffer.size == capacity) {
             // CASE: Full buffer.
-            println("[producer] buffer full. waiting.")
+            println(s"[producer $id] buffer full. waiting.")
             buffer.wait()
           }
 
           // there must be at least one empty spot in the buffer, either because the buffer is not full
           // or i'm woken up by the consumer.
-          println(s"[producer] producing i => $i")
+          println(s"[producer $id] producing i => $i")
           buffer.enqueue(i)
 
           // Notify that there's empty space in case consumer is sleeping.
