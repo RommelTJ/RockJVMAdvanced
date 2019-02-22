@@ -213,4 +213,13 @@ object ThreadCommunication extends App {
     }
   }
 
+  def multiProducerConsumers(nConsumers: Int, nProducers: Int): Unit = {
+    val buffer: mutable.Queue[Int] = new mutable.Queue[Int]
+    val capacity = 3
+
+    (1 to nConsumers).foreach(i => new Consumer(i, buffer).start())
+    (1 to nProducers).foreach(i => new Producer(i, buffer, capacity).start())
+  }
+  multiProducerConsumers(3, 4)
+
 }
