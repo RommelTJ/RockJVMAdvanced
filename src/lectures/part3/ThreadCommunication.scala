@@ -85,6 +85,7 @@ object ThreadCommunication extends App {
   producer -> [?, ?, ?] -> consumer
    */
 
+  /*
   def producerConsumerLargeBuffer() = {
     val buffer: mutable.Queue[Int] = new mutable.Queue[Int]
     val capacity = 3
@@ -142,5 +143,6 @@ object ThreadCommunication extends App {
     producer.start()
   }
   producerConsumerLargeBuffer()
+  */
 
 }
