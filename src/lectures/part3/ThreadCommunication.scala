@@ -145,4 +145,13 @@ object ThreadCommunication extends App {
   producerConsumerLargeBuffer()
   */
 
+  // Producer-Consumer Level 3
+
+  /*
+  producer1 -> [?, ?, ?] -> consumer1
+  producer2 ----^     ^---- consumer2
+  producer3 ----^     ^---- consumer3
+  etc.
+   */
+
 }
