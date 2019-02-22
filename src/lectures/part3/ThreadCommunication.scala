@@ -179,7 +179,7 @@ object ThreadCommunication extends App {
           buffer.notify()
         }
 
-        Thread.sleep(random.nextInt(500)) // random time between 0 and 500 ms.
+        Thread.sleep(random.nextInt(250)) // random time between 0 and 500 ms.
       }
     }
   }
