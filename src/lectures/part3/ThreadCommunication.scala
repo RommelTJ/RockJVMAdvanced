@@ -220,7 +220,7 @@ object ThreadCommunication extends App {
     (1 to nConsumers).foreach(i => new Consumer(i, buffer).start())
     (1 to nProducers).foreach(i => new Producer(i, buffer, capacity).start())
   }
-  multiProducerConsumers(3, 3)
+  // multiProducerConsumers(3, 3)
 
   /*
   Exercises:
@@ -228,5 +228,27 @@ object ThreadCommunication extends App {
   2) Create a deadlock
   3) Create a livelock (cannot continue but threads are all active)
    */
+
+  // Solution 1
+  def testNotifyAll() = {
+    val bell = new Object
+
+    (1 to 10).foreach(i => new Thread(() => {
+      bell.synchronized {
+        println(s"[thread $i] waiting...")
+        bell.wait()
+        println(s"[thread $i] hooray!")
+      }
+    }).start())
+
+    new Thread(() => {
+      Thread.sleep(2000)
+      println(s"[announcer] rock'n'roll!")
+      bell.synchronized {
+        bell.notifyAll() // if you use notify, only one thread will go on.
+      }
+    }).start()
+  }
+  testNotifyAll()
 
 }
