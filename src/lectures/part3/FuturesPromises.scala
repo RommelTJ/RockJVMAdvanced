@@ -16,11 +16,14 @@ object FuturesPromises extends App {
 
   // println(aFuture.value) // Option[Try[Int]] --> None
   println("Waiting on the future")
-  aFuture.onComplete(t => t match {
+//  aFuture.onComplete(t => t match {
+//    case Success(meaningOfLife) => println(s"the meaning of life is $meaningOfLife")
+//    case Failure(exception) => println(s"I failed with $exception")
+//  })
+  aFuture.onComplete {
     case Success(meaningOfLife) => println(s"the meaning of life is $meaningOfLife")
     case Failure(exception) => println(s"I failed with $exception")
-  })
+  }
   Thread.sleep(3000)
   
-
 }
