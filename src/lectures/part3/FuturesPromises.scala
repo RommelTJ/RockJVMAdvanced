@@ -23,7 +23,7 @@ object FuturesPromises extends App {
   aFuture.onComplete {
     case Success(meaningOfLife) => println(s"the meaning of life is $meaningOfLife")
     case Failure(exception) => println(s"I failed with $exception")
-  }
+  } // Not necessarily called by the same thread that created this
   Thread.sleep(3000)
   
 }
