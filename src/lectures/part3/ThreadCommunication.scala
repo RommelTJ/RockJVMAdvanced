@@ -222,4 +222,9 @@ object ThreadCommunication extends App {
   }
   multiProducerConsumers(3, 3)
 
+  /*
+  Exercises:
+  1) Think of an example where notifyAll acts in a different way than notify?
+   */
+
 }
