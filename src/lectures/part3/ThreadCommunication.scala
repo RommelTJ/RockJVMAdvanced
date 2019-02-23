@@ -225,6 +225,7 @@ object ThreadCommunication extends App {
   /*
   Exercises:
   1) Think of an example where notifyAll acts in a different way than notify?
+  2) Create a deadlock
    */
 
 }
