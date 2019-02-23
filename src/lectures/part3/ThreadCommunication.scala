@@ -253,6 +253,9 @@ object ThreadCommunication extends App {
 
   // Solution 2
   case class Friend(name: String) {
+
+    var sideOfRoad = "right"
+
     def bow(other: Friend) = {
       this.synchronized {
         println(s"$this: I am bowing to my friend $other")
@@ -266,10 +269,27 @@ object ThreadCommunication extends App {
         println(s"$this: I am rising to my friend $other")
       }
     }
+
+    def switchSide() = {
+      if (sideOfRoad == "right") sideOfRoad = "left"
+      else sideOfRoad = "right"
+    }
+
+    def pass(other: Friend) = {
+      while(this.sideOfRoad == other.sideOfRoad) {
+        println(s"$this: Oh, but please, $other, feel free to pass...")
+        switchSide()
+        Thread.sleep(1000)
+      }
+    }
   }
-  val Sam = Friend("Same")
+  val Sam = Friend("Sam")
   val Pierre = Friend("Pierre")
   // new Thread(() => Sam.bow(Pierre)).start()
   // new Thread(() => Pierre.bow(Sam)).start() // Boom - deadlocked!
-  
+
+  // Solution 3
+  new Thread(() => Sam.pass(Pierre)).start()
+  new Thread(() => Pierre.pass(Sam)).start() // Boom - livelocked!
+
 }
