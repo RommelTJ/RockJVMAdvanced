@@ -249,6 +249,27 @@ object ThreadCommunication extends App {
       }
     }).start()
   }
-  testNotifyAll()
+  // testNotifyAll()
 
+  // Solution 2
+  case class Friend(name: String) {
+    def bow(other: Friend) = {
+      this.synchronized {
+        println(s"$this: I am bowing to my friend $other")
+        other.rise(this)
+        println(s"$this: My friend $other has risen")
+      }
+    }
+
+    def rise(other: Friend) = {
+      this.synchronized {
+        println(s"$this: I am rising to my friend $other")
+      }
+    }
+  }
+  val Sam = Friend("Same")
+  val Pierre = Friend("Pierre")
+  // new Thread(() => Sam.bow(Pierre)).start()
+  // new Thread(() => Pierre.bow(Sam)).start() // Boom - deadlocked!
+  
 }
