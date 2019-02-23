@@ -11,6 +11,6 @@ object FuturesPromises extends App {
   }
   val aFuture = Future {
     calculateMeaningOfLife // calculates the meaning of life on another thread
-  }
+  } // compiler adds (global) implicit here.
 
 }
