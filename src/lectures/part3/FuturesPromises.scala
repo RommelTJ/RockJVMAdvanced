@@ -100,4 +100,9 @@ object FuturesPromises extends App {
 
   val fallbackResult = SocialNetwork.fetchProfile("unknown-id").fallbackTo(SocialNetwork.fetchProfile("fb.id.0-dummy"))
 
+  // Online Banking App
+
+  case class User(name: String)
+  case class Transaction(sender: String, receiver: String, amount: Double, status: String)
+
 }
