@@ -25,5 +25,11 @@ object FuturesPromises extends App {
     case Failure(exception) => println(s"I failed with $exception")
   } // Not necessarily called by the same thread that created this
   Thread.sleep(3000)
+
+  // Mini Social Network
+
+  case class Profile(id: String, name: String) {
+    def poke(anotherProfile: Profile): Unit = println(s"${this.name} poking ${anotherProfile.name}")
+  }
   
 }
