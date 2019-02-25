@@ -80,5 +80,13 @@ object FuturesPromises extends App {
   val nameOnTheWall = mark.map(profile => profile.name)
   val marksBestFriend = mark.flatMap(profile => SocialNetwork.fetchBestFriend(profile))
   val zucksBestFriendRestricted = marksBestFriend.filter(profile => profile.name.startsWith("Z"))
-  
+
+  // For-Comprehensions
+  for {
+    mark <- SocialNetwork.fetchProfile("fb.id.1-zuck")
+    bill <- SocialNetwork.fetchBestFriend(mark)
+  } yield mark.poke(bill)
+
+  Thread.sleep(1000)
+
 }
