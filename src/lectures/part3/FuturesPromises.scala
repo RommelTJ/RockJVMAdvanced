@@ -134,4 +134,6 @@ object FuturesPromises extends App {
     }
   }
 
+  println(BankingApp.purchase("Rommel", "iPhone12", "Rommel Banking Store", 1200))
+
 }
