@@ -74,5 +74,11 @@ object FuturesPromises extends App {
   }
 
   Thread.sleep(1000)
+
+  // Functional Composition of Futures
+  // Map, flatMap, filter
+  val nameOnTheWall = mark.map(profile => profile.name)
+  val marksBestFriend = mark.flatMap(profile => SocialNetwork.fetchBestFriend(profile))
+  val zucksBestFriendRestricted = marksBestFriend.filter(profile => profile.name.startsWith("Z"))
   
 }
