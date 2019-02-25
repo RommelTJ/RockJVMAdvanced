@@ -2,7 +2,7 @@ package lectures.part3
 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Failure, Success}
+import scala.util.{Failure, Random, Success}
 
 object FuturesPromises extends App {
 
@@ -30,6 +30,34 @@ object FuturesPromises extends App {
 
   case class Profile(id: String, name: String) {
     def poke(anotherProfile: Profile): Unit = println(s"${this.name} poking ${anotherProfile.name}")
+  }
+
+  object SocialNetwork {
+    // "database"
+
+    val names = Map(
+      "fb.id.1-zuck" -> "Mark",
+      "fb.id.2-bill" -> "Bill",
+      "fb.id.0-dummy" -> "Dummy"
+    )
+
+    val friends = Map("fb.id.1-zuck" -> "fb.id.2-bill")
+
+    val random = new Random()
+
+    // API
+
+    def fetchProfile(id: String): Future[Profile] = Future {
+      // Simulates fetching from the DB
+      Thread.sleep(random.nextInt(300))
+      Profile(id, names(id))
+    }
+
+    def fetchBestFriend(profile: Profile): Future[Profile] = Future {
+      Thread.sleep(random.nextInt(400))
+      val bestFriendId = friends(profile.id)
+      Profile(bestFriendId, names(bestFriendId))
+    }
   }
   
 }
