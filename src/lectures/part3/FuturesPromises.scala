@@ -167,4 +167,7 @@ object FuturesPromises extends App {
   5) retryUntil[T](action: () => Future[T], condition: T => Boolean): Future[T]
    */
 
+  // 1 - Fulfill Immediately
+  def fulfillImmediately[T](value: T): Future[T] = Future(value)
+  
 }
