@@ -169,5 +169,11 @@ object FuturesPromises extends App {
 
   // 1 - Fulfill Immediately
   def fulfillImmediately[T](value: T): Future[T] = Future(value)
-  
+
+  // 2 - inSequence
+  def inSequence[A, B](futureA: Future[A], futureB: Future[B]): Future[B] = {
+    // Once the first future is completed and I have the value, run the second future.
+    futureA.flatMap(a => futureB)
+  }
+
 }
