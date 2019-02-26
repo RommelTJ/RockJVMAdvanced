@@ -3,7 +3,7 @@ package lectures.part3
 import scala.concurrent.{Await, Future, Promise}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
-import scala.util.{Failure, Random, Success}
+import scala.util.{Failure, Random, Success, Try}
 
 object FuturesPromises extends App {
 
@@ -174,6 +174,16 @@ object FuturesPromises extends App {
   def inSequence[A, B](futureA: Future[A], futureB: Future[B]): Future[B] = {
     // Once the first future is completed and I have the value, run the second future.
     futureA.flatMap(a => futureB)
+  }
+
+  // 3 - first out of two futures
+  def first[A](futureA: Future[A], futureB: Future[A]): Future[A] = {
+    val promise = Promise[A]
+
+    futureA.onComplete(promise.tryComplete)
+    futureB.onComplete(promise.tryComplete)
+
+    promise.future
   }
 
 }
