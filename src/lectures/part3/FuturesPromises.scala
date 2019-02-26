@@ -158,4 +158,13 @@ object FuturesPromises extends App {
   producer.start()
   Thread.sleep(1000)
 
+  /*
+  Exercises:
+  1) Fulfill a Future IMMEDIATELY with a value.
+  2) Write a function called inSequence(futureA, futureB) that runs futureB after futureA is completed.
+  3) first(futureA, futureB) => new future with the first value of two futures
+  4) last(futureA, futureB) => new future with the last value of two futures
+  5) retryUntil[T](action: () => Future[T], condition: T => Boolean): Future[T]
+   */
+
 }
