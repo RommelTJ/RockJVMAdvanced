@@ -186,4 +186,19 @@ object FuturesPromises extends App {
     promise.future
   }
 
+  // 4 - last out of two futures
+  def last[A](futureA: Future[A], futureB: Future[A]): Future[A] = {
+    // Promise which both futures will try to complete
+    val bothPromise = Promise[A]
+    // Promise which will be completed by the last future.
+    val lastPromise = Promise[A]
+
+    val checkAndComplete = (result: Try[A]) => if (!bothPromise.tryComplete(result)) lastPromise.complete(result)
+
+    futureA.onComplete(checkAndComplete)
+    futureB.onComplete(checkAndComplete)
+
+    lastPromise.future
+  }
+
 }
