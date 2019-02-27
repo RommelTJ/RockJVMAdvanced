@@ -39,4 +39,11 @@ object ParallelUtils extends App {
   println(List(1, 2, 3).reduce(_ - _)) // -4 = 1 - 2 - 3
   println(List(1, 2, 3).par.reduce(_ - _)) // 2 = 3 - (2 - 1)
 
+  // Synchronization
+
+  var sum = 0
+  List(1, 2, 3).par.foreach(sum += _)
+  // race conditions
+  println(sum) // prints 6 but it's not guaranteed because sum might be accessed by a different thread.
+
 }
