@@ -226,4 +226,15 @@ object FuturesPromises extends App {
       }
   }
 
+  // Testing
+  val random = new Random()
+  val action = () => Future {
+    Thread.sleep(100)
+    val nextValue = random.nextInt(100)
+    println(s"generated: $nextValue")
+    nextValue
+  }
+  retryUntil(action, (x: Int) => x < 10).foreach(result => println(s"settled at: $result"))
+  Thread.sleep(10000)
+
 }
