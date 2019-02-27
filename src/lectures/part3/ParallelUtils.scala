@@ -1,6 +1,7 @@
 package lectures.part3
 
 import java.util.concurrent.ForkJoinPool
+import java.util.concurrent.atomic.AtomicReference
 
 import scala.collection.parallel.{ForkJoinTaskSupport, Task, TaskSupport}
 import scala.collection.parallel.immutable.ParVector
@@ -58,5 +59,17 @@ object ParallelUtils extends App {
 //    override def executeAndWaitResult[R, Tp](task: Task[R, Tp]): R = ???
 //    override def parallelismLevel: Int = ???
 //  }
+
+  // 2 - Atomic Operations and References
+
+  val atomic = new AtomicReference[Int](2)
+  val currentValue = atomic.get() // thread-safe read
+  atomic.set(4) // thread-safe write
+  atomic.getAndSet(5) // thread-safe read and write
+  atomic.compareAndSet(38, 56) // if value is 38, set to 56 (thread-safe) reference equality
+  atomic.updateAndGet(_ + 1) // thread-safe function run
+  atomic.getAndUpdate(_ + 1) // reverse of the above
+  atomic.accumulateAndGet(12, _ + _) // thread-safe accumulation in one-go
+  atomic.getAndAccumulate(12, _ + _) // reverse of the above
 
 }
