@@ -52,11 +52,11 @@ object ParallelUtils extends App {
   // Configuring
 
   parVector.tasksupport = new ForkJoinTaskSupport(new ForkJoinPool(2))
-  parVector.tasksupport = new TaskSupport {
-    override val environment: AnyRef = ???
-    override def execute[R, Tp](fjtask: Task[R, Tp]): () => R = ???
-    override def executeAndWaitResult[R, Tp](task: Task[R, Tp]): R = ???
-    override def parallelismLevel: Int = ???
-  }
+//  parVector.tasksupport = new TaskSupport {
+//    override val environment: AnyRef = ???
+//    override def execute[R, Tp](fjtask: Task[R, Tp]): () => R = ???
+//    override def executeAndWaitResult[R, Tp](task: Task[R, Tp]): R = ???
+//    override def parallelismLevel: Int = ???
+//  }
 
 }
