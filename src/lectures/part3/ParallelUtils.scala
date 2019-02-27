@@ -1,5 +1,8 @@
 package lectures.part3
 
+import java.util.concurrent.ForkJoinPool
+
+import scala.collection.parallel.{ForkJoinTaskSupport, Task, TaskSupport}
 import scala.collection.parallel.immutable.ParVector
 
 object ParallelUtils extends App {
@@ -45,5 +48,15 @@ object ParallelUtils extends App {
   List(1, 2, 3).par.foreach(sum += _)
   // race conditions
   println(sum) // prints 6 but it's not guaranteed because sum might be accessed by a different thread.
+
+  // Configuring
+
+  parVector.tasksupport = new ForkJoinTaskSupport(new ForkJoinPool(2))
+  parVector.tasksupport = new TaskSupport {
+    override val environment: AnyRef = ???
+    override def execute[R, Tp](fjtask: Task[R, Tp]): () => R = ???
+    override def executeAndWaitResult[R, Tp](task: Task[R, Tp]): R = ???
+    override def parallelismLevel: Int = ???
+  }
 
 }
