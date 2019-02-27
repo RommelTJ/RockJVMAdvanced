@@ -15,5 +15,16 @@ object ParallelUtils extends App {
   Set - Hash, Trie
    */
   // Leads to increased performance (in general)
-  
+
+  def measure[T](operation: => T): Long = {
+    val time = System.currentTimeMillis()
+    operation
+    System.currentTimeMillis() - time
+  }
+  val list = (1 to 10000000).toList
+  val serialTime = measure { list.map(_ + 1)}
+  val parallelTime = measure { list.par.map(_ + 1) }
+  println(s"serialTime: $serialTime") // 3619ms
+  println(s"parallelTime: $parallelTime") // 2047ms
+
 }
