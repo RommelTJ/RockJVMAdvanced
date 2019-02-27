@@ -27,4 +27,16 @@ object ParallelUtils extends App {
   println(s"serialTime: $serialTime") // 3619ms
   println(s"parallelTime: $parallelTime") // 2047ms
 
+  /*
+  Parallel Collections operate on a Map-reduce model
+  - split the elements into chunks with Splitter
+  - operation on every chunk is done on separate threads
+  - recombine with Combiner
+
+  Works with map, flatMap, filter, foreach, reduce, fold.
+  Be careful with reduce and fold. You may have issues with non-associative operators
+   */
+  println(List(1, 2, 3).reduce(_ - _)) // -4 = 1 - 2 - 3
+  println(List(1, 2, 3).par.reduce(_ - _)) // 2 = 3 - (2 - 1)
+
 }
