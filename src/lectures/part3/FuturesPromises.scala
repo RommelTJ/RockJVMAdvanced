@@ -201,4 +201,19 @@ object FuturesPromises extends App {
     lastPromise.future
   }
 
+  // Testing
+  val fast = Future {
+    Thread.sleep(100)
+    42
+  }
+
+  val slow = Future {
+    Thread.sleep(200)
+    45
+  }
+
+  first(fast, slow).foreach(println)
+  last(fast, slow).foreach(println)
+  Thread.sleep(1000)
+
 }
