@@ -216,4 +216,14 @@ object FuturesPromises extends App {
   last(fast, slow).foreach(println)
   Thread.sleep(1000)
 
+  // 5 - retryUntil
+  def retryUntil[A](action: () => Future[A], condition: A => Boolean): Future[A] = {
+    // trigger the action, filter on the condition, if we get no such element exception, retry!
+    action()
+      .filter(condition)
+      .recoverWith {
+        case _ => retryUntil(action, condition)
+      }
+  }
+
 }
