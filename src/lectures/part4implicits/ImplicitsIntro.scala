@@ -10,5 +10,7 @@ object ImplicitsIntro extends App {
   }
   implicit def fromStringToPerson(str: String): Person = Person(str)
   println("Peter".greet) // Hi, my name is Peter!
+  // Gets interpreted as
+  // println(fromStringToPerson("Peter").greet)
 
 }
