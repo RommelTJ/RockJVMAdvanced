@@ -8,5 +8,7 @@ object ImplicitsIntro extends App {
   case class Person(name: String) {
     def greet = s"Hi, my name is $name!"
   }
+  implicit def fromStringToPerson(str: String): Person = Person(str)
+  println("Peter".greet) // Hi, my name is Peter!
 
 }
