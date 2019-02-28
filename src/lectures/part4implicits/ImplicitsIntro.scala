@@ -13,4 +13,11 @@ object ImplicitsIntro extends App {
   // Gets interpreted as
   // println(fromStringToPerson("Peter").greet)
 
+//  class A {
+//    def greet: Int = 2
+//  }
+//  implicit def fromStringToA(str: String): A = new A
+  // If you have more than one implicit that match, then the compiler cannot infer one and
+  // the code won't compile.
+
 }
