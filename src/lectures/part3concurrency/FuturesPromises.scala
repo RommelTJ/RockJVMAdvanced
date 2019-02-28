@@ -1,4 +1,4 @@
-package lectures.part3
+package lectures.part3concurrency
 
 import scala.concurrent.{Await, Future, Promise}
 import scala.concurrent.ExecutionContext.Implicits.global

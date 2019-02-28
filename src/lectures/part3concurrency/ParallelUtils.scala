@@ -1,4 +1,4 @@
-package lectures.part3
+package lectures.part3concurrency
 
 import java.util.concurrent.ForkJoinPool
 import java.util.concurrent.atomic.AtomicReference
