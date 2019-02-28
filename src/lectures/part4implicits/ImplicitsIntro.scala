@@ -20,4 +20,10 @@ object ImplicitsIntro extends App {
   // If you have more than one implicit that match, then the compiler cannot infer one and
   // the code won't compile.
 
+  // implicit parameters
+  def increment(x: Int)(implicit amount: Int): Int = x + amount
+  implicit val defaultAmount = 10
+  val test = increment(2)
+  println(test) // 12! This is due to compiler finding implicit parameters in the "search scope".
+
 }
