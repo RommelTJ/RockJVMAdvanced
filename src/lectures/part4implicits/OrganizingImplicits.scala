@@ -14,4 +14,7 @@ object OrganizingImplicits extends App {
   - accessor methods = defs with no parenthesis
    */
 
+  // Exercise
+  case class Person(name: String, age: Int)
+
 }
