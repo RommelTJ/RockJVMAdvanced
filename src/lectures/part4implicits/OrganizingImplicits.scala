@@ -37,5 +37,7 @@ object OrganizingImplicits extends App {
   When defining an implicit val:
   1 - If there is a single possible value for it and you can edit the code for the type
     -> Define the implicit in the companion object
+  2 - If there are many possible values for the implicit val but a single good one and you can edit the code for the type
+    -> Define the good implicit in the companion and the other implicits elsewhere
    */
 }
