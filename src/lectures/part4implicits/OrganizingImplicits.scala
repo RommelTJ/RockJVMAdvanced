@@ -32,4 +32,10 @@ object OrganizingImplicits extends App {
     - In exercise, it would be List, Ordering, and all the types involved (Person or any supertype)
    */
 
+  /*
+  Best Practice:
+  When defining an implicit val:
+  1 - If there is a single possible value for it and you can edit the code for the type
+    -> Define the implicit in the companion object
+   */
 }
