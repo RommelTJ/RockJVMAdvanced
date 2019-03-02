@@ -78,12 +78,13 @@ object TypeClasses extends App {
 
   // Companion object serializer with implicit
   object HTMLSerializer {
-    def serializer[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
+    def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
       serializer.serialize(value)
   }
 
-  object IntSerializer extends HTMLSerializer[Int] {
+  implicit object IntSerializer extends HTMLSerializer[Int] {
     override def serialize(value: Int): String = s"<div style='color:blue;'>$value</div>"
   }
+  println(HTMLSerializer.serialize(42)(IntSerializer))
 
 }
