@@ -22,12 +22,13 @@ object TypeClasses extends App {
   object HTMLSerializerPatternMatching {
     def serializeToHTML(value: Any) = value match {
       case User(n, a, e) =>
-      // case java.util.Date =>
       case _ =>
     }
   }
 
   // Better design
+  // Advantages:
+  // We can define serializers for other types
   trait HTMLSerializer[T] {
     def serialize(value: T): String
   }
@@ -35,5 +36,11 @@ object TypeClasses extends App {
     def serialize(user: User): String = s"<div>${user.name} (${user.age} yo) <a href='${user.email}'/> </div"
   }
   println(UserSerializer.serialize(rommel))
+
+  // Defining serializer for some other (random) type
+  import java.util.Date
+  object DateSerializer extends HTMLSerializer[Date] {
+    def serialize(date: Date): String = s"<div>${date.toString}</div>"
+  }
 
 }
