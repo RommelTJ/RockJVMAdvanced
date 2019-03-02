@@ -6,4 +6,8 @@ object TypeClasses extends App {
     def toHTML: String
   }
 
+  case class User(name: String, age: Int, email: String) extends HTMLWriteable {
+    override def toHTML: String = s"<div>$name ($age yo) <a href=$email/> </div"
+  }
+
 }
