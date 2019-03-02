@@ -69,7 +69,7 @@ object TypeClasses extends App {
     def apply(a: T, b: T): Boolean
   }
   val rommel2 = User("Rommel", 30, "rommel@myemail2.com")
-  object UserNameCompare extends Equal[User] {
+  implicit object UserNameCompare extends Equal[User] {
     override def apply(a: User, b: User): Boolean = a.name == b.name
   }
   object UserNameEmailCompare extends Equal[User] {
@@ -101,5 +101,12 @@ object TypeClasses extends App {
   Exercise:
   Implement Type Class Pattern for the Equality Type Class.
    */
+
+  // Solution
+  object Equal {
+    def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =  equalizer.apply(a, b)
+  }
+  val rommel3 = User("Rommel", 45, "rommel3@testemail.com")
+  println(Equal.apply(rommel3, rommel))
 
 }
