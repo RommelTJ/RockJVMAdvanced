@@ -29,6 +29,7 @@ object TypeClasses extends App {
   // Better design
   // Advantages:
   // We can define serializers for other types
+  // We can define MULTIPLE serializers for a certain type
   trait HTMLSerializer[T] {
     def serialize(value: T): String
   }
@@ -41,6 +42,11 @@ object TypeClasses extends App {
   import java.util.Date
   object DateSerializer extends HTMLSerializer[Date] {
     def serialize(date: Date): String = s"<div>${date.toString}</div>"
+  }
+
+  // Defining multiple serializers
+  object PartialUserSerializer extends HTMLSerializer[User] {
+    override def serialize(user: User): String = s"<div>${user.name}</div>"
   }
 
 }
