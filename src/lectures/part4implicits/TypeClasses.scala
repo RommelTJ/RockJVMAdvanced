@@ -86,5 +86,6 @@ object TypeClasses extends App {
     override def serialize(value: Int): String = s"<div style='color:blue;'>$value</div>"
   }
   println(HTMLSerializer.serialize(42)(IntSerializer))
+  println(HTMLSerializer.serialize(42)) // Not magic! Implicit parameter!
 
 }
