@@ -65,7 +65,9 @@ object OrganizingImplicits extends App {
     Purchase(15, 25.00),
     Purchase(13, 1.25)
   )
-  implicit val totalPriceOrdering: Ordering[Purchase] = Ordering.fromLessThan((a, b) => (a.nUnits * a.unitPrice) > (b.nUnits * b.unitPrice))
+  object Purchase {
+    implicit val totalPriceOrdering: Ordering[Purchase] = Ordering.fromLessThan((a, b) => (a.nUnits * a.unitPrice) > (b.nUnits * b.unitPrice))
+  }
 
   object UnitCountOrdering {
     implicit val unitCountOrdering: Ordering[Purchase] = Ordering.fromLessThan(_.nUnits < _.nUnits)
