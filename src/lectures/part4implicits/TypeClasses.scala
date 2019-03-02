@@ -97,4 +97,9 @@ object TypeClasses extends App {
   // Access to the entire Type Class interface
   println(HTMLSerializer[User].serialize(rommel))
 
+  /*
+  Exercise:
+  Implement Type Class Pattern for the Equality Type Class.
+   */
+
 }
