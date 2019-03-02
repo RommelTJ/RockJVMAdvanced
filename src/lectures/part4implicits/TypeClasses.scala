@@ -107,6 +107,6 @@ object TypeClasses extends App {
     def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =  equalizer.apply(a, b)
   }
   val rommel3 = User("Rommel", 45, "rommel3@testemail.com")
-  println(Equal.apply(rommel3, rommel))
+  println(Equal(rommel3, rommel)) // Ad-hoc polymorphism
 
 }
