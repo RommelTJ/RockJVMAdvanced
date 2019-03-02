@@ -60,4 +60,20 @@ object TypeClasses extends App {
   Then implement two instances of this Equal Type class that compare users by name and name and email.
    */
 
+  // Exercise solution
+  trait Equal[T] {
+    def compare(a: T, b: T): Boolean
+  }
+  val rommel2 = User("Rommel", 30, "rommel@myemail2.com")
+  object UserNameCompare extends Equal[User] {
+    override def compare(a: User, b: User): Boolean = a.name == b.name
+  }
+  object UserNameEmailCompare extends Equal[User] {
+    override def compare(a: User, b: User): Boolean = {
+      (a.name == b.name) && (a.email == b.email)
+    }
+  }
+  println(UserNameCompare.compare(rommel, rommel2))
+  println(UserNameEmailCompare.compare(rommel, rommel2))
+
 }
