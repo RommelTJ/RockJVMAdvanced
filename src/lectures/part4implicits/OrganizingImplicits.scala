@@ -21,8 +21,8 @@ object OrganizingImplicits extends App {
     Person("Amy", 22),
     Person("John", 66)
   )
-  implicit val alphabeticalOrdering: Ordering[Person] = Ordering.fromLessThan(_.name < _.name)
-  println(persons.sorted)
+  // implicit val alphabeticalOrdering: Ordering[Person] = Ordering.fromLessThan(_.name < _.name)
+  // println(persons.sorted)
 
   /*
   Implicit Scope
@@ -40,4 +40,16 @@ object OrganizingImplicits extends App {
   2 - If there are many possible values for the implicit val but a single good one and you can edit the code for the type
     -> Define the good implicit in the companion and the other implicits elsewhere
    */
+
+  // Example
+  object AlphabeticalNameOrdering {
+    implicit val alphabeticalOrdering: Ordering[Person] = Ordering.fromLessThan(_.name < _.name)
+  }
+  object AgeOrdering {
+    implicit val ageOrdering: Ordering[Person] = Ordering.fromLessThan(_.age < _.age)
+  }
+  // import AlphabeticalNameOrdering._\
+  import AgeOrdering.ageOrdering
+  println(persons.sorted)
+
 }
