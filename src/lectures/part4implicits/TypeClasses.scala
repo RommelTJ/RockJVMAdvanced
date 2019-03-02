@@ -80,6 +80,7 @@ object TypeClasses extends App {
   object HTMLSerializer {
     def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
       serializer.serialize(value)
+    def apply[T](implicit serializer: HTMLSerializer[T]) = serializer
   }
 
   implicit object IntSerializer extends HTMLSerializer[Int] {
@@ -88,5 +89,8 @@ object TypeClasses extends App {
   println(HTMLSerializer.serialize(42)(IntSerializer))
   println(HTMLSerializer.serialize(42)) // Not magic! Implicit parameter!
   println(HTMLSerializer.serialize(rommel)) // Double not magic!
+
+  // Access to the entire Type Class interface
+  println(HTMLSerializer[User].serialize(rommel))
 
 }
