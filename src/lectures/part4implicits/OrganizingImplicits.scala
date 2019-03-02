@@ -58,4 +58,24 @@ object OrganizingImplicits extends App {
   // 3 - By Unit Price. Used 25% of the time by our backend.
   case class Purchase(nUnits: Int, unitPrice: Double)
 
+  // Solution
+  val purchases = List(
+    Purchase(2, 23.45),
+    Purchase(100, 0.99),
+    Purchase(15, 25.00),
+    Purchase(13, 1.25)
+  )
+  implicit val totalPriceOrdering: Ordering[Purchase] = Ordering.fromLessThan((a, b) => (a.nUnits * a.unitPrice) > (b.nUnits * b.unitPrice))
+
+  object UnitCountOrdering {
+    implicit val unitCountOrdering: Ordering[Purchase] = Ordering.fromLessThan(_.nUnits < _.nUnits)
+  }
+  object UnitPriceOrdering {
+    implicit val unitPriceOrdering: Ordering[Purchase] = Ordering.fromLessThan(_.unitPrice < _.unitPrice)
+  }
+
+  println(purchases.sorted)
+  println(purchases.sorted(UnitCountOrdering.unitCountOrdering))
+  println(purchases.sorted(UnitPriceOrdering.unitPriceOrdering))
+
 }
