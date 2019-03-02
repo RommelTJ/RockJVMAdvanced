@@ -82,4 +82,8 @@ object TypeClasses extends App {
       serializer.serialize(value)
   }
 
+  object IntSerializer extends HTMLSerializer[Int] {
+    override def serialize(value: Int): String = s"<div style='color:blue;'>$value</div>"
+  }
+
 }
