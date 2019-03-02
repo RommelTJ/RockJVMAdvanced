@@ -33,7 +33,7 @@ object TypeClasses extends App {
   trait HTMLSerializer[T] {
     def serialize(value: T): String
   }
-  object UserSerializer extends HTMLSerializer[User] {
+  implicit object UserSerializer extends HTMLSerializer[User] {
     def serialize(user: User): String = s"<div>${user.name} (${user.age} yo) <a href='${user.email}'/> </div"
   }
   println(UserSerializer.serialize(rommel))
@@ -87,5 +87,6 @@ object TypeClasses extends App {
   }
   println(HTMLSerializer.serialize(42)(IntSerializer))
   println(HTMLSerializer.serialize(42)) // Not magic! Implicit parameter!
+  println(HTMLSerializer.serialize(rommel)) // Double not magic!
 
 }
