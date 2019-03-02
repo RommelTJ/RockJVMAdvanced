@@ -16,5 +16,12 @@ object OrganizingImplicits extends App {
 
   // Exercise
   case class Person(name: String, age: Int)
+  val persons = List(
+    Person("Steve", 30),
+    Person("Amy", 22),
+    Person("John", 66)
+  )
+  implicit val alphabeticalOrdering: Ordering[Person] = Ordering.fromLessThan(_.name < _.name)
+  println(persons.sorted)
 
 }
