@@ -7,4 +7,11 @@ object OrganizingImplicits extends App {
   // implicit val normalOrdering: Ordering[Int] = Ordering.fromLessThan(_ > _) // Compilation error because of ambiguous implicit values
   println(List(1, 4, 5, 3, 2).sorted) // and now it's reversed
 
+  /*
+  Potential Implicit Values are:
+  - val/var
+  - object
+  - accessor methods = defs with no parenthesis
+   */
+
 }
