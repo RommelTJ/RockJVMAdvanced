@@ -76,4 +76,10 @@ object TypeClasses extends App {
   println(UserNameCompare(rommel, rommel2))
   println(UserNameEmailCompare(rommel, rommel2))
 
+  // Companion object serializer with implicit
+  object HTMLSerializer {
+    def serializer[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
+      serializer.serialize(value)
+  }
+
 }
