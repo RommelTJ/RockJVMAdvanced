@@ -49,4 +49,9 @@ object TypeClasses extends App {
     override def serialize(user: User): String = s"<div>${user.name}</div>"
   }
 
+  // Type Class Template
+  trait MyTypeClassTemplate[T] {
+    def action(value: T): String
+  }
+
 }
