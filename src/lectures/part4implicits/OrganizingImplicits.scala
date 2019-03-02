@@ -24,4 +24,12 @@ object OrganizingImplicits extends App {
   implicit val alphabeticalOrdering: Ordering[Person] = Ordering.fromLessThan(_.name < _.name)
   println(persons.sorted)
 
+  /*
+  Implicit Scope
+  - normal scope = LOCAL SCOPE, where we write our code
+  - imported scope, when we import it
+  - companion objects of all types involved in method signature
+    - In exercise, it would be List, Ordering, and all the types involved (Person or any supertype)
+   */
+
 }
