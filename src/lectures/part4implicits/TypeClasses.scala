@@ -54,4 +54,10 @@ object TypeClasses extends App {
     def action(value: T): String
   }
 
+  /*
+  Exercise:
+  Implement an equal type class that compares two values.
+  Then implement two instances of this Equal Type class that compare users by name and name and email.
+   */
+
 }
