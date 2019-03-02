@@ -52,4 +52,10 @@ object OrganizingImplicits extends App {
   import AgeOrdering.ageOrdering
   println(persons.sorted)
 
+  // Exercise:
+  // 1 - Add ordering for totalPrice. Used 50% of the time by our backend.
+  // 2 - Add ordering by Unit Count. Used 25% of the time by our backend.
+  // 3 - By Unit Price. Used 25% of the time by our backend.
+  case class Purchase(nUnits: Int, unitPrice: Double)
+
 }
