@@ -62,18 +62,18 @@ object TypeClasses extends App {
 
   // Exercise solution
   trait Equal[T] {
-    def compare(a: T, b: T): Boolean
+    def apply(a: T, b: T): Boolean
   }
   val rommel2 = User("Rommel", 30, "rommel@myemail2.com")
   object UserNameCompare extends Equal[User] {
-    override def compare(a: User, b: User): Boolean = a.name == b.name
+    override def apply(a: User, b: User): Boolean = a.name == b.name
   }
   object UserNameEmailCompare extends Equal[User] {
-    override def compare(a: User, b: User): Boolean = {
+    override def apply(a: User, b: User): Boolean = {
       (a.name == b.name) && (a.email == b.email)
     }
   }
-  println(UserNameCompare.compare(rommel, rommel2))
-  println(UserNameEmailCompare.compare(rommel, rommel2))
+  println(UserNameCompare(rommel, rommel2))
+  println(UserNameEmailCompare(rommel, rommel2))
 
 }
