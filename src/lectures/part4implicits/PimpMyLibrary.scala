@@ -45,4 +45,24 @@ object PimpMyLibrary extends App {
   println("22".asInt)
   println("dfhfdh".encrypt(4))
 
+  // Solution 2
+  implicit class RichInt(value: Int) {
+    def times(function: () => Unit): Unit = {
+      def timesAux(n: Int): Unit =
+        if (n <= 0) ()
+        else {
+          function()
+          timesAux(n - 1)
+        }
+      timesAux(value)
+    }
+
+    def *[T](list: List[T]): List[T] = {
+      def concatenate(n: Int): List[T] =
+        if (n <= 0) List()
+        else concatenate(n - 1) ++ list
+      concatenate(value)
+    }
+  }
+
 }
