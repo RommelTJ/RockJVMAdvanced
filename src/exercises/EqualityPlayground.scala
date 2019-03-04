@@ -59,5 +59,10 @@ object EqualityPlayground extends App {
     def ===(anotherValue: T)(implicit equalizer: Equal[T]): Boolean = equalizer(value, anotherValue)
     def !==(anotherValue: T)(implicit equalizer: Equal[T]): Boolean = !equalizer(value, anotherValue)
   }
-  
+  println(s"here1 ==> ${rommel === rommel2}")
+  // Compiler: rommel.===(rommel2)
+  // => new TypeSafeEqual[User](rommel).===(rommel2)
+  // => new TypeSafeEqual[User](rommel).===(rommel2)(NameEquality)
+  println(s"here1 ==> ${rommel !== rommel2}")
+
 }
