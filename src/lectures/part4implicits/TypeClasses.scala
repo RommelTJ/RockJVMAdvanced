@@ -85,4 +85,11 @@ object TypeClasses extends App {
   println(2.toHTMLEnriched)
   println(rommel.toHTMLEnriched(PartialUserSerializer))
 
+  /*
+  Type class pattern now composes of several parts:
+  - Type Class itself
+  - Type Class instances (some of which are implicit)
+  - Conversion with implicit classes
+   */
+
 }
