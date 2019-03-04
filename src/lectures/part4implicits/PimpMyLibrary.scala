@@ -76,4 +76,9 @@ object PimpMyLibrary extends App {
   class RichAlternativeInt(value: Int)
   implicit def enrich(value: Int): RichAlternativeInt = new RichAlternativeInt(value)
 
+  // DANGER ZONE
+  implicit def intToBoolean(i: Int): Boolean = i == 1
+  val aConditionedValue = if (3) "OK" else "Something else"
+  println(aConditionedValue) // prints "Something else" due to implicit method
+
 }
