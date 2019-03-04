@@ -97,4 +97,7 @@ object TypeClasses extends App {
   def htmlBoilerplate[T](content: T)(implicit serializer: HTMLSerializer[T]): String =
     s"<html><body>${content.toHTMLEnriched(serializer)}</body></html>"
 
+  def htmlSugar[T: HTMLSerializer](content: T): String =
+    s"<html><body>${content.toHTMLEnriched}</body></html>"
+
 }
