@@ -80,6 +80,7 @@ object TypeClasses extends App {
   - Can have different implementations for the same type
     -> Either by importing an implicit into the local scope,
     -> Or, passing the serializer explicitly
+  - Super expressive
    */
   println(2.toHTMLEnriched)
   println(rommel.toHTMLEnriched(PartialUserSerializer))
