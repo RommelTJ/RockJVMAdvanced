@@ -65,4 +65,7 @@ object PimpMyLibrary extends App {
   // Solution 2
   // See above
 
+  3.times(() => println("Scala Rocks!"))
+  println(4 * List(1, 2))
+
 }
