@@ -10,4 +10,6 @@ object PimpMyLibrary extends App {
 
   new RichInt(42).squareRoot
 
+  println(42.isEven) // Type enrichment or "pimping"
+
 }
