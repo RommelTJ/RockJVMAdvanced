@@ -12,4 +12,6 @@ object PimpMyLibrary extends App {
 
   println(42.isEven) // Type enrichment or "pimping"
 
+  1 to 10 // example of Pimping
+
 }
