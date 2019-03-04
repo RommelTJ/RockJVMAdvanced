@@ -11,6 +11,7 @@ object PimpMyLibrary extends App {
   new RichInt(42).squareRoot
 
   println(42.isEven) // Type enrichment or "pimping"
+  // Rewritten as new RichInt(42).isEven()
 
   1 to 10 // example of Pimping
 
