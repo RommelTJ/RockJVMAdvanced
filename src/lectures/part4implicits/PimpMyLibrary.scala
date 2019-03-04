@@ -8,6 +8,9 @@ object PimpMyLibrary extends App {
     def squareRoot: Double = Math.sqrt(value)
   }
 
+  implicit class RicherInt(richInt: RichInt) {
+    def isOdd: Boolean = richInt.value % 2 != 0
+  }
   new RichInt(42).squareRoot
 
   println(42.isEven) // Type enrichment or "pimping"
@@ -18,4 +21,6 @@ object PimpMyLibrary extends App {
   import scala.concurrent.duration._
   3.seconds // another example
 
+  // Compiler doesn't do multiple implicit searches.
+  // 42.isOdd // Cannot compile
 }
