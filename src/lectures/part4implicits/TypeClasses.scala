@@ -66,4 +66,10 @@ object TypeClasses extends App {
   // Access to the entire Type Class interface
   println(HTMLSerializer[User].serialize(rommel))
 
+  // Part 3
+
+  implicit class HTMLEnrichment[T](value: T) {
+    def toHTML(serializer: HTMLSerializer[T]): String = serializer.serialize(value)
+  }
+
 }
