@@ -49,15 +49,6 @@ object TypeClasses extends App {
     override def serialize(user: User): String = s"<div>${user.name}</div>"
   }
 
-  // Type Class Template
-  trait MyTypeClassTemplate[T] {
-    def action(value: T): String
-  }
-  object MyTypeClassTemplate {
-    // Allows surfacing the instance of the Type Class
-    def apply[T](implicit instance: MyTypeClassTemplate[T]): MyTypeClassTemplate[T] = instance
-  }
-
   // Companion object serializer with implicit
   object HTMLSerializer {
     def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
@@ -74,17 +65,5 @@ object TypeClasses extends App {
 
   // Access to the entire Type Class interface
   println(HTMLSerializer[User].serialize(rommel))
-
-  /*
-  Exercise:
-  Implement Type Class Pattern for the Equality Type Class.
-   */
-
-  // Solution
-  object Equal {
-    def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =  equalizer.apply(a, b)
-  }
-  val rommel3 = User("Rommel", 45, "rommel3@testemail.com")
-  println(Equal(rommel3, rommel)) // Ad-hoc polymorphism
 
 }
