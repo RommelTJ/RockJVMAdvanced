@@ -68,4 +68,8 @@ object PimpMyLibrary extends App {
   3.times(() => println("Scala Rocks!"))
   println(4 * List(1, 2))
 
+  // "3" / 4
+  implicit def stringToInt(string: String): Int = Integer.valueOf(string)
+  println("3" / 4)
+
 }
