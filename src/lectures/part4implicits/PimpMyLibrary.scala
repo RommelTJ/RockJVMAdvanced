@@ -37,4 +37,10 @@ object PimpMyLibrary extends App {
        3 * List(1, 2) => List(1, 2, 1, 2, 1, 2)
    */
 
+  // Solution 1
+  implicit class RichString(val value: String) extends AnyVal {
+    def asInt: Int = Integer.valueOf(value)
+    def encrypt(n: Int): String = value.map(c => (c + n).asInstanceOf[Char])
+  }
+
 }
