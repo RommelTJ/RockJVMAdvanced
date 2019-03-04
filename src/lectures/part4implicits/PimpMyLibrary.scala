@@ -81,4 +81,10 @@ object PimpMyLibrary extends App {
   val aConditionedValue = if (3) "OK" else "Something else"
   println(aConditionedValue) // prints "Something else" due to implicit method
 
+  // Pimp Libraries Reponsibly
+  // Keep type enrichment to implicit classes and type classes
+  // Avoid implicit defs as much as possible
+  // Package implicits clearly, bring into scope only what you need
+  // IF you need conversions, make them specific
+
 }
