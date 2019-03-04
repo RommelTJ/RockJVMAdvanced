@@ -36,4 +36,16 @@ object EqualityPlayground extends App {
   println(UserNameCompare(rommel, rommel2))
   println(UserNameEmailCompare(rommel, rommel2))
 
+  /*
+  Exercise:
+  Implement Type Class Pattern for the Equality Type Class.
+   */
+
+  // Solution
+  object Equal {
+    def apply[T](a: T, b: T)(implicit equalizer: Equal[T]): Boolean =  equalizer.apply(a, b)
+  }
+  val rommel3 = User("Rommel", 45, "rommel3@testemail.com")
+  println(Equal(rommel3, rommel)) // Ad-hoc polymorphism
+
 }
