@@ -55,4 +55,9 @@ object EqualityPlayground extends App {
   - Add !==(anotherValue: T)
    */
 
+  implicit class TypeSafeEqual[T](value: T) {
+    def ===(anotherValue: T)(implicit equalizer: Equal[T]): Boolean = equalizer(value, anotherValue)
+    def !==(anotherValue: T)(implicit equalizer: Equal[T]): Boolean = !equalizer(value, anotherValue)
+  }
+  
 }
