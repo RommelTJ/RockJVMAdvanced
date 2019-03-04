@@ -100,4 +100,8 @@ object TypeClasses extends App {
   def htmlSugar[T: HTMLSerializer](content: T): String =
     s"<html><body>${content.toHTMLEnriched}</body></html>"
 
+  // Implicitly
+
+  case class Permissions(mask: String)
+
 }
