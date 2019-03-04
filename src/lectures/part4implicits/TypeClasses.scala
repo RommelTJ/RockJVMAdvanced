@@ -74,5 +74,10 @@ object TypeClasses extends App {
   // Compiler: println(new HTMLEnrichment[User](rommel).toHTMLEnriched(UserSerialize))
   println(s"here ==> ${rommel.toHTMLEnriched(UserSerializer)}")
   println(s"here2 ==> ${rommel.toHTMLEnriched}") // Using an implicit param
+  /*
+  Advantages:
+  - Can extend functionality to new types
+   */
+  println(2.toHTMLEnriched)
 
 }
