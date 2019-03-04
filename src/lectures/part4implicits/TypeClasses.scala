@@ -103,5 +103,9 @@ object TypeClasses extends App {
   // Implicitly
 
   case class Permissions(mask: String)
+  implicit val defaultPermissions = Permissions("0744")
+
+  // in some other part of the code
+  val standardPermissions = implicitly[Permissions]
 
 }
