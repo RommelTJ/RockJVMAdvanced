@@ -87,9 +87,9 @@ object TypeClasses extends App {
 
   /*
   Type class pattern now composes of several parts:
-  - Type Class itself
-  - Type Class instances (some of which are implicit)
-  - Conversion with implicit classes
+  - Type Class itself (HTMLSerializer[T] { ... })
+  - Type Class instances (some of which are implicit) (UserSerializer, IntSerializer)
+  - Conversion with implicit classes (HTMLEnrichment)
    */
 
 }
