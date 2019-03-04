@@ -71,6 +71,7 @@ object TypeClasses extends App {
   implicit class HTMLEnrichment[T](value: T) {
     def toHTMLEnriched(serializer: HTMLSerializer[T]): String = serializer.serialize(value)
   }
+  // Compiler: println(new HTMLEnrichment[User](rommel).toHTMLEnriched(UserSerialize))
   println(s"here ==> ${rommel.toHTMLEnriched(UserSerializer)}")
 
 }
