@@ -92,4 +92,9 @@ object TypeClasses extends App {
   - Conversion with implicit classes (HTMLEnrichment)
    */
 
+  // Context bounds
+
+  def htmlBoilerplate[T](content: T)(implicit serializer: HTMLSerializer[T]): String =
+    s"<html><body>${content.toHTMLEnriched(serializer)}</body></html>"
+
 }
