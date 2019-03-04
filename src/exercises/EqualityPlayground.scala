@@ -65,4 +65,8 @@ object EqualityPlayground extends App {
   // => new TypeSafeEqual[User](rommel).===(rommel2)(NameEquality)
   println(s"here1 ==> ${rommel !== rommel2}")
 
+  // This approach is TYPE SAFE
+  // rommel == 42 // Can do this, but probably not what we want. No type checking
+  // rommel === 43 // Type mismatch error. Compiler does type checking and prevents us from being stupid
+
 }
