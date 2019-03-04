@@ -42,5 +42,7 @@ object PimpMyLibrary extends App {
     def asInt: Int = Integer.valueOf(value)
     def encrypt(n: Int): String = value.map(c => (c + n).asInstanceOf[Char])
   }
+  println("22".asInt)
+  println("dfhfdh".encrypt(4))
 
 }
