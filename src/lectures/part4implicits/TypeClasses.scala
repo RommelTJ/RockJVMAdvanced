@@ -58,28 +58,6 @@ object TypeClasses extends App {
     def apply[T](implicit instance: MyTypeClassTemplate[T]): MyTypeClassTemplate[T] = instance
   }
 
-  /*
-  Exercise:
-  Implement an equal type class that compares two values.
-  Then implement two instances of this Equal Type class that compare users by name and name and email.
-   */
-
-  // Exercise solution
-  trait Equal[T] {
-    def apply(a: T, b: T): Boolean
-  }
-  val rommel2 = User("Rommel", 30, "rommel@myemail2.com")
-  implicit object UserNameCompare extends Equal[User] {
-    override def apply(a: User, b: User): Boolean = a.name == b.name
-  }
-  object UserNameEmailCompare extends Equal[User] {
-    override def apply(a: User, b: User): Boolean = {
-      (a.name == b.name) && (a.email == b.email)
-    }
-  }
-  println(UserNameCompare(rommel, rommel2))
-  println(UserNameEmailCompare(rommel, rommel2))
-
   // Companion object serializer with implicit
   object HTMLSerializer {
     def serialize[T](value: T)(implicit serializer: HTMLSerializer[T]): String =
