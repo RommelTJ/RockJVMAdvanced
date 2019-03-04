@@ -48,4 +48,11 @@ object EqualityPlayground extends App {
   val rommel3 = User("Rommel", 45, "rommel3@testemail.com")
   println(Equal(rommel3, rommel)) // Ad-hoc polymorphism
 
+  /*
+  Exercise:
+  Improve Equal Type Class with an implicit conversion class
+  - Add ===(anotherValue: T)
+  - Add !==(anotherValue: T)
+   */
+
 }
