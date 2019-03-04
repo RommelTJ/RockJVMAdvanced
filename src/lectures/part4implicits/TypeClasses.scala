@@ -77,7 +77,11 @@ object TypeClasses extends App {
   /*
   Advantages:
   - Can extend functionality to new types
+  - Can have different implementations for the same type
+    -> Either by importing an implicit into the local scope,
+    -> Or, passing the serializer explicitly
    */
   println(2.toHTMLEnriched)
+  println(rommel.toHTMLEnriched(PartialUserSerializer))
 
 }
