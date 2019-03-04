@@ -23,4 +23,18 @@ object PimpMyLibrary extends App {
 
   // Compiler doesn't do multiple implicit searches.
   // 42.isOdd // Cannot compile
+
+  /*
+  Exercise:
+  1 - Enrich the String class by
+    -> Add asInt method
+    -> Add encrypt method (Caesar cypher), e.g. "John" with 2 chars -> "Lqjp"
+
+  2 - Keep enriching the Int class by
+    -> times(function)
+       3.times(() => ...)
+    -> *
+       3 * List(1, 2) => List(1, 2, 1, 2, 1, 2)
+   */
+
 }
