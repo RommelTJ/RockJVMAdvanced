@@ -8,4 +8,6 @@ object PimpMyLibrary extends App {
     def squareRoot: Double = Math.sqrt(value)
   }
 
+  new RichInt(42).squareRoot
+
 }
