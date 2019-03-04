@@ -72,4 +72,8 @@ object PimpMyLibrary extends App {
   implicit def stringToInt(string: String): Int = Integer.valueOf(string)
   println("3" / 4)
 
+  // Equivalent implementation of implicit class RichAlternativeInt(value: Int)
+  class RichAlternativeInt(value: Int)
+  implicit def enrich(value: Int): RichAlternativeInt = new RichAlternativeInt(value)
+
 }
