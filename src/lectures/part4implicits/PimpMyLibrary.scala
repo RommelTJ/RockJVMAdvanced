@@ -14,4 +14,7 @@ object PimpMyLibrary extends App {
 
   1 to 10 // example of Pimping
 
+  import scala.concurrent.duration._
+  3.seconds // another example
+
 }
