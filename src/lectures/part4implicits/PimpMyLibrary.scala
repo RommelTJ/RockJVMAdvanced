@@ -6,6 +6,23 @@ object PimpMyLibrary extends App {
   implicit class RichInt(val value: Int) extends AnyVal {
     def isEven: Boolean = value % 2 == 0
     def squareRoot: Double = Math.sqrt(value)
+
+    def times(function: () => Unit): Unit = {
+      def timesAux(n: Int): Unit =
+        if (n <= 0) ()
+        else {
+          function()
+          timesAux(n - 1)
+        }
+      timesAux(value)
+    }
+
+    def *[T](list: List[T]): List[T] = {
+      def concatenate(n: Int): List[T] =
+        if (n <= 0) List()
+        else concatenate(n - 1) ++ list
+      concatenate(value)
+    }
   }
 
   implicit class RicherInt(richInt: RichInt) {
@@ -46,23 +63,6 @@ object PimpMyLibrary extends App {
   println("dfhfdh".encrypt(4))
 
   // Solution 2
-  implicit class RichInt(value: Int) {
-    def times(function: () => Unit): Unit = {
-      def timesAux(n: Int): Unit =
-        if (n <= 0) ()
-        else {
-          function()
-          timesAux(n - 1)
-        }
-      timesAux(value)
-    }
-
-    def *[T](list: List[T]): List[T] = {
-      def concatenate(n: Int): List[T] =
-        if (n <= 0) List()
-        else concatenate(n - 1) ++ list
-      concatenate(value)
-    }
-  }
+  // See above
 
 }
