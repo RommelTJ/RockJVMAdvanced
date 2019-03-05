@@ -67,6 +67,13 @@ object JSONSerialization extends App {
   implicit object NumberConverter extends JSONConverter[Int] {
     override def convert(value: Int): JSONValue = JSONNumber(value)
   }
+  implicit object UserConverter extends JSONConverter[User] {
+    override def convert(user: User): JSONValue = JSONObject(Map(
+      "name" -> JSONString(user.name),
+      "age" -> JSONNumber(user.age),
+      "email" -> JSONString(user.email)
+    ))
+  }
 
   // Step 3 - Call stringify on result
 
