@@ -29,7 +29,7 @@ object JSONSerialization extends App {
     override def stringify: String = s"\"$value\""
   }
   final case class JSONNumber(value: Int) extends JSONValue {
-    override def stringify: String = ???
+    override def stringify: String = value.toString
   }
   final case class JSONArray(value: List[JSONValue]) extends JSONValue {
     override def stringify: String = ???
