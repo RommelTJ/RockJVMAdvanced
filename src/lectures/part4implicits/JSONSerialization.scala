@@ -20,9 +20,17 @@ object JSONSerialization extends App {
   3 - Serialize to JSON
    */
 
-  // Intermediate Data Type
+  // Step 1 - Intermediate Data Type
   sealed trait JSONValue {
     def stringify: String
   }
+
+  final case class JSONObject(values: Map[String, JSONValue]) extends JSONValue {
+
+  }
+
+  // Step 2 - Type Class
+
+  // Step 3 - Call stringify on result
 
 }
