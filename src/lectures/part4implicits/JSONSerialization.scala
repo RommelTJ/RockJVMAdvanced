@@ -47,9 +47,19 @@ object JSONSerialization extends App {
       List(JSONString("Scala Rocks!"), JSONNumber(42))
     )
   ))
-  println(data.stringify)
+  // println(data.stringify)
 
   // Step 2 - Type Class
+  /*
+  What we need:
+  1 - Type Class
+  2 - Type Class Instances (implicit)
+  3 - Pimp Library to use Type Class instances
+   */
+
+  trait JSONConverter[T] {
+    def convert(value: T): JSONValue
+  }
 
   // Step 3 - Call stringify on result
 
