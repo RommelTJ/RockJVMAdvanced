@@ -20,4 +20,9 @@ object JSONSerialization extends App {
   3 - Serialize to JSON
    */
 
+  // Intermediate Data Type
+  sealed trait JSONValue {
+    def stringify: String
+  }
+
 }
