@@ -87,6 +87,10 @@ object JSONSerialization extends App {
     ))
   }
 
+  implicit class JSONOps[T](value: T) {
+    def toJSON(implicit converter: JSONConverter[T]): JSONValue = converter.convert(value)
+  }
+
   // Step 3 - Call stringify on result
 
 }
