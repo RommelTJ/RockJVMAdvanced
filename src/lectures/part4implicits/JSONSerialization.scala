@@ -31,8 +31,8 @@ object JSONSerialization extends App {
   final case class JSONNumber(value: Int) extends JSONValue {
     override def stringify: String = value.toString
   }
-  final case class JSONArray(value: List[JSONValue]) extends JSONValue {
-    override def stringify: String = ???
+  final case class JSONArray(values: List[JSONValue]) extends JSONValue {
+    override def stringify: String = values.map(_.stringify).mkString("[", ",", "]")
   }
   final case class JSONObject(values: Map[String, JSONValue]) extends JSONValue {
     override def stringify: String = ???
