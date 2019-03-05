@@ -74,6 +74,12 @@ object JSONSerialization extends App {
       "email" -> JSONString(user.email)
     ))
   }
+  implicit object PostConverter extends JSONConverter[Post] {
+    override def convert(post: Post): JSONValue = JSONObject(Map(
+      "content" -> JSONString(post.content),
+      "created" -> JSONString(post.createdAt.toString)
+    ))
+  }
 
   // Step 3 - Call stringify on result
 
