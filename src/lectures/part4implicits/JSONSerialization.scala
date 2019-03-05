@@ -80,6 +80,12 @@ object JSONSerialization extends App {
       "created" -> JSONString(post.createdAt.toString)
     ))
   }
+  implicit object FeedConverter extends JSONConverter[Feed] {
+    override def convert(feed: Feed): JSONValue = JSONObject(Map(
+      "user" -> UserConverter.convert(feed.user),
+      "posts" -> JSONArray(feed.posts.map(PostConverter.convert))
+    ))
+  }
 
   // Step 3 - Call stringify on result
 
