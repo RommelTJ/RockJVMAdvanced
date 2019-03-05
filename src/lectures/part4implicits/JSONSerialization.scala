@@ -61,6 +61,10 @@ object JSONSerialization extends App {
     def convert(value: T): JSONValue
   }
 
+  implicit class JSONOps[T](value: T) {
+    def toJSON(implicit converter: JSONConverter[T]): JSONValue = converter.convert(value)
+  }
+
   implicit object StringConverter extends JSONConverter[String] {
     override def convert(value: String): JSONValue = JSONString(value)
   }
@@ -82,13 +86,9 @@ object JSONSerialization extends App {
   }
   implicit object FeedConverter extends JSONConverter[Feed] {
     override def convert(feed: Feed): JSONValue = JSONObject(Map(
-      "user" -> UserConverter.convert(feed.user),
-      "posts" -> JSONArray(feed.posts.map(PostConverter.convert))
+      "user" -> feed.user.toJSON,
+      "posts" -> JSONArray(feed.posts.map(_.toJSON))
     ))
-  }
-
-  implicit class JSONOps[T](value: T) {
-    def toJSON(implicit converter: JSONConverter[T]): JSONValue = converter.convert(value)
   }
 
   // Step 3 - Call stringify on result
