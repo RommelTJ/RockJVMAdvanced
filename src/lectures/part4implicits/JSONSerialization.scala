@@ -92,5 +92,12 @@ object JSONSerialization extends App {
   }
 
   // Step 3 - Call stringify on result
+  val now = new Date(System.currentTimeMillis())
+  val rommel = User("Rommel", 30, "rommel@rommel.com")
+  val feed = Feed(rommel, List(
+    Post("Hello World", now),
+    Post("Test", now)
+  ))
+  println(feed.toJSON.stringify)
 
 }
