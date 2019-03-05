@@ -26,10 +26,13 @@ object JSONSerialization extends App {
   }
 
   final case class JSONString(value: String) extends JSONValue {
-
+    override def stringify: String = ???
+  }
+  final case class JSONNumber(value: Int) extends JSONValue {
+    override def stringify: String = ???
   }
   final case class JSONObject(values: Map[String, JSONValue]) extends JSONValue {
-
+    override def stringify: String = ???
   }
 
   // Step 2 - Type Class
