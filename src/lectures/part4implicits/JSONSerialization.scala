@@ -26,7 +26,7 @@ object JSONSerialization extends App {
   }
 
   final case class JSONString(value: String) extends JSONValue {
-    override def stringify: String = s"\"$value\""
+    override def stringify: String = "\"" + value + "\""
   }
   final case class JSONNumber(value: Int) extends JSONValue {
     override def stringify: String = value.toString
@@ -36,7 +36,7 @@ object JSONSerialization extends App {
   }
   final case class JSONObject(values: Map[String, JSONValue]) extends JSONValue {
     override def stringify: String = values.map {
-      case (key, value) => s"\"$key\": ${value.stringify}"
+      case (key, value) => "\"" + key + "\": " + value.stringify
     }.mkString("{", ",", "}")
   }
 
