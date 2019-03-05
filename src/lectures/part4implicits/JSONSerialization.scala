@@ -25,6 +25,9 @@ object JSONSerialization extends App {
     def stringify: String
   }
 
+  final case class JSONString(value: String) extends JSONValue {
+
+  }
   final case class JSONObject(values: Map[String, JSONValue]) extends JSONValue {
 
   }
