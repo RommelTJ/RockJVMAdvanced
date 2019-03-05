@@ -40,6 +40,15 @@ object JSONSerialization extends App {
     }.mkString("{", ",", "}")
   }
 
+  // Testing
+  val data = JSONObject(Map(
+    "user" -> JSONString("Rommel"),
+    "posts" -> JSONArray(
+      List(JSONString("Scala Rocks!"), JSONNumber(42))
+    )
+  ))
+  println(data.stringify)
+
   // Step 2 - Type Class
 
   // Step 3 - Call stringify on result
