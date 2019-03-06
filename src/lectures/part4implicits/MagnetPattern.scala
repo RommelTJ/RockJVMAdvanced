@@ -34,4 +34,17 @@ object MagnetPattern extends App {
   // Actor API receive method in form of magnet
   def receive[R](magnet: MessageMagnet[R]): R = magnet()
 
+  implicit class FromP2PRequest(request: P2PRequest) extends MessageMagnet[Int] {
+    override def apply(): Int = {
+      println("Handling P2P request")
+      42
+    }
+  }
+  implicit class FromP2PResponse(response: P2PResponse) extends MessageMagnet[Int] {
+    override def apply(): Int = {
+      println("Handling P2P response")
+      24
+    }
+  }
+
 }
