@@ -90,4 +90,12 @@ object MagnetPattern extends App {
 //  val receiveFV = receive _
 //  receiveFV(new P2PResponse)
 
+  /*
+  Drawbacks of Magnet Pattern:
+  1 - More verbose
+  2 - Harder to Read (what the hell is a "magnet"?)
+  3 - You can't name or place default arguments
+  4 - Call-By-Name doesn't work correctly
+   */
+
 }
