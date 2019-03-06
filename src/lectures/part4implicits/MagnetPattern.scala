@@ -103,4 +103,34 @@ object MagnetPattern extends App {
   Prove that call-by-name doesn't work correctly. Hint: Think of side effects.
    */
 
+  // Solution
+  class Handler {
+    def handle(s: => String) = {
+      println(s)
+      println(s)
+    }
+    // other overloads
+  }
+  trait HandleMagnet {
+    def apply(): Unit
+  }
+  def handle(magnet: HandleMagnet) = magnet()
+  implicit class StringHandle(s: => String) extends HandleMagnet {
+    override def apply(): Unit = {
+      println(s)
+      println(s)
+    }
+  }
+  def sideEffectMethod(): String = {
+    println("Hello Scala")
+    "hahaha"
+  }
+  println("---")
+  handle(sideEffectMethod())
+  println("---")
+  handle {
+    println("Hello Scala")
+    "hahaha" // Converted to new StringHandle("hahaha")
+  }
+
 }
