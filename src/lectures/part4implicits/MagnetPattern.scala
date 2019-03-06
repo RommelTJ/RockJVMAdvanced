@@ -47,4 +47,7 @@ object MagnetPattern extends App {
     }
   }
 
+  receive(new P2PRequest)
+  receive(new P2PResponse)
+
 }
