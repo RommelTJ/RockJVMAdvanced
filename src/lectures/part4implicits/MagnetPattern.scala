@@ -27,4 +27,8 @@ object MagnetPattern extends App {
   4 - Type inference and default args
    */
 
+  trait MessageMagnet[Result] {
+    def apply(): Result
+  }
+
 }
