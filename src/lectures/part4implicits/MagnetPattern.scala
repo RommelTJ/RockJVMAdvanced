@@ -54,6 +54,7 @@ object MagnetPattern extends App {
   /*
   Advantages of Magnet Pattern:
   1 - No more type erasure problems
+  2 - Lifting works
    */
 
   // Example of Type Erasure problem
@@ -65,5 +66,24 @@ object MagnetPattern extends App {
   }
   println(receive(Future(new P2PResponse))) // This now compiles
   println(receive(Future(new P2PRequest))) // This now compiles
+
+  // Example of lifting problem
+  trait MathLib {
+    def add1(x: Int): Int = x + 1
+    def add1(s: String): Int = s.toInt + 1
+  }
+  trait AddMagnet {
+    def apply(): Int
+  }
+  def add1(magnet: AddMagnet): Int = magnet()
+  implicit class AddInt(x: Int) extends AddMagnet {
+    override def apply(): Int = x + 1
+  }
+  implicit class AddString(s: String) extends AddMagnet {
+    override def apply(): Int = s.toInt + 1
+  }
+  val addFV = add1 _
+  println(addFV(1)) // This now compiles
+  println(addFV("3")) // This now compiles
 
 }
