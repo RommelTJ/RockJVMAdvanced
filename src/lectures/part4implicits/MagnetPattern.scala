@@ -86,4 +86,8 @@ object MagnetPattern extends App {
   println(addFV(1)) // This now compiles
   println(addFV("3")) // This now compiles
 
+//  Cannot do this in receive because our Trait MessageMagnet has a type
+//  val receiveFV = receive _
+//  receiveFV(new P2PResponse)
+
 }
