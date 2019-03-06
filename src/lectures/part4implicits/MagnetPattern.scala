@@ -31,4 +31,7 @@ object MagnetPattern extends App {
     def apply(): Result
   }
 
+  // Actor API receive method in form of magnet
+  def receive[R](magnet: MessageMagnet[R]): R = magnet()
+
 }
