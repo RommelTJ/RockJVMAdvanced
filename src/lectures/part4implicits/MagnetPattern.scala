@@ -19,4 +19,12 @@ object MagnetPattern extends App {
     //... and lots of other overloads
   }
 
+  /*
+  Problems:
+  1 - Type Erasure
+  2 - Lifting doesn't work for all overloads
+  3 - Code duplication
+  4 - Type inference and default args
+   */
+
 }
