@@ -98,4 +98,9 @@ object MagnetPattern extends App {
   4 - Call-By-Name doesn't work correctly
    */
 
+  /*
+  Exercise:
+  Prove that call-by-name doesn't work correctly. Hint: Think of side effects.
+   */
+
 }
