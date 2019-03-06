@@ -1,6 +1,7 @@
 package lectures.part4implicits
 
 import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 // Aims solving problems with Method overloading
 object MagnetPattern extends App {
@@ -49,5 +50,20 @@ object MagnetPattern extends App {
 
   receive(new P2PRequest)
   receive(new P2PResponse)
+
+  /*
+  Advantages of Magnet Pattern:
+  1 - No more type erasure problems
+   */
+
+  // Example of Type Erasure problem
+  implicit class FromResponseFuture(future: Future[P2PResponse]) extends MessageMagnet[Int] {
+    override def apply(): Int = 2
+  }
+  implicit class FromRequestFuture(future: Future[P2PRequest]) extends MessageMagnet[Int] {
+    override def apply(): Int = 3
+  }
+  println(receive(Future(new P2PResponse))) // This now compiles
+  println(receive(Future(new P2PRequest))) // This now compiles
 
 }
