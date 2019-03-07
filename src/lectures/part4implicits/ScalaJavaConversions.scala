@@ -11,5 +11,12 @@ object ScalaJavaConversions extends App {
   println(javaSet)
   val scalaSet = javaSet.asScala // implicit conversion to mutable Set
 
+  /* Conversion methods that exist:
+  - Iterable
+  - Iterator
+  - ju.List - scala.mutable.Buffer
+  - ju.Set - scala.mutable.Set
+  - ju.Map - scala.mutable.Map
+   */
 
 }
