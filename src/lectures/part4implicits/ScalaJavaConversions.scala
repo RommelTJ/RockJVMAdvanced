@@ -33,4 +33,9 @@ object ScalaJavaConversions extends App {
   println(backToScala == numbers) // true! Deep equality.
   // juNumbers.add(7) // EXCEPTION! Can't do this because juNumbers is immutable.
 
+  /*
+  Exercise:
+  Create a Scala to Java Conversion between an Optional and a Scala Option
+   */
+
 }
