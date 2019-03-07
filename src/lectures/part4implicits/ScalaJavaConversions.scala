@@ -25,4 +25,12 @@ object ScalaJavaConversions extends App {
   val juNumbersBuffer = numbersBuffer.asJava
   println(juNumbersBuffer.asScala eq numbersBuffer) // true
 
+  // Comparing converted collections
+  val numbers = List(1, 2, 3)
+  val juNumbers = numbers.asJava
+  val backToScala = juNumbers.asScala
+  println(backToScala eq numbers) // false! Because not referentially correct (different instances)
+  println(backToScala == numbers) // true! Deep equality.
+  // juNumbers.add(7) // EXCEPTION! Can't do this because juNumbers is immutable.
+
 }
