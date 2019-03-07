@@ -1,4 +1,4 @@
-package lectures.part2
+package lectures.part2fp
 
 import scala.io.Source.stdin
 
