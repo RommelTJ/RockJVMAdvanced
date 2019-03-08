@@ -9,5 +9,9 @@ object RockingInheritance extends App {
   trait Closeable {
     def close(status: Int): Unit
   }
+  trait GenericStream[T] {
+    // some methods
+    def foreach(f: T => Unit): Unit
+  }
 
 }
