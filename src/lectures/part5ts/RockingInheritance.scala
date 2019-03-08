@@ -6,5 +6,8 @@ object RockingInheritance extends App {
   trait Writer[T] {
     def write(value: T): Unit
   }
+  trait Closeable {
+    def close(status: Int): Unit
+  }
 
 }
