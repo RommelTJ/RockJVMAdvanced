@@ -31,10 +31,8 @@ object RockingInheritance extends App {
   trait Tiger extends Animal {
     override def name: String = "Tiger"
   }
-  class Mutant extends Lion with Tiger {
-    override def name: String = "Alien"
-  }
+  class Mutant extends Lion with Tiger
   val mutant = new Mutant().name
-  println(mutant) // Alien
+  println(mutant) // Alien // Tiger
 
 }
