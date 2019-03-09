@@ -23,16 +23,18 @@ object RockingInheritance extends App {
 
   // Diamond Problem
   trait Animal {
-    def name: String
+    def name: String = "Animal"
   }
   trait Lion extends Animal {
-    def name: String
+    override def name: String = "Lion"
   }
   trait Tiger extends Animal {
-    def name: String
+    override def name: String = "Tiger"
   }
   class Mutant extends Lion with Tiger {
     override def name: String = "Alien"
   }
+  val mutant = new Mutant().name
+  println(mutant) // Alien
 
 }
