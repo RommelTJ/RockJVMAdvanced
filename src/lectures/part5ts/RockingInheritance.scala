@@ -43,4 +43,33 @@ object RockingInheritance extends App {
   Last override always gets picked!
    */
 
+  // The super problem + type linearization
+  trait Cold {
+    def print(): Unit = println("cold")
+  }
+  trait Green extends Cold {
+    override def print(): Unit = {
+      println("green")
+      super.print()
+    }
+  }
+  trait Blue extends Cold {
+    override def print(): Unit = {
+      println("blue")
+      super.print()
+    }
+  }
+  class Red {
+    def print(): Unit = println("red")
+  }
+  class White extends Red with Green with Blue {
+    override def print(): Unit = {
+      println("white")
+      super.print()
+    }
+  }
+  val color = new White
+  color.print() // prints white, blue, green, cold
+
+
 }
