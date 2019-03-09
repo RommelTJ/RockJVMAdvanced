@@ -71,5 +71,6 @@ object RockingInheritance extends App {
   val color = new White
   color.print() // prints white, blue, green, cold
 
+  // In type linearization, 'super' looks at the type immediately to the left in the type linearization
 
 }
