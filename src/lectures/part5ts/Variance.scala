@@ -22,4 +22,9 @@ object Variance extends App {
   // val icage: ICage[Animal] = new ICage[Cat] // wrong!
   // val x: Int = "hello" // just as wrong!
 
+  // 3 - Hell No! (opposite) - Contravariance
+  class XCage[-T]
+  val xcage: XCage[Cat] = new XCage[Animal] // valid!
+  // I.e. Replacing a specific cage of cat with a generic cage of animal
+
 }
