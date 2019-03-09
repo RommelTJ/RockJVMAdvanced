@@ -45,4 +45,8 @@ object Variance extends App {
   // val ccage: CCage[Animal] = new CCage[Cat](new Cat)
   // ccage.animal = new Crocodile
 
+  // class ContravariantVariableCage[-T](var animal: T) // this also won't compile -> also in COVARIANT POSITION
+  // Why? Contravariant Type T (-T) occurs in covariant position in type T of variable animal
+  // val catCage: XCage[Cat] = new XCage[Animal](new Crocodile)
+
 }
