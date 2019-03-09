@@ -21,4 +21,18 @@ object RockingInheritance extends App {
     stream.close(200)
   }
 
+  // Diamond Problem
+  trait Animal {
+    def name: String
+  }
+  trait Lion extends Animal {
+    def name: String
+  }
+  trait Tiger extends Animal {
+    def name: String
+  }
+  class Mutant extends Lion with Tiger {
+    override def name: String = "Alien"
+  }
+
 }
