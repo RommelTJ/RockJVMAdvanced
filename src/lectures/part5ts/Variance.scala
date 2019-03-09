@@ -49,4 +49,8 @@ object Variance extends App {
   // Why? Contravariant Type T (-T) occurs in covariant position in type T of variable animal
   // val catCage: XCage[Cat] = new XCage[Animal](new Crocodile)
 
+  // Because variables are in Covariant and Contravariant position, the only acceptable type for a variable field is
+  // INVARIANT
+  class InvariantVariableCage[T](var animal: T) // OK
+
 }
