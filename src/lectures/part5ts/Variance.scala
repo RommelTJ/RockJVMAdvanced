@@ -27,6 +27,10 @@ object Variance extends App {
   val xcage: XCage[Cat] = new XCage[Animal] // valid!
   // I.e. Replacing a specific cage of cat with a generic cage of animal
 
-  class InvariantCage[T](animal: T) // Invariant
+  class InvariantCage[T](val animal: T) // Invariant
+
+  // Covariant Positions
+  class CovariantCage[+T](val animal: T) // animal is in a COVARIANT POSITION
+  // compiler accepts a field in a covariant position with an invariant type
 
 }
