@@ -10,4 +10,11 @@ object Variance extends App {
   // What is variance?
   // "inheritance" - type substitution of Generics
 
+  class Cage[T]
+  // Should a Cage[Cat] also inherit from Cage[Animal]?
+  // Possible Answers:
+  // 1 - yes - Covariance
+  class CCage[+T]
+  val ccage: CCage[Animal] = new CCage[Cat]
+
 }
