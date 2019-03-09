@@ -35,4 +35,12 @@ object RockingInheritance extends App {
   val mutant = new Mutant().name
   println(mutant) // Alien // Tiger
 
+  /*
+  Prints Tiger because it's the same as:
+  Mutant extends Animal with { override def name: String = "Lion" }
+    with Animal with { override def name: String = "Tiger" }
+
+  Last override always gets picked!
+   */
+
 }
