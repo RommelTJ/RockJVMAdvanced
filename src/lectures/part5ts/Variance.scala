@@ -17,4 +17,9 @@ object Variance extends App {
   class CCage[+T]
   val ccage: CCage[Animal] = new CCage[Cat]
 
+  // 2 - no - Invariance
+  class ICage[T]
+  // val icage: ICage[Animal] = new ICage[Cat] // wrong!
+  // val x: Int = "hello" // just as wrong!
+
 }
