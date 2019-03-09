@@ -38,4 +38,11 @@ object Variance extends App {
   // Why? If the compiler allowed it, then I would be able to write something like:
   // val catCage: XCage[Cat] = new XCage[Animal](new Crocodile)
 
+  // class CovariantVariableCage[+T](var animal: T) // boom!
+  // compiler doesn't accept a var of covariant type in a contravariant position
+  // Types of vars are in CONTRAVARIANT POSITION
+  // Why? If the compiler allowed it, then I would be able to write something like:
+  // val ccage: CCage[Animal] = new CCage[Cat](new Cat)
+  // ccage.animal = new Crocodile
+
 }
