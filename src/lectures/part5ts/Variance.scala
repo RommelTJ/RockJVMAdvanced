@@ -27,4 +27,6 @@ object Variance extends App {
   val xcage: XCage[Cat] = new XCage[Animal] // valid!
   // I.e. Replacing a specific cage of cat with a generic cage of animal
 
+  class InvariantCage[T](animal: T) // Invariant
+
 }
