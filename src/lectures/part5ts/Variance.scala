@@ -7,4 +7,7 @@ object Variance extends App {
   class Cat extends Animal
   class Crocodile extends Animal
 
+  // What is variance?
+  // "inheritance" - type substitution of Generics
+
 }
