@@ -33,4 +33,9 @@ object Variance extends App {
   class CovariantCage[+T](val animal: T) // animal is in a COVARIANT POSITION
   // compiler accepts a field in a covariant position with an invariant type
 
+  // class ContravariantCage[-T](val animal: T) // boom!
+  // compiler doesn't accept a field in a contravariant position with an invariant type
+  // Why? If the compiler allowed it, then I would be able to write something like:
+  // val catCage: XCage[Cat] = new XCage[Animal](new Crocodile)
+
 }
