@@ -102,4 +102,10 @@ object Variance extends App {
   class TerraNova extends Dog
   val bigFurry = shop.get(true, new TerraNova) // OK!
 
+  /*
+  Big rule:
+  - Method arguments are in CONTRAVARIANT position
+  - Return types are in COVARIANT position
+   */
+
 }
