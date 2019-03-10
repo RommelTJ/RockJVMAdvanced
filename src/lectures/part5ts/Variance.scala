@@ -81,4 +81,6 @@ object Variance extends App {
   val evenMoreAnimals = moreAnimals.add(new Dog)
   animals.add(evenMoreAnimals)
 
+  // METHOD ARGUMENTS ARE IN CONTRAVARIANT POSITION
+
 }
