@@ -53,4 +53,8 @@ object Variance extends App {
   // INVARIANT
   class InvariantVariableCage[T](var animal: T) // OK
 
+  trait AnotherCovariantCage[+T] {
+    def addAnimal(animal: T) // method arguments are in CONTRAVARIANT POSITION
+  }
+
 }
