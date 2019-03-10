@@ -94,6 +94,12 @@ object Variance extends App {
     val dogShop: PetShop[Dog] = catShop
     dogShop.get(true) => Evil Cat!
      */
+
+    def get[S <: T](isItAPuppy: Boolean, defaultAnimal: S): S = defaultAnimal
   }
+  val shop: PetShop[Dog] = new PetShop[Animal]
+  // val evilCat = shop.get(true, new Cat) // Compiler error!
+  class TerraNova extends Dog
+  val bigFurry = shop.get(true, new TerraNova) // OK!
 
 }
