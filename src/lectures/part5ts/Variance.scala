@@ -70,4 +70,15 @@ object Variance extends App {
   class Kitty extends Cat
   acc.addAnimal(new Kitty)
 
+  class MyList[+A] {
+    // def add(element: A): MyList[A] // wrong!
+    def add[B >: A](element: B): MyList[B] = new MyList[B] // widening the type! This is what we want.
+  }
+  val emptyList = new MyList[Kitty]
+  val animals = emptyList.add(new Kitty)
+  val moreAnimals = animals.add(new Cat)
+  animals.add(moreAnimals)
+  val evenMoreAnimals = moreAnimals.add(new Dog)
+  animals.add(evenMoreAnimals)
+
 }
