@@ -83,4 +83,9 @@ object Variance extends App {
 
   // METHOD ARGUMENTS ARE IN CONTRAVARIANT POSITION
 
+  // Return Types
+  class PetShop[-T] {
+    def get(isItAPuppy: Boolean): T // Method return types are in covariant position
+  }
+
 }
