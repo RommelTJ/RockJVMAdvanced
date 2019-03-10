@@ -61,4 +61,13 @@ object Variance extends App {
   ccage.add(new Cat) // wrong!
    */
 
+  class AnotherContravariantCage[-T] {
+    def addAnimal(animal: T) = true // OK!
+  }
+  val acc: AnotherContravariantCage[Cat] = new AnotherContravariantCage[Animal]
+  // acc.addAnimal(new Dog) // Compiler stops you!
+  acc.addAnimal(new Cat)
+  class Kitty extends Cat
+  acc.addAnimal(new Kitty)
+
 }
