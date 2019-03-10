@@ -85,7 +85,15 @@ object Variance extends App {
 
   // Return Types
   class PetShop[-T] {
-    def get(isItAPuppy: Boolean): T // Method return types are in covariant position
+    // def get(isItAPuppy: Boolean): T // Method return types are in covariant position
+    /*
+    Why not allowed?
+    val catShop = new PetShop[Animal] {
+      def get(isItAPuppy: Boolean): Animal = new Cat
+    }
+    val dogShop: PetShop[Dog] = catShop
+    dogShop.get(true) => Evil Cat!
+     */
   }
 
 }
