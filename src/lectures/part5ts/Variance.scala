@@ -110,10 +110,21 @@ object Variance extends App {
 
   /**
     * Exercise:
-    * Design an Invariant, Covariant, and Contravariant Parking[T](things: List[T])
+    * 1. Design an Invariant, Covariant, and Contravariant
+    * Parking[T](things: List[T]) {
+    *   park(vehicle: T)
+    *   impound(vehicles: List[T])
+    *   checkVehicles(conditions: String): List[T]
+    * }
+    *
+    * 2. What if we used someone else's (invariant) API: IList[T]
+    * 3. Make Parking a Monad!
+    *   - flatMap
     */
   class Vehicle
   class Bike extends Vehicle
   class Car extends Vehicle
+
+  class IList[T]
 
 }
