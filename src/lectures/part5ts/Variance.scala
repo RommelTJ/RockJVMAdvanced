@@ -112,5 +112,8 @@ object Variance extends App {
     * Exercise:
     * Design an Invariant, Covariant, and Contravariant Parking[T](things: List[T])
     */
+  class Vehicle
+  class Bike extends Vehicle
+  class Car extends Vehicle
 
 }
