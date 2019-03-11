@@ -108,4 +108,9 @@ object Variance extends App {
   - Return types are in COVARIANT position
    */
 
+  /**
+    * Exercise:
+    * Design an Invariant, Covariant, and Contravariant Parking[T](things: List[T])
+    */
+
 }
