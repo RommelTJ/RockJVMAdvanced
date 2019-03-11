@@ -127,12 +127,16 @@ object Variance extends App {
   class IList[T]
 
   // Solution 1
-  // Invariant
+  // Invariant - Limiting because they only allow one type
   class IParking[T](vehicles: List[T]) {
     def park(vehicle: T): IParking[T] = ???
     def impound(vehicles: List[T]): IParking[T] = ???
     def checkVehicles(conditions: String): List[T] = ???
   }
+
+  // Rule of thumb:
+  // Use Covariance = COLLECTION OF THINGS
+  // Use Contravariance = GROUP OF ACTIONS
 
   // Covariant
   class CParking[+T](vehicles: List[T]) {
