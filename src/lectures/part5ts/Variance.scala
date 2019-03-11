@@ -169,4 +169,32 @@ object Variance extends App {
     def checkVehicles[S <: T](conditions: String): IList[S] = ???
   }
 
+  // Solution 3
+  // Invariant
+  class IParking3[T](vehicles: List[T]) {
+    def park(vehicle: T): IParking3[T] = ???
+    def impound(vehicles: List[T]): IParking3[T] = ???
+    def checkVehicles(conditions: String): List[T] = ???
+
+    def flatMap[S](f: T => IParking3[S]): IParking3[S] = ???
+  }
+
+  // Covariant
+  class CParking3[+T](vehicles: List[T]) {
+    def park[S >: T](vehicle: S): CParking3[S] = ???
+    def impound[S >: T](vehicles: List[S]): CParking3[S] = ???
+    def checkVehicles(conditions: String): List[T] = ???
+
+    def flatMap[S](f: T => CParking3[S]): CParking3[S] = ???
+  }
+
+  // Contravariant
+  class XParking3[-T](vehicles: List[T]) {
+    def park(vehicle: T): XParking3[T] = ???
+    def impound(vehicles: List[T]): XParking3[T] = ???
+    def checkVehicles[S <: T](conditions: String): List[S] = ???
+
+    def flatMap[R <: T, S](f: R => XParking3[S]): XParking3[S] = ???
+  }
+
 }
