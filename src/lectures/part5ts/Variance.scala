@@ -134,4 +134,11 @@ object Variance extends App {
     def checkVehicles(conditions: String): List[T] = ???
   }
 
+  // Covariant
+  class CParking[+T](vehicles: List[T]) {
+    def park[S >: T](vehicle: S): CParking[S] = ???
+    def impound[S >: T](vehicles: List[S]): CParking[S] = ???
+    def checkVehicles(conditions: String): List[T] = ???
+  }
+
 }
