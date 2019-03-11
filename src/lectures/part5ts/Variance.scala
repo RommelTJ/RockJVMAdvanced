@@ -141,4 +141,11 @@ object Variance extends App {
     def checkVehicles(conditions: String): List[T] = ???
   }
 
+  // Contravariant
+  class XParking[-T](vehicles: List[T]) {
+    def park(vehicle: T): XParking[T] = ???
+    def impound(vehicles: List[T]): XParking[T] = ???
+    def checkVehicles[S <: T](conditions: String): List[S] = ???
+  }
+
 }
