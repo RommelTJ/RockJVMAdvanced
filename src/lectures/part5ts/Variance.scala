@@ -124,7 +124,14 @@ object Variance extends App {
   class Vehicle
   class Bike extends Vehicle
   class Car extends Vehicle
-
   class IList[T]
+
+  // Solution 1
+  // Invariant
+  class IParking[T](vehicles: List[T]) {
+    def park(vehicle: T): IParking[T] = ???
+    def impound(vehicles: List[T]): IParking[T] = ???
+    def checkVehicles(conditions: String): List[T] = ???
+  }
 
 }
