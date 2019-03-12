@@ -49,17 +49,23 @@ object TypeMembers extends App {
   }
 
   // This will compile, but we don't want it to compile for Strings
-  class CustomList(hd: String, tl: CustomList) extends MList {
-    override type A = String
-    override def head: String = hd
-    override def tail: CustomList = tl
-  }
+//  class CustomList(hd: String, tl: CustomList) extends MList with ApplicableToNumbers {
+//    override type A = String
+//    override def head: String = hd
+//    override def tail: CustomList = tl
+//  }
 
   // This will compile and we do want that for Ints
-  class IntList(hd: Int, tl: IntList) extends MList {
-    override type A = Int
-    override def head: Int = hd
+  class IntList(hd: Integer, tl: IntList) extends MList with ApplicableToNumbers {
+    override type A = Integer
+    override def head: Integer = hd
     override def tail: IntList = tl
+  }
+
+  // Solution
+
+  trait ApplicableToNumbers {
+    type A <: Number
   }
 
 }
