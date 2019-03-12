@@ -13,4 +13,13 @@ object TypeMembers extends App {
     type AnimalC = Cat // another name for an existing type. Also an abstract type member
   }
 
+  val ac = new AnimalCollection
+  val dog: ac.AnimalType = ??? // no constructor to go from here
+  // val cat: ac.BoundedAnimal = new Cat // wrong! compiler doesn't know what kind of animal
+  val pup: ac.SuperBoundedAnimal = new Dog // Ok, because Dog is a super type
+  val cat: ac.AnimalC = new Cat // Ok
+
+  type CatAlias = Cat
+  val anotherCat: CatAlias = new Cat
+
 }
