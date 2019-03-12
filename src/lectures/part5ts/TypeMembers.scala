@@ -14,7 +14,7 @@ object TypeMembers extends App {
   }
 
   val ac = new AnimalCollection
-  val dog: ac.AnimalType = ??? // no constructor to go from here
+  // val dog: ac.AnimalType = ??? // no constructor to go from here
   // val cat: ac.BoundedAnimal = new Cat // wrong! compiler doesn't know what kind of animal
   val pup: ac.SuperBoundedAnimal = new Dog // Ok, because Dog is a super type
   val cat: ac.AnimalC = new Cat // Ok
@@ -36,5 +36,30 @@ object TypeMembers extends App {
   type CatsType = cat.type
   val newCat: CatsType = cat
   // new CatsType // Wrong. Compiler doesn't know if CatsType has a constructor.
+
+  /*
+  Exercise:
+  Enforce a type to be applicable to SOME TYPES only.
+   */
+  // LOCKED
+  trait MList {
+    type A
+    def head: A
+    def tail: MList
+  }
+
+  // This will compile, but we don't want it to compile for Strings
+  class CustomList(hd: String, tl: CustomList) extends MList {
+    override type A = String
+    override def head: String = hd
+    override def tail: CustomList = tl
+  }
+
+  // This will compile and we do want that for Ints
+  class IntList(hd: Int, tl: IntList) extends MList {
+    override type A = Int
+    override def head: Int = hd
+    override def tail: IntList = tl
+  }
 
 }
