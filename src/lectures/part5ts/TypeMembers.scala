@@ -32,4 +32,9 @@ object TypeMembers extends App {
     override def add(element: Int): MyList = ???
   }
 
+  // .type
+  type CatsType = cat.type
+  val newCat: CatsType = cat
+  // new CatsType // Wrong. Compiler doesn't know if CatsType has a constructor.
+
 }
