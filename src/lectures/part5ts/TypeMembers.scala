@@ -22,4 +22,14 @@ object TypeMembers extends App {
   type CatAlias = Cat
   val anotherCat: CatAlias = new Cat
 
+  // Valid overriding of a type member. Alternative to Generics.
+  trait MyList{
+    type T
+    def add(element: T): MyList
+  }
+  class NonEmptyList(value: Int) extends MyList {
+    override type T = Int
+    override def add(element: Int): MyList = ???
+  }
+
 }
