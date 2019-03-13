@@ -36,4 +36,20 @@ object PathDependentTypes extends App {
   o.printGeneral(inner)
   oo.printGeneral(inner)
 
+  /*
+  Exercise:
+  Developer of a small database keyed by Int or String, but maybe others.
+  Hint:
+  Use path-dependent types
+  Abstract type members and/or type aliases
+   */
+  trait Item[Key]
+  trait IntItem extends Item[Int]
+  trait StringItem extends Item[String]
+
+  def get[ItemType](key: Key): ItemType
+  get[IntItem](42) // ok
+  get[StringItem]("home") // ok
+  get[IntItem]("scala") // not ok
+
 }
