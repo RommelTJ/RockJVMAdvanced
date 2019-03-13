@@ -11,6 +11,7 @@ object PathDependentTypes extends App {
   // Inner class in a method
   def aMethod: Int = {
     class HelperClass
+    type HelperType = String
     2
   }
 
