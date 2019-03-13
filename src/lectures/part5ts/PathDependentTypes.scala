@@ -6,6 +6,8 @@ object PathDependentTypes extends App {
     class Inner
     object InnerObject
     type InnerType
+
+    def print(i: Inner) = println(i)
   }
 
   // Inner class in a method
@@ -23,5 +25,11 @@ object PathDependentTypes extends App {
 
   val oo = new Outer
   // val otherInner: oo.Inner = new o.Inner // Bad
+
+  o.print(inner) // Ok
+  // oo.print(inner) // Wrong!
+
+  // These are called path-dependent types
+
 
 }
