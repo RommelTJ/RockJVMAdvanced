@@ -8,4 +8,10 @@ object PathDependentTypes extends App {
     type InnerType
   }
 
+  // Inner class in a method
+  def aMethod: Int = {
+    class HelperClass
+    2
+  }
+
 }
