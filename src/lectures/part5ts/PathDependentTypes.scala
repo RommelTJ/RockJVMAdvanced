@@ -8,6 +8,7 @@ object PathDependentTypes extends App {
     type InnerType
 
     def print(i: Inner) = println(i)
+    def printGeneral(i: Outer#Inner) = println(i)
   }
 
   // Inner class in a method
@@ -31,5 +32,8 @@ object PathDependentTypes extends App {
 
   // These are called path-dependent types
 
+  // All inner types have common supertype: Outer#Inner.
+  o.printGeneral(inner)
+  oo.printGeneral(inner)
 
 }
