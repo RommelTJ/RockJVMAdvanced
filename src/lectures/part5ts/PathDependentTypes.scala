@@ -43,13 +43,19 @@ object PathDependentTypes extends App {
   Use path-dependent types
   Abstract type members and/or type aliases
    */
-  trait Item[Key]
+  trait ItemLike {
+    type Key
+  }
+  trait Item[K] extends ItemLike {
+    type Key = K
+  }
+
   trait IntItem extends Item[Int]
   trait StringItem extends Item[String]
 
-  def get[ItemType](key: Key): ItemType
+  def get[ItemType <: ItemLike](key: ItemType#Key): ItemType = ???
   get[IntItem](42) // ok
   get[StringItem]("home") // ok
-  get[IntItem]("scala") // not ok
+  // get[IntItem]("scala") // not ok
 
 }
