@@ -15,4 +15,13 @@ object PathDependentTypes extends App {
     2
   }
 
+  // per-instance
+  val o = new Outer
+  // val inner = new Inner // Wrong!
+  // val inner = new Outer.Inner // Wrong!
+  val inner = new o.Inner // Ok
+
+  val oo = new Outer
+  // val otherInner: oo.Inner = new o.Inner // Bad
+
 }
