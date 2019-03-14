@@ -22,4 +22,20 @@ object StructuralTypes extends App {
   })
   closeQuietly(new HipsterCloseable)
 
+
+  // TYPE REFINEMENTS
+
+  // Example of refining the JavaCloseable type
+  type AdvancedCloseable = JavaCloseable {
+    def closeSilently(): Unit
+  }
+
+  class AdvancedJavaCloseable extends JavaCloseable {
+    override def close(): Unit = println("Java closes")
+    def closeSilently(): Unit = println("Java closes silently")
+  }
+
+  def closeShush(advCloseable: AdvancedCloseable): Unit = advCloseable.closeSilently()
+  closeShush(new AdvancedJavaCloseable)
+
 }
