@@ -38,6 +38,9 @@ object StructuralTypes extends App {
 
   def closeShush(advCloseable: AdvancedCloseable): Unit = advCloseable.closeSilently()
   closeShush(new AdvancedJavaCloseable)
-  closeShush(new HipsterCloseable) // Wrong! Because HipsterCloseable doesn't originate from JavaCloseable
+  // closeShush(new HipsterCloseable) // Wrong! Because HipsterCloseable doesn't originate from JavaCloseable
+
+  // Using Structural Types as Standalone Types
+  def altClose(closeable: { def close(): Unit }): Unit = closeable.close()
 
 }
