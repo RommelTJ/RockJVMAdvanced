@@ -43,4 +43,21 @@ object StructuralTypes extends App {
   // Using Structural Types as Standalone Types
   def altClose(closeable: { def close(): Unit }): Unit = closeable.close()
 
+  // Type-Checking => Duck Typing
+
+  type SoundMaker = {
+    def makeSound(): Unit
+  }
+  class Dog {
+    def makeSound(): Unit = println("Bark!")
+  }
+  class Car {
+    def makeSound(): Unit = println("Vroom!")
+  }
+
+  // Examples of static duck-typing
+  // Looks like a dog, swims like a dog, flies like a duck, must be a duck!
+  val dog: SoundMaker = new Dog
+  val car: SoundMaker = new Car
+
 }
