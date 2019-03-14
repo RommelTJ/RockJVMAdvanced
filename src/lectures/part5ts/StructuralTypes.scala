@@ -60,4 +60,7 @@ object StructuralTypes extends App {
   val dog: SoundMaker = new Dog
   val car: SoundMaker = new Car
 
+  // CAVEAT: Duck typing in Scala is based on reflection
+  // Reflective calls have a big impact on performance.
+
 }
