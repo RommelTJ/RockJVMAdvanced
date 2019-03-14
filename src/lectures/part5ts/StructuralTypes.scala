@@ -66,6 +66,7 @@ object StructuralTypes extends App {
   /*
   Exercise:
   1 - Is f compatible with a CBL and with a human?
+  2 - Is HeadEqualizer compatible with a CBL and with a Human?
    */
   trait CBL[+T] {
     def head: T
@@ -81,5 +82,10 @@ object StructuralTypes extends App {
   }
 
   def f[T](somethingWithAHead: { def head(): T }): Unit = println(somethingWithAHead.head())
+
+  object HeadEqualizer {
+    type Headable[T] = { def head(): T }
+    def ===[T](a: Headable[T], b: Headable[T]): Boolean = a.head == b.head
+  }
 
 }
