@@ -7,6 +7,7 @@ object StructuralTypes extends App {
 
   class HipsterCloseable {
     def close(): Unit = println("yeah yeah I'm closing")
+    def closeSilently(): Unit = println("Not making a sound")
   }
 
   // def closeQuietly(closeable: JavaCloseable OR HipsterCloseable) // !?
@@ -37,5 +38,6 @@ object StructuralTypes extends App {
 
   def closeShush(advCloseable: AdvancedCloseable): Unit = advCloseable.closeSilently()
   closeShush(new AdvancedJavaCloseable)
+  closeShush(new HipsterCloseable) // Wrong! Because HipsterCloseable doesn't originate from JavaCloseable
 
 }
