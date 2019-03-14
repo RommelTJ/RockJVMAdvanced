@@ -81,7 +81,7 @@ object StructuralTypes extends App {
     override def toString: String = "BRAINZ!"
   }
 
-  def f[T](somethingWithAHead: { def head(): T }): Unit = println(somethingWithAHead.head())
+  def f[T](somethingWithAHead: { def head: T }): Unit = println(somethingWithAHead.head)
 
   object HeadEqualizer {
     type Headable[T] = { def head(): T }
