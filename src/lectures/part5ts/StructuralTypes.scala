@@ -88,4 +88,14 @@ object StructuralTypes extends App {
     def ===[T](a: Headable[T], b: Headable[T]): Boolean = a.head == b.head
   }
 
+  // Solution 1
+  // Yes!
+  case object CBNil extends CBL[Nothing] {
+    override def head: Nothing = ???
+    override def tail: CBL[Nothing] = ???
+  }
+  case class CBCons[T](override val head: T, override val tail: CBL[T]) extends CBL[T]
+  f(CBCons(2, CBNil))
+  f(new Human) // Why is it a T? T = Brain
+
 }
