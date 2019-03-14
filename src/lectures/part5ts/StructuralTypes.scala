@@ -63,4 +63,23 @@ object StructuralTypes extends App {
   // CAVEAT: Duck typing in Scala is based on reflection
   // Reflective calls have a big impact on performance.
 
+  /*
+  Exercise:
+  1 - Is f compatible with a CBL and with a human?
+   */
+  trait CBL[+T] {
+    def head: T
+    def tail: CBL[T]
+  }
+
+  class Human {
+    def head: Brain = new Brain
+  }
+
+  class Brain {
+    override def toString: String = "BRAINZ!"
+  }
+
+  def f[T](somethingWithAHead: { def head(): T }): Unit = println(somethingWithAHead.head())
+
 }
