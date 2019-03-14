@@ -9,4 +9,11 @@ object StructuralTypes extends App {
     def close(): Unit = println("yeah yeah I'm closing")
   }
 
+  // def closeQuietly(closeable: JavaCloseable OR HipsterCloseable) // !?
+
+  // A Structural Type
+  type UnifiedCloseable = {
+    def close(): Unit
+  } 
+
 }
