@@ -13,4 +13,15 @@ object SelfTypes extends App {
     def sing(): Unit
   }
 
+  // Valid
+  class LeadSinger extends Singer with Instrumentalist {
+    override def sing(): Unit = println("Singing")
+    override def play(): Unit = println("Cowbell")
+  }
+
+  // Illegal - Vocalist doesn't conform to Instrumentalist
+//  class Vocalist extends Singer {
+//    override def sing(): Unit = ???
+//  }
+
 }
