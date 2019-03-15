@@ -40,4 +40,11 @@ object SelfTypes extends App {
     override def sing(): Unit = println("lalala")
   }
 
+  // Self Types vs Inheritance
+  class A
+  class B extends A // B must also be an A
+
+  trait T
+  trait S { self: T => } // S requires a T, but is not a T
+
 }
