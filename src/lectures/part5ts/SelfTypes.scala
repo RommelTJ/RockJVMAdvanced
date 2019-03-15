@@ -47,4 +47,25 @@ object SelfTypes extends App {
   trait T
   trait S { self: T => } // S requires a T, but is not a T
 
+  // CAKE PATTERN => "dependency injection"
+
+  // Classical Dependency Injection in Java
+  class Component {
+    // API
+  }
+  class ComponentA extends Component
+  class ComponentB extends Component
+  class DependentComponent(val component: Component)
+
+  // Scala
+  trait ScalaComponent {
+    // API
+    def action(x: Int): String
+  }
+  trait ScalaDependentComponent { self: ScalaComponent =>
+    // Compiler knows in advance that whatever implements ScalaDependentComponent will also have to
+    // implement ScalaComponent and thus you can use the action method.
+    def dependentAction(x: Int): String = action(x) + " this rocks!"
+  }
+
 }
