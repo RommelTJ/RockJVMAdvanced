@@ -80,4 +80,11 @@ object SelfTypes extends App {
   // layer 3 - App
   trait AnalyticsApp extends ScalaApplication with Analytics
 
+  // CYCLICAL DEPENDENCIES
+  // class X extends Y // cyclical dependency. Won't compile!
+  // class Y extends X
+
+  trait X { self: Y => } // Compiles! No contradiction.
+  trait Y { self: X => }
+
 }
