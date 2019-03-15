@@ -24,4 +24,20 @@ object SelfTypes extends App {
 //    override def sing(): Unit = ???
 //  }
 
+  // Valid!
+  val jamesHetfield = new Singer with Instrumentalist {
+    override def sing(): Unit = println("Singing")
+    override def play(): Unit = println("Guitar")
+  }
+
+  // Valid
+  class Guitarist extends Instrumentalist {
+    override def play(): Unit = println("Guitar Solo")
+  }
+
+  // Valid
+  val ericClapton = new Guitarist with Singer {
+    override def sing(): Unit = println("lalala")
+  }
+
 }
