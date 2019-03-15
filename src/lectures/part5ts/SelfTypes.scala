@@ -67,5 +67,17 @@ object SelfTypes extends App {
     // implement ScalaComponent and thus you can use the action method.
     def dependentAction(x: Int): String = action(x) + " this rocks!"
   }
+  trait ScalaApplication { self: ScalaDependentComponent => }
+
+  // layer 1 - small components
+  trait Picture extends ScalaComponent
+  trait Stats extends ScalaComponent
+
+  // layer 2 - compose components
+  trait Profile extends ScalaDependentComponent with Picture
+  trait Analytics extends ScalaDependentComponent with Stats
+
+  // layer 3 - App
+  trait AnalyticsApp extends ScalaApplication with Analytics
 
 }
