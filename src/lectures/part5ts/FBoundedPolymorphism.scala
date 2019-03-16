@@ -70,5 +70,14 @@ object FBoundedPolymorphism extends App {
 //  class Crocodile extends Animal[Dog] {
 //    override def breed(): List[Animal[Dog]] = List(new Dog()) // WTF! This is compile but not correct
 //  }
-  
+
+  // Limitation with FBP
+  trait Fish extends Animal[Fish]
+  class Shark extends Fish {
+    override def breed(): List[Animal[Fish]] = List(new Cod) // wrong! Sharks breeding Cods!
+  }
+  class Cod extends Fish {
+    override def breed(): List[Animal[Fish]] = List(new Cod)
+  }
+
 }
