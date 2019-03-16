@@ -81,25 +81,25 @@ object FBoundedPolymorphism extends App {
 //  }
 
   // Solution 4 - Using Type Classes
-  trait Animal
-  trait CanBreed[A] {
-    def breed(a: A): List[A]
-  }
-
-  class Dog extends Animal
-  object Dog {
-    implicit object DogsCanBreed extends CanBreed[Dog] {
-      override def breed(a: Dog): List[Dog] = List(new Dog)
-    }
-  }
-
-  implicit class CanBreedOps[A](animal: A) {
-    def breed(implicit canBreed: CanBreed[A]): List[A] =
-      canBreed.breed(animal)
-  }
-
-  val dog = new Dog // new CanBreedOps[Dog](dog).breed(Dog.DogsCanBreed)
-  dog.breed // implicit value to pass to breed: Dog.DogsCanBreed
+//  trait Animal
+//  trait CanBreed[A] {
+//    def breed(a: A): List[A]
+//  }
+//
+//  class Dog extends Animal
+//  object Dog {
+//    implicit object DogsCanBreed extends CanBreed[Dog] {
+//      override def breed(a: Dog): List[Dog] = List(new Dog)
+//    }
+//  }
+//
+//  implicit class CanBreedOps[A](animal: A) {
+//    def breed(implicit canBreed: CanBreed[A]): List[A] =
+//      canBreed.breed(animal)
+//  }
+//
+//  val dog = new Dog // new CanBreedOps[Dog](dog).breed(Dog.DogsCanBreed)
+//  dog.breed // implicit value to pass to breed: Dog.DogsCanBreed
 
   // Making this on purpose wrong.
 //  class Cat extends Animal
