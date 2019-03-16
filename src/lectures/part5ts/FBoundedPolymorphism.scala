@@ -48,4 +48,9 @@ object FBoundedPolymorphism extends App {
     override def compareTo(o: Person): Int = 1
   }
 
+  // Not exactly right
+  class Crocodile extends Animal[Dog] {
+    override def breed(): List[Animal[Dog]] = List(new Dog()) // WTF! This is compile but not correct
+  }
+
 }
