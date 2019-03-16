@@ -101,4 +101,14 @@ object FBoundedPolymorphism extends App {
   val dog = new Dog // new CanBreedOps[Dog](dog).breed(Dog.DogsCanBreed)
   dog.breed // implicit value to pass to breed: Dog.DogsCanBreed
 
+  // Making this on purpose wrong.
+//  class Cat extends Animal
+//  object Cat {
+//    implicit object CatsCanBreed extends CanBreed[Dog] {
+//      override def breed(a: Dog): List[Dog] = List(new Dog)
+//    }
+//  }
+//  val cat = new Cat
+//  cat.breed // Compiler stops us because no implicits found!
+
 }
