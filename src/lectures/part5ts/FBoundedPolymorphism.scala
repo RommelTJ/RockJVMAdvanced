@@ -43,4 +43,9 @@ object FBoundedPolymorphism extends App {
   // Example often present in Database APIs or ORMs
   trait Entity[E <: Entity[E]]
 
+  // Another example of F-Bounded Polymorphism
+  class Person extends Comparable[Person] {
+    override def compareTo(o: Person): Int = 1
+  }
+
 }
