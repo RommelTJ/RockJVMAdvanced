@@ -111,4 +111,33 @@ object FBoundedPolymorphism extends App {
 //  val cat = new Cat
 //  cat.breed // Compiler stops us because no implicits found!
 
+  // Solution 5 - Pure Type Classes
+  trait Animal[A] {
+    def breed(a: A): List[A]
+  }
+
+  class Dog
+  object Dog {
+    implicit object DogAnimal extends Animal[Dog] {
+      override def breed(a: Dog): List[Dog] = List(new Dog)
+    }
+  }
+
+  class Cat
+  object Cat {
+    implicit object CatAnimal extends Animal[Dog] {
+      override def breed(a: Dog): List[Dog] = List(new Dog)
+    }
+  }
+
+  implicit class AnimalOps[A](animal: A) {
+    def breed(implicit animalTypeClassInstance: Animal[A]): List[A] =
+      animalTypeClassInstance.breed(animal)
+  }
+
+  val dog = new Dog
+  dog.breed
+  val cat = new Cat
+  // cat.breed // Compiler stops us!
+
 }
