@@ -29,6 +29,7 @@ object FBoundedPolymorphism extends App {
   }
   */
 
+  /*
   // Solution 2 - F-Bounded Polymorphism
   trait Animal[A <: Animal[A]] { // Recursive type: F-Bounded Polymorphism
     def breed(): List[Animal[A]]
@@ -52,5 +53,22 @@ object FBoundedPolymorphism extends App {
   class Crocodile extends Animal[Dog] {
     override def breed(): List[Animal[Dog]] = List(new Dog()) // WTF! This is compile but not correct
   }
+  */
 
+  // Solution 3 - FBP with Self Types
+  trait Animal[A <: Animal[A]] { self: A =>
+    def breed(): List[Animal[A]]
+  }
+  class Cat extends Animal[Cat] {
+    override def breed(): List[Animal[Cat]] = List(new Cat()) // Want this to be a List[Cat] !!!
+  }
+  class Dog extends Animal[Dog] {
+    override def breed(): List[Animal[Dog]] = List(new Dog()) // Want this to be a List[Dog] !!!
+  }
+
+  // Compiler error prevents us from making mistakes.
+//  class Crocodile extends Animal[Dog] {
+//    override def breed(): List[Animal[Dog]] = List(new Dog()) // WTF! This is compile but not correct
+//  }
+  
 }
