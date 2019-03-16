@@ -40,4 +40,7 @@ object FBoundedPolymorphism extends App {
     override def breed(): List[Animal[Dog]] = List(new Dog()) // Want this to be a List[Dog] !!!
   }
 
+  // Example often present in Database APIs or ORMs
+  trait Entity[E <: Entity[E]]
+
 }
