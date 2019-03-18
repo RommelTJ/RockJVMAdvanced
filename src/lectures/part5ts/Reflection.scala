@@ -87,4 +87,9 @@ object Reflection extends App {
     case _ => List()
   }
 
+  // Example
+  val myMap = new MyMap[Int, String]
+  val typeArgs = getTypeArguments(myMap) // (typeTag: TypeTag[MyMap[Int, String]])
+  println(typeArgs) // List(Int, String)
+
 }
