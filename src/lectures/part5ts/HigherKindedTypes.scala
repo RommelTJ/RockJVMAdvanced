@@ -64,6 +64,6 @@ object HigherKindedTypes extends App {
   monadList.map(_ * 2) // List[Int]
   // Monad[List, Int] => List[Int]
 
-  println(multiply(new MonadList(List(1, 2)), new MonadList(List("a", "b"))))
+  println(multiply(new MonadList(List(1, 2)), new MonadList(List("a", "b")))) // List((1,a), (1,b), (2,a), (2,b))
 
 }
