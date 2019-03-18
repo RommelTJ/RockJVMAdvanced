@@ -66,4 +66,9 @@ object Reflection extends App {
   }
   // prints "list of strings" because the types [String] and [Int] are erased at runtime, so both are case "List"
 
+  // Pain Point #2 - You have limitations on overloads
+  // def processList(list: List[Int]): Int = 42
+  // def processList(list: List[String]): Int = 43
+  // After type erasure, the above methods have identical method signatures and therefore cannot be overloaded.
+
 }
