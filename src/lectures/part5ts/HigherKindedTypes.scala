@@ -47,9 +47,9 @@ object HigherKindedTypes extends App {
     def map[B](f: A => B): F[B]
   }
 
-  class MonadList extends Monad[List, Int] {
-    override def flatMap[B](f: Int => List[B]): List[B] = List()
-    override def map[B](f: Int => B): List[B] = List()
+  class MonadList[A](list: List[A]) extends Monad[List, A] {
+    override def flatMap[B](f: A => List[B]): List[B] = list.flatMap(f)
+    override def map[B](f: A => B): List[B] = list.map(f)
   }
 
   def multiply[F[_], A, B](ma: Monad[F, A], mb: Monad[F, B]): F[(A, B)] =
@@ -58,12 +58,12 @@ object HigherKindedTypes extends App {
       b <- mb
     } yield (a, b)
 
-  val monadList = new MonadList
+  val monadList = new MonadList(List(1, 2, 3))
   monadList.flatMap(x => List(x, x + 1)) // List[Int]
   // Monad[List, Int] => List[Int]
   monadList.map(_ * 2) // List[Int]
   // Monad[List, Int] => List[Int]
 
-  multiply(new MonadList, new MonadList)
+  println(multiply(new MonadList(List(1, 2)), new MonadList(List("a", "b"))))
 
 }
