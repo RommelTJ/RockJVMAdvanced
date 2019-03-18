@@ -16,6 +16,7 @@ object HigherKindedTypes extends App {
     def flatMap[B](f: T => B): MyFuture[B]
   }
 
-  
+  // Combine/multiply List(1,2) * List("a", "b") => List(1a, 1b, 2a, 2b)
+  // etc.
 
 }
