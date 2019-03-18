@@ -55,4 +55,15 @@ object Reflection extends App {
   // 5 - Invoke the method
   method.apply() // Hi, my name is Mary.
 
+
+  // Type Erasure
+
+  // Pain Point #1 - You cannot differentiate types at runtime.
+  val numbers = List(1,2,3)
+  numbers match {
+    case listOfStrings: List[String] => println("list of strings")
+    case listOfNumbers: List[Int] => println("list of numbers")
+  }
+  // prints "list of strings" because the types [String] and [Int] are erased at runtime, so both are case "List"
+
 }
