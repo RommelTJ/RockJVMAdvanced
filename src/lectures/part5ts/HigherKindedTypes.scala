@@ -40,4 +40,10 @@ object HigherKindedTypes extends App {
       b <- listB
     } yield (a, b)
 
+  // Use Higher Kinded Type
+
+  trait Monad[F[_], A] {
+    def flatMap[B](f: A => F[B]): F[B]
+  }
+
 }
