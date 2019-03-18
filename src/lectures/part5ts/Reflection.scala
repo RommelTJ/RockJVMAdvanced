@@ -76,12 +76,13 @@ object Reflection extends App {
   // 0 - import
   import ru._
 
-  // 1 - Create a Type Tag
+  // 1 - Create a Type Tag ("manually")
   val ttag = typeTag[Person]
   println(ttag.tpe) // lectures.part5ts.Reflection.Person
 
-  // 2 - Use the Type Tag tpe
   class MyMap[K, V]
+  
+  // 2 - Pass Type Tags as implicit parameters ("preferred way")
   def getTypeArguments[T](value: T)(implicit typeTag: TypeTag[T]) = typeTag.tpe match {
     case TypeRef(_, _, typeArguments) => typeArguments
     case _ => List()
