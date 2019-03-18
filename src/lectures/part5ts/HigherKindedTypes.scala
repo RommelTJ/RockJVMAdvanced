@@ -44,13 +44,17 @@ object HigherKindedTypes extends App {
 
   trait Monad[F[_], A] {
     def flatMap[B](f: A => F[B]): F[B]
+    def map[B](f: A => B): F[B]
   }
 
   class MonadList extends Monad[List, Int] {
     override def flatMap[B](f: Int => List[B]): List[B] = List()
+    override def map[B](f: Int => B): List[B] = List()
   }
   val monadList = new MonadList
   monadList.flatMap(x => List(x, x + 1)) // List[Int]
+  // Monad[List, Int] => List[Int]
+  monadList.map(_ * 2) // List[Int]
   // Monad[List, Int] => List[Int]
 
 }
