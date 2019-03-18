@@ -71,4 +71,20 @@ object Reflection extends App {
   // def processList(list: List[String]): Int = 43
   // After type erasure, the above methods have identical method signatures and therefore cannot be overloaded.
 
+  // TypeTags
+
+  // 0 - import
+  import ru._
+
+  // 1 - Create a Type Tag
+  val ttag = typeTag[Person]
+  println(ttag.tpe) // lectures.part5ts.Reflection.Person
+
+  // 2 - Use the Type Tag tpe
+  class MyMap[K, V]
+  def getTypeArguments[T](value: T)(implicit typeTag: TypeTag[T]) = typeTag.tpe match {
+    case TypeRef(_, _, typeArguments) => typeArguments
+    case _ => List()
+  }
+
 }
