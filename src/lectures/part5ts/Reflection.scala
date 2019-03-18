@@ -8,4 +8,8 @@ object Reflection extends App {
   // Scala Reflection API + Macros + Quasiquotes
   // METAPROGRAMMING (outside the scope here)
 
+  case class Person(name: String) {
+    def sayMyName(): Unit = println(s"Hi, my name is $name.")
+  }
+
 }
