@@ -92,4 +92,12 @@ object Reflection extends App {
   val typeArgs = getTypeArguments(myMap) // (typeTag: TypeTag[MyMap[Int, String]])
   println(typeArgs) // List(Int, String)
 
+  // Checking if a class is a subtype of another class using Type Tags.
+  def isSubtype[A, B](implicit ttagA: TypeTag[A], ttagB: TypeTag[B]): Boolean = {
+    ttagA.tpe <:< ttagB.tpe
+  }
+  class Animal
+  class Dog extends Animal
+  println(isSubtype[Dog, Animal]) // true!
+
 }
