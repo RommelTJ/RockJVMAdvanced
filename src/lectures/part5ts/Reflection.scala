@@ -81,7 +81,7 @@ object Reflection extends App {
   println(ttag.tpe) // lectures.part5ts.Reflection.Person
 
   class MyMap[K, V]
-  
+
   // 2 - Pass Type Tags as implicit parameters ("preferred way")
   def getTypeArguments[T](value: T)(implicit typeTag: TypeTag[T]) = typeTag.tpe match {
     case TypeRef(_, _, typeArguments) => typeArguments
@@ -100,5 +100,18 @@ object Reflection extends App {
   class Animal
   class Dog extends Animal
   println(isSubtype[Dog, Animal]) // true!
+
+  // Case: I have an instance already computed but using TypeTags
+  // 1 - Obtain the mirror
+  // Already done above.
+
+  // 2 - Method Symbol
+  val anotherMethodSymbol = typeTag[Person].tpe.decl(ru.TermName(methodName)).asMethod
+
+  // 3 - Reflect the Method = "can DO things"
+  val anotherMethod = reflected.reflectMethod(anotherMethodSymbol)
+
+  // 4 - Invoke the method
+  anotherMethod.apply() // Hi, my name is Mary.
 
 }
